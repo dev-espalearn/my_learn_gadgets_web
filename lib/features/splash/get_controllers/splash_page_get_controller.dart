@@ -10,8 +10,6 @@ class SplashPageGetController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late AnimationController animationController;
 
-  Rx<User?> currentUser = FirebaseAuth.instance.currentUser.obs;
-
   @override
   void onInit() {
     signInWithDemoCredentials();
@@ -27,20 +25,6 @@ class SplashPageGetController extends GetxController
     super.onInit();
   }
 
-  Future<void> signInWithDemoCredentials() async {
-    if (FirebaseAuth.instance.currentUser == null) {
-      currentUser.value = null;
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-              email: AppString.emailForTemporaryLogin,
-              password: AppString.passwordForTemporaryLogin)
-          .then((value) {});
-    } else {
-      currentUser.value = FirebaseAuth.instance.currentUser;
-    }
-    addAdmin();
-  }
-
   void addAdmin() {
     FirebaseFirestore.instance
         .collection(AppString.admins)
@@ -50,5 +34,14 @@ class SplashPageGetController extends GetxController
                 lastName: 'Admin',
                 email: 'admin@spsmart.com')
             .toJson());
+  }
+
+  void signInWithDemoCredentials() {
+    if (FirebaseAuth.instance.currentUser == null) {
+      FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: AppString.emailForTemporaryLogin,
+        password: AppString.passwordForTemporaryLogin,
+      );
+    }
   }
 }

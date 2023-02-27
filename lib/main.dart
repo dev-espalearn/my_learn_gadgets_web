@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: AppColors.primaryColor,
           secondaryHeaderColor: AppColors.secondaryColor,
         ),
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: true,
         home: SplashPage(),
       ),
     );
