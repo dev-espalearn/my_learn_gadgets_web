@@ -21,13 +21,13 @@ class AdminDashboardPage extends StatelessWidget {
                 Get.offAll(() => SignInScreen());
               });
             },
-            style: NeumorphicStyle(
+            style: const NeumorphicStyle(
                 shape: NeumorphicShape.convex,
                 boxShape: NeumorphicBoxShape.circle(),
                 depth: 2,
                 intensity: 0.4,
                 color: Colors.white),
-            child: Icon(Icons.logout),
+            child: const Icon(Icons.logout),
           ),
         ],
       ),
@@ -39,7 +39,7 @@ class AdminDashboardPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  children: [
+                  children: const [
                     Text(
                       "Products",
                       style: TextStyle(fontSize: 24),
@@ -52,12 +52,12 @@ class AdminDashboardPage extends StatelessWidget {
               ),
               NeumorphicButton(
                 onPressed: () {},
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     depth: 2,
                     intensity: 0.4,
                     color: Colors.white),
-                child: ListTile(
+                child: const ListTile(
                   leading: Icon(Icons.add),
                   title: Text("Add Product"),
                 ),
@@ -67,12 +67,12 @@ class AdminDashboardPage extends StatelessWidget {
               ),
               NeumorphicButton(
                 onPressed: () {},
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     depth: 2,
                     intensity: 0.4,
                     color: Colors.white),
-                child: ListTile(
+                child: const ListTile(
                   leading: Icon(Icons.list),
                   title: Text("All Products"),
                 ),
@@ -82,12 +82,12 @@ class AdminDashboardPage extends StatelessWidget {
               ),
               NeumorphicButton(
                 onPressed: () {},
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     depth: 2,
                     intensity: 0.4,
                     color: Colors.white),
-                child: ListTile(
+                child: const ListTile(
                   leading: Icon(Icons.refresh),
                   title: Text("Refill Stock"),
                 ),
@@ -97,12 +97,12 @@ class AdminDashboardPage extends StatelessWidget {
               ),
               NeumorphicButton(
                 onPressed: () {},
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     depth: 2,
                     intensity: 0.4,
                     color: Colors.white),
-                child: ListTile(
+                child: const ListTile(
                   leading: Icon(Icons.star),
                   title: Text("Choose Featured Product"),
                 ),
@@ -113,7 +113,7 @@ class AdminDashboardPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  children: [
+                  children: const [
                     Text(
                       "Orders",
                       style: TextStyle(fontSize: 24),
@@ -126,12 +126,12 @@ class AdminDashboardPage extends StatelessWidget {
               ),
               NeumorphicButton(
                 onPressed: () {},
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     depth: 2,
                     intensity: 0.4,
                     color: Colors.white),
-                child: ListTile(
+                child: const ListTile(
                   leading: Icon(Icons.history),
                   title: Text("Orders History"),
                 ),
@@ -141,12 +141,12 @@ class AdminDashboardPage extends StatelessWidget {
               ),
               NeumorphicButton(
                 onPressed: () {},
-                style: NeumorphicStyle(
+                style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     depth: 2,
                     intensity: 0.4,
                     color: Colors.white),
-                child: ListTile(
+                child: const ListTile(
                   leading: Icon(Icons.timelapse_sharp),
                   title: Text("Pending Orders"),
                 ),

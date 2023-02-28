@@ -67,7 +67,7 @@ class AddProductScreenGetController extends GetxController {
   Future<void> submit() async {
     if (formKey.currentState!.validate()) {
       if (mainImagePath.value.isNotEmpty && secondaryImagesPath.isNotEmpty) {
-        Uuid uuid = Uuid();
+        Uuid uuid = const Uuid();
         String id = uuid.v4();
         showLoader.value = true;
         await FirebaseStorage.instance

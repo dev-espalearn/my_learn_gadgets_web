@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 
@@ -107,7 +106,7 @@ class AddProductScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               Text('Specification', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
                             ],
                           ),
@@ -188,8 +187,8 @@ class AddProductScreen extends StatelessWidget {
                                     intensity: 0.6,
                                   ),
                                   child: Row(
-                                    children: [
-                                      const Icon(Icons.add),
+                                    children: const [
+                                      Icon(Icons.add),
                                       Text('Add Specification')
                                     ],
                                   ),
@@ -359,6 +358,10 @@ class AddProductScreen extends StatelessWidget {
                         return addProductScreenGetController
                                 .mainImagePath.value.isEmpty
                             ? Neumorphic(
+                                style: const NeumorphicStyle(
+                                    color: Colors.white,
+                                    depth: 1,
+                                    intensity: 0.3),
                                 child: SizedBox(
                                     height: Get.height * 0.2,
                                     width: Get.width * 0.2,
@@ -368,10 +371,6 @@ class AddProductScreen extends StatelessWidget {
                                       style: TextStyle(
                                           color: AppColors.tertiaryColor),
                                     ))),
-                                style: const NeumorphicStyle(
-                                    color: Colors.white,
-                                    depth: 1,
-                                    intensity: 0.3),
                               )
                             : SizedBox(
                                 height: Get.height * 0.2,
@@ -421,7 +420,7 @@ class AddProductScreen extends StatelessWidget {
                             addProductScreenGetController.pickMainImage();
                           },
                           child: Row(
-                            children: [
+                            children: const [
                               Icon(Icons.add_a_photo),
                               SizedBox(
                                 width: 8,
@@ -526,7 +525,7 @@ class AddProductScreen extends StatelessWidget {
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: [
+                            children: const [
                               Icon(Icons.add_a_photo),
                               SizedBox(
                                 width: 8,
@@ -549,7 +548,7 @@ class AddProductScreen extends StatelessWidget {
                     width: Get.width * 0.02,
                   ),
                   NeumorphicButton(
-                    style: NeumorphicStyle(
+                    style: const NeumorphicStyle(
                       color: Colors.white,
                       boxShape: NeumorphicBoxShape.stadium(),
                       depth: 3,
@@ -565,7 +564,7 @@ class AddProductScreen extends StatelessWidget {
                           Icons.check_circle,
                           color: AppColors.tertiaryColor.shade700,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8,
                         ),
                         Text(
