@@ -10,8 +10,7 @@ import '../../../core/app_colors.dart';
 class ProductsTab extends StatelessWidget {
   ProductsTab({Key? key}) : super(key: key);
 
-  ProductDetailsScreenGetController getController =
-      Get.find();
+  ProductDetailsScreenGetController getController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +18,10 @@ class ProductsTab extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          const Flexible(
+          Flexible(
             child: AutoSizeText(
-              'Lenovo Tab K10 FHD (10.3 inch (26.16 cm, 3 GB, 32 GB,Wi-Fi+LTE, Voice Calling), Abyss Blue TUV Certified Eye Protection, Dolby Atmos, 7500 mAH Battery, Camera with Flash',
-              style: TextStyle(
+              getController.product.name,
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -36,7 +35,7 @@ class ProductsTab extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  '₹ 10,999',
+                  '₹ ${getController.product.discountedPrice}',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -48,7 +47,7 @@ class ProductsTab extends StatelessWidget {
                   width: Get.width * 0.04,
                 ),
                 Text(
-                  '₹ 12,999',
+                  '₹ ${getController.product.originalPrice}',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -89,7 +88,7 @@ class ProductsTab extends StatelessWidget {
                                       return Hero(
                                           tag: getController
                                               .selectedImageLink.value,
-                                          child: Image.asset(getController
+                                          child: Image.network(getController
                                               .selectedImageLink.value));
                                     }),
                                     Positioned(
@@ -133,10 +132,7 @@ class ProductsTab extends StatelessWidget {
                     height: Get.height * 0.01,
                   ),
                   CarouselSlider(
-                      items: [
-                        'assets/images/OIP.jpeg',
-                        'assets/images/Xiaomi-Redmi-7A-Mobile-Phone-YzRvcfaD.jpeg.thumb_800x800.jpg'
-                      ]
+                      items: getController.product.secondaryImages
                           .map((e) => Padding(
                                 padding: const EdgeInsets.all(4.0),
                                 child: NeumorphicButton(
@@ -149,7 +145,7 @@ class ProductsTab extends StatelessWidget {
                                   ),
                                   child: ClipRRect(
                                       borderRadius: BorderRadius.circular(4),
-                                      child: Image.asset(e)),
+                                      child: Image.network(e)),
                                 ),
                               ))
                           .toList(),

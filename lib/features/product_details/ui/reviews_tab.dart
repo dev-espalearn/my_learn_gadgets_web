@@ -1,12 +1,20 @@
+import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:my_learn_gadgets_web/core/app_string.dart';
+import 'package:my_learn_gadgets_web/models/review_model.dart';
 
 import '../../../core/app_colors.dart';
+import '../get_controllers/product_details_screen_get_controller.dart';
 
 class ReviewsTab extends StatelessWidget {
-  const ReviewsTab({Key? key}) : super(key: key);
+  ReviewsTab({Key? key}) : super(key: key);
+
+  ProductDetailsScreenGetController getController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +28,46 @@ class ReviewsTab extends StatelessWidget {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
-                child: Row(children: const [
-                  Text('Total Ratings'),
-                  SizedBox(
+                child: Row(children: [
+                  const Text('Total Ratings'),
+                  const SizedBox(
                     width: 16,
                   ),
-                  Text("12",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                  StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance
+                          .collection(AppString.products)
+                          .doc(getController.product.id)
+                          .collection(AppString.reviews)
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          if (snapshot.data!.docs.isNotEmpty) {
+                            return Text(
+                                snapshot.data!.docs
+                                    .map((e) => ReviewModel.fromJson(
+                                        jsonDecode(jsonEncode(e.data()))))
+                                    .toList()
+                                    .map((e) => e.rating)
+                                    .toList()
+                                    .reduce((value, element) =>
+                                        (value + element) /
+                                        snapshot.data!.docs.length)
+                                    .toString(),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 16));
+                          }
+                          return const Text('0.0',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16));
+                        }
+                        return const SizedBox(
+                          height: 16,
+                          width: 16,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                          ),
+                        );
+                      }),
                 ]),
               ),
               Padding(
@@ -38,71 +78,44 @@ class ReviewsTab extends StatelessWidget {
                   const SizedBox(
                     width: 16,
                   ),
-                  RatingBar(
-                    ratingWidget: RatingWidget(
-                      full: const Icon(Icons.star, color: Colors.amber),
-                      half: const Icon(Icons.star_half, color: Colors.amber),
-                      empty: const Icon(Icons.star_border, color: Colors.amber),
-                    ),
-                    initialRating: 4.5,
-                    minRating: 1,
-                    direction: Axis.horizontal,
-                    allowHalfRating: true,
-                    itemCount: 5,
-                    itemSize: 15,
-                    onRatingUpdate: (double value) {},
-                    tapOnlyMode: true,
-                    ignoreGestures: true,
-                  ),
-                ]),
-              ),
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                double ratings = 4.5;
-                return Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 4.0),
-                  child: Neumorphic(
-                    style: NeumorphicStyle(
-                      boxShape: NeumorphicBoxShape.roundRect(
-                          BorderRadius.circular(4)),
-                      depth: 1,
-                      intensity: 5,
-                      color: Colors.white,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage:
-                                    AssetImage('assets/images/OIP2.jpeg'),
+                  StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance
+                          .collection(AppString.products)
+                          .doc(getController.product.id)
+                          .collection(AppString.reviews)
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          if (snapshot.data!.docs.isNotEmpty) {
+                            return RatingBar(
+                              ratingWidget: RatingWidget(
+                                full:
+                                    const Icon(Icons.star, color: Colors.amber),
+                                half: const Icon(Icons.star_half,
+                                    color: Colors.amber),
+                                empty: const Icon(Icons.star_border,
+                                    color: Colors.amber),
                               ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              AutoSizeText('John Doe')
-                            ],
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          const Expanded(
-                              child: AutoSizeText(
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tristique senectus et netus et malesuada fames ac turpis. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Nec dui nunc mattis enim. Id diam maecenas ultricies mi eget mauris pharetra et. Vitae tortor condimentum lacinia quis vel. Quam elementum pulvinar etiam non quam lacus suspendisse faucibus. Amet porttitor eget dolor morbi non arcu risus. Dolor morbi non arcu risus quis varius. Bibendum arcu vitae elementum curabitur vitae nunc sed.",
-                            maxLines: 15,
-                          )),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          RatingBar(
+                              initialRating: snapshot.data!.docs
+                                  .map((e) => ReviewModel.fromJson(
+                                      jsonDecode(jsonEncode(e.data()))))
+                                  .toList()
+                                  .map((e) => e.rating)
+                                  .toList()
+                                  .reduce((value, element) =>
+                                      (value + element) /
+                                      snapshot.data!.docs.length),
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemSize: 15,
+                              onRatingUpdate: (double value) {},
+                              tapOnlyMode: true,
+                              ignoreGestures: true,
+                            );
+                          }
+                          return RatingBar(
                             ratingWidget: RatingWidget(
                               full: const Icon(Icons.star, color: Colors.amber),
                               half: const Icon(Icons.star_half,
@@ -110,7 +123,7 @@ class ReviewsTab extends StatelessWidget {
                               empty: const Icon(Icons.star_border,
                                   color: Colors.amber),
                             ),
-                            initialRating: ratings,
+                            initialRating: 0,
                             minRating: 1,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
@@ -119,15 +132,121 @@ class ReviewsTab extends StatelessWidget {
                             onRatingUpdate: (double value) {},
                             tapOnlyMode: true,
                             ignoreGestures: true,
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-              itemCount: 12,
-            ),
+                          );
+                        }
+                        return const SizedBox(
+                          height: 16,
+                          width: 16,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                          ),
+                        );
+                      }),
+                ]),
+              ),
+            ],
+          ),
+          Expanded(
+            child: StreamBuilder<QuerySnapshot>(
+                stream: FirebaseFirestore.instance
+                    .collection(AppString.products)
+                    .doc(getController.product.id)
+                    .collection(AppString.reviews)
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data!.docs.isNotEmpty) {
+                      List<ReviewModel> reviews = snapshot.data!.docs
+                          .map((e) => ReviewModel.fromJson(
+                              jsonDecode(jsonEncode(e.data()))))
+                          .toList();
+                      return ListView.builder(
+                        itemBuilder: (context, index) {
+                          ReviewModel review = reviews[index];
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 4.0),
+                            child: Neumorphic(
+                              style: NeumorphicStyle(
+                                boxShape: NeumorphicBoxShape.roundRect(
+                                    BorderRadius.circular(4)),
+                                depth: 1,
+                                intensity: 5,
+                                color: Colors.white,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Column(
+                                      children: [
+                                        const Text(
+                                          'Posted By',
+                                          style: TextStyle(fontSize: 12),
+                                        ),
+                                        AutoSizeText(
+                                          '${review.postedBy.firstName} ${review.postedBy.lastName}',
+                                          style: const TextStyle(
+                                              fontStyle: FontStyle.italic),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      width: 16,
+                                    ),
+                                    Expanded(
+                                        child: Column(
+                                      children: [
+                                        AutoSizeText(
+                                          review.title,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16),
+                                        ),
+                                        AutoSizeText(review.description,
+                                            maxLines: 15,
+                                            style: const TextStyle(fontSize: 16)),
+                                      ],
+                                    )),
+                                    const SizedBox(
+                                      width: 8,
+                                    ),
+                                    RatingBar(
+                                      ratingWidget: RatingWidget(
+                                        full: const Icon(Icons.star,
+                                            color: Colors.amber),
+                                        half: const Icon(Icons.star_half,
+                                            color: Colors.amber),
+                                        empty: const Icon(Icons.star_border,
+                                            color: Colors.amber),
+                                      ),
+                                      initialRating: review.rating,
+                                      minRating: 1,
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: true,
+                                      itemCount: 5,
+                                      itemSize: 15,
+                                      onRatingUpdate: (double value) {},
+                                      tapOnlyMode: true,
+                                      ignoreGestures: true,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        itemCount: reviews.length,
+                      );
+                    }
+                    return const Center(
+                      child: Text('No Reviews'),
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }),
           ),
         ],
       ),
@@ -135,67 +254,75 @@ class ReviewsTab extends StatelessWidget {
         onPressed: () {
           Get.dialog(AlertDialog(
             title: const Text('Rate this product'),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Title',
-                  ),
-                  maxLines: 1,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                const TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Review',
-                  ),
-                  maxLines: 5,
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Ratings:'),
-                    RatingBar(
-                      ratingWidget: RatingWidget(
-                        full: const Icon(Icons.star, color: Colors.amber),
-                        half: const Icon(Icons.star_half, color: Colors.amber),
-                        empty:
-                            const Icon(Icons.star_border, color: Colors.amber),
-                      ),
-                      initialRating: 4.5,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemSize: 15,
-                      onRatingUpdate: (double value) {},
-                      tapOnlyMode: true,
-                      ignoreGestures: true,
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: getController.reviewTitleController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Title',
                     ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                NeumorphicButton(
-                  onPressed: () {},
-                  style: NeumorphicStyle(
-                    boxShape:
-                        NeumorphicBoxShape.roundRect(BorderRadius.circular(4)),
-                    intensity: 5,
-                    color: Colors.white,
-                    shape: NeumorphicShape.convex,
+                    maxLines: 1,
                   ),
-                  child: const Text('Submit'),
-                )
-              ],
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    controller: getController.reviewDescriptionController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Review',
+                    ),
+                    maxLines: 5,
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('Ratings:'),
+                      RatingBar(
+                        ratingWidget: RatingWidget(
+                          full: const Icon(Icons.star, color: Colors.amber),
+                          half:
+                              const Icon(Icons.star_half, color: Colors.amber),
+                          empty: const Icon(Icons.star_border,
+                              color: Colors.amber),
+                        ),
+                        initialRating: 4.5,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        itemSize: 15,
+                        onRatingUpdate: (double value) {
+                          getController.ratings = value;
+                        },
+                        tapOnlyMode: true,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  NeumorphicButton(
+                    onPressed: () {
+                      getController.submitReview();
+                    },
+                    style: NeumorphicStyle(
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(4)),
+                      intensity: 5,
+                      color: Colors.white,
+                      shape: NeumorphicShape.convex,
+                    ),
+                    child: const Text('Submit'),
+                  )
+                ],
+              ),
             ),
           ));
         },

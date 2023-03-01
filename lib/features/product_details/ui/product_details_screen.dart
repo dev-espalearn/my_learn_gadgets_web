@@ -12,7 +12,8 @@ import '../../../models/product_model.dart';
 class ProductDetailsScreen extends StatelessWidget {
   final ProductModel product;
 
-  const ProductDetailsScreen({Key? key, required this.product}) : super(key: key);
+  const ProductDetailsScreen({Key? key, required this.product})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,62 +26,66 @@ class ProductDetailsScreen extends StatelessWidget {
           length: 3,
           child: Scaffold(
             backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-            appBar: NeumorphicAppBar(
-                leading: NeumorphicButton(
+            appBar: PreferredSize(
+              /*leading: NeumorphicButton(
+                  onPressed: () {
+                    Get.back();
+                  },
                   style: const NeumorphicStyle(
                     shape: NeumorphicShape.convex,
                     boxShape: NeumorphicBoxShape.circle(),
                     color: Colors.white,
                     depth: 2,
-                    intensity: 0.6,
+                    intensity: 1,
                   ),
-                  onPressed: () {
-                    Get.back();
-                  },
                   child: Icon(
-                    Icons.arrow_back_ios,
+                    Icons.chevron_left,
                     color: AppColors.primaryColor,
-                    size: 18,
                   ),
-                ),
-                title: TabBar(
-                  tabs: [
-                    Tab(
-                      child: AutoSizeText('Product',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.primaryColor,
-                          ),
-                          maxLines: 1),
-                    ),
-                    Tab(
-                      /*text: 'Reviews',*/
-                      child: AutoSizeText(
-                        'Description',
+                ),*/
+              preferredSize: Size.fromHeight(kToolbarHeight),
+              child: TabBar(
+                tabs: [
+                  Tab(
+                    child: AutoSizeText('Product',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: AppColors.primaryColor,
                         ),
-                        maxLines: 1,
+                        maxLines: 1),
+                  ),
+                  Tab(
+                    /*text: 'Reviews',*/
+                    child: AutoSizeText(
+                      'Description',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.primaryColor,
                       ),
+                      maxLines: 1,
                     ),
-                    Tab(
-                      /*text: 'Offers',*/
-                      child: AutoSizeText('Reviews',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.primaryColor,
-                          ),
-                          maxLines: 1),
-                    ),
-                  ],
-                )),
-            body: TabBarView(
-              children: [
-                ProductsTab(),
-                const DescriptionTab(),
-                const ReviewsTab(),
-              ],
+                  ),
+                  Tab(
+                    /*text: 'Offers',*/
+                    child: AutoSizeText('Reviews',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primaryColor,
+                        ),
+                        maxLines: 1),
+                  ),
+                ],
+              ),
+            ),
+            body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
+              child: TabBarView(
+                children: [
+                  ProductsTab(),
+                  DescriptionTab(),
+                  ReviewsTab(),
+                ],
+              ),
             ),
           ),
         ),

@@ -24,4 +24,6 @@ class AppString {
   static String admins = "Admins";
 
   static String newsletter = "newsLetter";
+
+  static String reviews = "Reviews";
 }
