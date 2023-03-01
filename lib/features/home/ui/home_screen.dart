@@ -247,76 +247,86 @@ class HomeScreen extends StatelessWidget {
                             child: CarouselSlider(
                                 items: products
                                     .map((product) => Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: NeumorphicButton(
-                                    onPressed: () {
-                                      Get.to(() => ProductDetailsScreen(
-                                          product: product));
-                                    },
-                                    style: const NeumorphicStyle(
-                                        shape: NeumorphicShape.flat,
-                                        color: Colors.white,
-                                        depth: 1,
-                                        intensity: 0.5),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Expanded(
-                                              child: ClipRRect(
-                                                  borderRadius:
-                                                  BorderRadius.circular(8),
-                                                  child: Image.network(
-                                                      product.image))),
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          AutoSizeText(
-                                            product.name,
-                                            maxLines: 3,
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w700,
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: NeumorphicButton(
+                                            onPressed: () {
+                                              Get.to(() => ProductDetailsScreen(
+                                                  product: product));
+                                            },
+                                            style: const NeumorphicStyle(
+                                                shape: NeumorphicShape.flat,
+                                                color: Colors.white,
+                                                depth: 1,
+                                                intensity: 0.5),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Expanded(
+                                                      child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(8),
+                                                          child: Image.network(
+                                                              product.image))),
+                                                  const SizedBox(
+                                                    height: 8,
+                                                  ),
+                                                  AutoSizeText(
+                                                    product.name,
+                                                    maxLines: 3,
+                                                    style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 8,
+                                                  ),
+                                                  //discounted price, original price
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        "\$${product.discountedPrice}",
+                                                        style: TextStyle(
+                                                            color: AppColors
+                                                                .secondaryColor
+                                                                .shade300,
+                                                            fontSize: 12,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      const SizedBox(
+                                                        width: 8,
+                                                      ),
+                                                      Text(
+                                                        "\$${product.originalPrice}",
+                                                        style: TextStyle(
+                                                            color: AppColors
+                                                                .secondaryColor,
+                                                            fontSize: 12,
+                                                            decoration:
+                                                                TextDecoration
+                                                                    .lineThrough,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          //discounted price, original price
-                                          Row(
-                                            children: [
-                                              Text(
-                                                "\$${product.discountedPrice}",
-                                                style: TextStyle(
-                                                    color: AppColors
-                                                        .secondaryColor.shade300,
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.bold),
-                                              ),
-                                              const SizedBox(
-                                                width: 8,
-                                              ),
-                                              Text(
-                                                "\$${product.originalPrice}",
-                                                style: TextStyle(
-                                                    color:
-                                                    AppColors.secondaryColor,
-                                                    fontSize: 12,
-                                                    decoration: TextDecoration
-                                                        .lineThrough,
-                                                    fontWeight: FontWeight.bold),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ))
+                                        ))
                                     .toList(),
                                 options: CarouselOptions(
                                     autoPlay: true,
-                                    autoPlayInterval: const Duration(seconds: 3),
+                                    autoPlayInterval:
+                                        const Duration(seconds: 3),
                                     autoPlayAnimationDuration:
                                         const Duration(milliseconds: 800),
                                     autoPlayCurve: Curves.fastOutSlowIn,
@@ -364,17 +374,17 @@ class HomeScreen extends StatelessWidget {
                         child: Row(
                           children: [
                             ...products.map((product) => Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: NeumorphicButton(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: NeumorphicButton(
                                     onPressed: () {
                                       Get.to(() => ProductDetailsScreen(
                                           product: product));
                                     },
-                                style: const NeumorphicStyle(
-                                    shape: NeumorphicShape.flat,
-                                    color: Colors.white,
-                                    depth: 1,
-                                    intensity: 0.5),
+                                    style: const NeumorphicStyle(
+                                        shape: NeumorphicShape.flat,
+                                        color: Colors.white,
+                                        depth: 1,
+                                        intensity: 0.5),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Column(
@@ -406,9 +416,11 @@ class HomeScreen extends StatelessWidget {
                                                 "\$${product.discountedPrice}",
                                                 style: TextStyle(
                                                     color: AppColors
-                                                        .secondaryColor.shade300,
+                                                        .secondaryColor
+                                                        .shade300,
                                                     fontSize: 12,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               const SizedBox(
                                                 width: 8,
@@ -416,12 +428,13 @@ class HomeScreen extends StatelessWidget {
                                               Text(
                                                 "\$${product.originalPrice}",
                                                 style: TextStyle(
-                                                    color:
-                                                        AppColors.secondaryColor,
+                                                    color: AppColors
+                                                        .secondaryColor,
                                                     fontSize: 12,
                                                     decoration: TextDecoration
                                                         .lineThrough,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ],
                                           ),
@@ -429,7 +442,7 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                            ))
+                                ))
                           ],
                         ),
                       );

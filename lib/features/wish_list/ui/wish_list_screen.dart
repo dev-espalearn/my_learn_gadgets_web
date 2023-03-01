@@ -20,10 +20,9 @@ class WishListScreen extends StatelessWidget {
         color: Colors.white,
         child: Scaffold(
           backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-          appBar: NeumorphicAppBar(
+          appBar: AppBar(elevation: 0,
             title: const Text(
               'Wish List',
-              style: TextStyle(fontWeight: FontWeight.w500),
             ),
             automaticallyImplyLeading: false,
           ),
@@ -46,64 +45,63 @@ class WishListScreen extends StatelessWidget {
                               jsonDecode(jsonEncode(e.data()))))
                           .toList();
                       return ListView.builder(
-                        itemBuilder: (context, index) {
-                          ProductModel product = products[index];
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8.0, vertical: 4),
-                            child: Neumorphic(
-                              style: const NeumorphicStyle(
-                                shape: NeumorphicShape.flat,
-                                color: Colors.white,
-                                depth: 1,
-                                intensity: 1,
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                        width: Get.width / 5,
-                                        child: Image.asset(product.image)),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          AutoSizeText(
-                                            product.name,
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w500,
+                          itemBuilder: (context, index) {
+                            ProductModel product = products[index];
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8.0, vertical: 4),
+                              child: Neumorphic(
+                                style: const NeumorphicStyle(
+                                  shape: NeumorphicShape.flat,
+                                  color: Colors.white,
+                                  depth: 1,
+                                  intensity: 1,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                          width: Get.width / 5,
+                                          child: Image.asset(product.image)),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            AutoSizeText(
+                                              product.name,
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                             ),
-                                          ),
-                                          AutoSizeText(
-                                            product.description,
-                                            maxLines: 4,
-                                          ),
-                                        ],
+                                            AutoSizeText(
+                                              product.description,
+                                              maxLines: 4,
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      'Rs. ${product.discountedPrice}',
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.w500,
+                                      Text(
+                                        'Rs. ${product.discountedPrice}',
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(Icons.delete),
-                                    ),
-                                  ],
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(Icons.delete),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                        itemCount: products.length
-                      );
+                            );
+                          },
+                          itemCount: products.length);
                     }
                     return const Center(
                       child: CircularProgressIndicator(),

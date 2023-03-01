@@ -18,7 +18,8 @@ class SignUpScreen extends StatelessWidget {
         color: Colors.white,
         child: Scaffold(
           backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-          appBar: NeumorphicAppBar(
+          appBar: AppBar(elevation: 0,
+              automaticallyImplyLeading: false,
               title: const Text('Sign Up',
                   style: TextStyle(fontWeight: FontWeight.w500))),
           body: Padding(
@@ -135,9 +136,10 @@ class SignUpScreen extends StatelessWidget {
                                       getController.passwordVisible.value
                                           ? Icons.visibility_off
                                           : Icons.visibility,
-                                      color: !getController.passwordVisible.value
-                                          ? Colors.grey
-                                          : Colors.blue),
+                                      color:
+                                          !getController.passwordVisible.value
+                                              ? Colors.grey
+                                              : Colors.blue),
                                   onPressed: () {
                                     getController.passwordVisible.value =
                                         !getController.passwordVisible.value;

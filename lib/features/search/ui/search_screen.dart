@@ -17,20 +17,9 @@ class SearchScreen extends StatelessWidget {
         Get.put(SearchScreenGetController(searchQuery: searchQuery));
     return SafeArea(
       child: Scaffold(
-        appBar: NeumorphicAppBar(
-          leading: NeumorphicButton(
-            style: const NeumorphicStyle(
-                shape: NeumorphicShape.convex,
-                boxShape: NeumorphicBoxShape.circle(),
-                color: Colors.white,
-                depth: 3,
-                intensity: 1),
-            onPressed: () {
-              Get.back();
-            },
-            child: const Icon(Icons.arrow_back),
-          ),
-          title: const Text('Search'),
+        appBar: AppBar(elevation: 0,
+          title: Text('Search'),
+          automaticallyImplyLeading: false,
         ),
         body: Column(
           children: [

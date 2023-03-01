@@ -16,7 +16,7 @@ class SignInScreen extends StatelessWidget {
         color: Colors.white,
         child: Scaffold(
             backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-            appBar: NeumorphicAppBar(
+            appBar: AppBar(elevation: 0,
               title: const Text('Sign In',
                   style: TextStyle(fontWeight: FontWeight.w500)),
               automaticallyImplyLeading: false,
@@ -50,8 +50,8 @@ class SignInScreen extends StatelessWidget {
                                   intensity: 1,
                                 ),
                                 child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 8.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
                                   child: TextFormField(
                                     controller: getController.emailController,
                                     decoration: const InputDecoration(
@@ -77,10 +77,11 @@ class SignInScreen extends StatelessWidget {
                                   intensity: 1,
                                 ),
                                 child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 8.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
                                   child: TextFormField(
-                                    controller: getController.passwordController,
+                                    controller:
+                                        getController.passwordController,
                                     decoration: const InputDecoration(
                                       labelText: 'Password',
                                     ),

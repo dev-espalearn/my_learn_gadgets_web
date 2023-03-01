@@ -12,7 +12,8 @@ class AdminDashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-      appBar: NeumorphicAppBar(
+      appBar: AppBar(elevation: 0,
+        automaticallyImplyLeading: false,
         title: Image.asset('assets/images/My learn gadgets.png'),
         actions: [
           NeumorphicButton(

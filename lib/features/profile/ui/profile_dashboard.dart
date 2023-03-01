@@ -22,7 +22,7 @@ class ProfileDashboard extends StatelessWidget {
         color: Colors.white,
         child: Scaffold(
           backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-          appBar: NeumorphicAppBar(
+          appBar: AppBar(elevation: 0,
             title: const Text('My Profile'),
             automaticallyImplyLeading: false,
           ),
