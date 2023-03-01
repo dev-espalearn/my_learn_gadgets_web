@@ -72,159 +72,317 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 64, vertical: 8.0),
+        padding:
+            EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: 8.0),
         child: Column(
           children: [
-            Table(
-              children: [
-                TableRow(children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: NeumorphicButton(
-                      onPressed: () {
-                        if (FirebaseAuth.instance.currentUser != null &&
-                            FirebaseAuth.instance.currentUser!.email !=
-                                AppString.emailForTemporaryLogin) {
-                          Get.to(() => ProfileDashboard());
-                        } else {
-                          Get.to(() => SignInScreen(),
-                              transition: Transition.cupertino);
-                        }
-                      },
-                      style: const NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          color: Colors.white,
-                          depth: 2,
-                          intensity: 1),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.person,
-                            color: AppColors.secondaryColor.shade300,
-                            size: 20,
+            Get.width > Get.height
+                ? Table(
+                    children: [
+                      TableRow(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              if (FirebaseAuth.instance.currentUser != null &&
+                                  FirebaseAuth.instance.currentUser!.email !=
+                                      AppString.emailForTemporaryLogin) {
+                                Get.to(() => ProfileDashboard());
+                              } else {
+                                Get.to(() => SignInScreen(),
+                                    transition: Transition.cupertino);
+                              }
+                            },
+                            style: const NeumorphicStyle(
+                                shape: NeumorphicShape.convex,
+                                color: Colors.white,
+                                depth: 2,
+                                intensity: 1),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.person,
+                                  color: AppColors.secondaryColor.shade300,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                AutoSizeText(
+                                  "My Account",
+                                  style: TextStyle(
+                                      color: AppColors.secondaryColor.shade300,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(
-                            width: 4,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              if (FirebaseAuth.instance.currentUser != null &&
+                                  FirebaseAuth.instance.currentUser!.email !=
+                                      AppString.emailForTemporaryLogin) {
+                                Get.to(() => const WishListScreen());
+                              } else {
+                                Get.to(() => SignInScreen(),
+                                    transition: Transition.cupertino);
+                              }
+                            },
+                            style: const NeumorphicStyle(
+                                shape: NeumorphicShape.convex,
+                                color: Colors.white,
+                                depth: 2,
+                                intensity: 1),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.favorite,
+                                  color: AppColors.secondaryColor.shade300,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                AutoSizeText(
+                                  "Wish List",
+                                  style: TextStyle(
+                                      color: AppColors.secondaryColor.shade300,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
                           ),
-                          Text(
-                            "My Account",
-                            style: TextStyle(
-                                color: AppColors.secondaryColor.shade300,
-                                fontSize: 12),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              /*Get.to(() => const ShoppingCartScreen());*/
+                              if (FirebaseAuth.instance.currentUser != null &&
+                                  FirebaseAuth.instance.currentUser!.email !=
+                                      AppString.emailForTemporaryLogin) {
+                                Get.to(() => ShoppingCartScreen());
+                              } else {
+                                Get.to(() => SignInScreen(),
+                                    transition: Transition.cupertino);
+                              }
+                            },
+                            style: const NeumorphicStyle(
+                                shape: NeumorphicShape.convex,
+                                color: Colors.white,
+                                depth: 2,
+                                intensity: 1),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.shopping_cart,
+                                  color: AppColors.secondaryColor.shade300,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                Expanded(
+                                  child: AutoSizeText(
+                                    "Shopping Cart",
+                                    maxLines: 2,
+                                    style: TextStyle(
+                                        color:
+                                            AppColors.secondaryColor.shade300,
+                                        fontSize: 12),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: NeumorphicButton(
+                            onPressed: () {},
+                            style: const NeumorphicStyle(
+                                shape: NeumorphicShape.convex,
+                                color: Colors.white,
+                                depth: 2,
+                                intensity: 1),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.replay,
+                                  color: AppColors.secondaryColor.shade300,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                AutoSizeText(
+                                  "Checkout",
+                                  style: TextStyle(
+                                      color: AppColors.secondaryColor.shade300,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ]),
+                    ],
+                  )
+                : Table(
+                    children: [
+                      TableRow(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              if (FirebaseAuth.instance.currentUser != null &&
+                                  FirebaseAuth.instance.currentUser!.email !=
+                                      AppString.emailForTemporaryLogin) {
+                                Get.to(() => ProfileDashboard());
+                              } else {
+                                Get.to(() => SignInScreen(),
+                                    transition: Transition.cupertino);
+                              }
+                            },
+                            style: const NeumorphicStyle(
+                                shape: NeumorphicShape.convex,
+                                color: Colors.white,
+                                depth: 2,
+                                intensity: 1),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.person,
+                                  color: AppColors.secondaryColor.shade300,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                AutoSizeText(
+                                  "My Account",
+                                  style: TextStyle(
+                                      color: AppColors.secondaryColor.shade300,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              if (FirebaseAuth.instance.currentUser != null &&
+                                  FirebaseAuth.instance.currentUser!.email !=
+                                      AppString.emailForTemporaryLogin) {
+                                Get.to(() => const WishListScreen());
+                              } else {
+                                Get.to(() => SignInScreen(),
+                                    transition: Transition.cupertino);
+                              }
+                            },
+                            style: const NeumorphicStyle(
+                                shape: NeumorphicShape.convex,
+                                color: Colors.white,
+                                depth: 2,
+                                intensity: 1),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.favorite,
+                                  color: AppColors.secondaryColor.shade300,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                AutoSizeText(
+                                  "Wish List",
+                                  style: TextStyle(
+                                      color: AppColors.secondaryColor.shade300,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ]),
+                      TableRow(children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: NeumorphicButton(
+                            onPressed: () {
+                              /*Get.to(() => const ShoppingCartScreen());*/
+                              if (FirebaseAuth.instance.currentUser != null &&
+                                  FirebaseAuth.instance.currentUser!.email !=
+                                      AppString.emailForTemporaryLogin) {
+                                Get.to(() => ShoppingCartScreen());
+                              } else {
+                                Get.to(() => SignInScreen(),
+                                    transition: Transition.cupertino);
+                              }
+                            },
+                            style: const NeumorphicStyle(
+                                shape: NeumorphicShape.convex,
+                                color: Colors.white,
+                                depth: 2,
+                                intensity: 1),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.shopping_cart,
+                                  color: AppColors.secondaryColor.shade300,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                AutoSizeText(
+                                  "Shopping Cart",
+                                  style: TextStyle(
+                                      color: AppColors.secondaryColor.shade300,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: NeumorphicButton(
+                            onPressed: () {},
+                            style: const NeumorphicStyle(
+                                shape: NeumorphicShape.convex,
+                                color: Colors.white,
+                                depth: 2,
+                                intensity: 1),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.replay,
+                                  color: AppColors.secondaryColor.shade300,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                AutoSizeText(
+                                  "Checkout",
+                                  style: TextStyle(
+                                      color: AppColors.secondaryColor.shade300,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ])
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: NeumorphicButton(
-                      onPressed: () {
-                        if (FirebaseAuth.instance.currentUser != null &&
-                            FirebaseAuth.instance.currentUser!.email !=
-                                AppString.emailForTemporaryLogin) {
-                          Get.to(() => const WishListScreen());
-                        } else {
-                          Get.to(() => SignInScreen(),
-                              transition: Transition.cupertino);
-                        }
-                      },
-                      style: const NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          color: Colors.white,
-                          depth: 2,
-                          intensity: 1),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.favorite,
-                            color: AppColors.secondaryColor.shade300,
-                            size: 20,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            "Wish List",
-                            style: TextStyle(
-                                color: AppColors.secondaryColor.shade300,
-                                fontSize: 12),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: NeumorphicButton(
-                      onPressed: () {
-                        /*Get.to(() => const ShoppingCartScreen());*/
-                        if (FirebaseAuth.instance.currentUser != null &&
-                            FirebaseAuth.instance.currentUser!.email !=
-                                AppString.emailForTemporaryLogin) {
-                          Get.to(() => ShoppingCartScreen());
-                        } else {
-                          Get.to(() => SignInScreen(),
-                              transition: Transition.cupertino);
-                        }
-                      },
-                      style: const NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          color: Colors.white,
-                          depth: 2,
-                          intensity: 1),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.shopping_cart,
-                            color: AppColors.secondaryColor.shade300,
-                            size: 20,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            "Shopping Cart",
-                            style: TextStyle(
-                                color: AppColors.secondaryColor.shade300,
-                                fontSize: 12),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: NeumorphicButton(
-                      onPressed: () {},
-                      style: const NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          color: Colors.white,
-                          depth: 2,
-                          intensity: 1),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.replay,
-                            color: AppColors.secondaryColor.shade300,
-                            size: 20,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            "Checkout",
-                            style: TextStyle(
-                                color: AppColors.secondaryColor.shade300,
-                                fontSize: 12),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ]),
-              ],
-            ),
             Divider(
               color: AppColors.primaryColor.shade300,
               thickness: 1,
@@ -247,7 +405,7 @@ class HomeScreen extends StatelessWidget {
                             child: CarouselSlider(
                                 items: products
                                     .map((product) => Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                          padding: const EdgeInsets.all(4.0),
                                           child: NeumorphicButton(
                                             onPressed: () {
                                               Get.to(() => ProductDetailsScreen(
@@ -286,15 +444,14 @@ class HomeScreen extends StatelessWidget {
                                                     height: 8,
                                                   ),
                                                   //discounted price, original price
-                                                  Row(
+                                                  Wrap(
                                                     children: [
-                                                      Text(
+                                                      AutoSizeText(
                                                         "\$${product.discountedPrice}",
                                                         style: TextStyle(
                                                             color: AppColors
                                                                 .secondaryColor
                                                                 .shade300,
-                                                            fontSize: 12,
                                                             fontWeight:
                                                                 FontWeight
                                                                     .bold),
@@ -302,7 +459,7 @@ class HomeScreen extends StatelessWidget {
                                                       const SizedBox(
                                                         width: 8,
                                                       ),
-                                                      Text(
+                                                      AutoSizeText(
                                                         "\$${product.originalPrice}",
                                                         style: TextStyle(
                                                             color: AppColors
