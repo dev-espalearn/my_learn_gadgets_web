@@ -50,7 +50,7 @@ class ChangePasswordScreen extends StatelessWidget {
                           style: const NeumorphicStyle(
                             shape: NeumorphicShape.flat,
                             color: Colors.white,
-                            depth: -2,
+                            depth: -1,
                             intensity: 1,
                           ),
                           child: Padding(
@@ -70,7 +70,7 @@ class ChangePasswordScreen extends StatelessWidget {
                           style: const NeumorphicStyle(
                             shape: NeumorphicShape.flat,
                             color: Colors.white,
-                            depth: -2,
+                            depth: -1,
                             intensity: 1,
                           ),
                           child: Padding(
@@ -90,7 +90,7 @@ class ChangePasswordScreen extends StatelessWidget {
                           style: const NeumorphicStyle(
                             shape: NeumorphicShape.flat,
                             color: Colors.white,
-                            depth: -2,
+                            depth: -1,
                             intensity: 1,
                           ),
                           child: Padding(

@@ -21,39 +21,18 @@ class SignInGetController extends GetxController {
       showLoader.value = true;
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(
-              email: AppString.emailForTemporaryLogin,
-              password: AppString.passwordForTemporaryLogin)
-          .then((value) async {
-        await FirebaseFirestore.instance
-            .collection(AppString.users)
-            .doc(emailController.text)
-            .get()
-            .then((value) async {
-          if (value.exists) {
-            await FirebaseAuth.instance
-                .signInWithEmailAndPassword(
-              email: emailController.text,
-              password: passwordController.text,
-            )
-                .then((value) {
-              showLoader.value = false;
-              Get.offAll(() => HomeScreen());
-            }).catchError((e) {
-              showLoader.value = false;
-              Get.snackbar("Error", e.toString(),
-                  backgroundColor: Colors.red, colorText: Colors.white);
-              FirebaseAuth.instance.signOut();
-            });
-            showLoader.value = false;
-            FirebaseAuth.instance.signOut();
-          } else {
-            showLoader.value = false;
-            Get.snackbar("Error", "You are not a user",
-                backgroundColor: Colors.red, colorText: Colors.white);
-            FirebaseAuth.instance.signOut();
-          }
-        });
+        email: emailController.text,
+        password: passwordController.text,
+      )
+          .then((value) {
+        showLoader.value = false;
+        Get.offAll(() => HomeScreen());
+      }).catchError((e) {
+        showLoader.value = false;
+        Get.snackbar("Error", e.toString(),
+            backgroundColor: Colors.red, colorText: Colors.white);
       });
+      showLoader.value = false;
     }
   }
 
@@ -61,8 +40,8 @@ class SignInGetController extends GetxController {
     if (formKey.currentState!.validate()) {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(
-              email: AppString.emailForTemporaryLogin,
-              password: AppString.passwordForTemporaryLogin)
+          email: AppString.emailForTemporaryLogin,
+          password: AppString.passwordForTemporaryLogin)
           .then((value) async {
         await FirebaseFirestore.instance
             .collection(AppString.admins)
@@ -81,11 +60,12 @@ class SignInGetController extends GetxController {
               Get.offAll(() => const AdminDashboardPage());
             }).catchError((e) {
               showLoader.value = false;
-              Get.snackbar("Error", e.toString());
+              Get.snackbar("Error", e.toString(), backgroundColor: Colors.red, colorText: Colors.white);
             });
             showLoader.value = false;
           } else {
-            Get.snackbar("Error", "You are not an admin");
+            Get.snackbar("Error", "You are not an admin",
+                backgroundColor: Colors.red, colorText: Colors.white);
           }
         });
       });
