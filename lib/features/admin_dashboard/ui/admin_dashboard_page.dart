@@ -12,25 +12,27 @@ class AdminDashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-      appBar: AppBar(elevation: 0,
-        automaticallyImplyLeading: false,
-        title: Image.asset('assets/images/My learn gadgets.png'),
-        actions: [
-          NeumorphicButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut().then((value) {
-                Get.offAll(() => SignInScreen());
-              });
-            },
-            style: const NeumorphicStyle(
-                shape: NeumorphicShape.convex,
-                boxShape: NeumorphicBoxShape.circle(),
-                depth: 2,
-                intensity: 0.4,
-                color: Colors.white),
-            child: const Icon(Icons.logout),
-          ),
-        ],
+      appBar: PreferredSize(
+        child: Row(
+          children: [
+            Expanded(child: Image.asset('assets/images/My learn gadgets.png')),
+            NeumorphicButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut().then((value) {
+                  Get.offAll(() => SignInScreen());
+                });
+              },
+              style: const NeumorphicStyle(
+                  shape: NeumorphicShape.convex,
+                  boxShape: NeumorphicBoxShape.circle(),
+                  depth: 2,
+                  intensity: 0.4,
+                  color: Colors.white),
+              child: const Icon(Icons.logout),
+            ),
+          ],
+        ),
+        preferredSize: Size.fromHeight(kToolbarHeight),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
