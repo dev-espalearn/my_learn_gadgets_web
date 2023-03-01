@@ -27,54 +27,40 @@ class ProductDetailsScreen extends StatelessWidget {
           child: Scaffold(
             backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
             appBar: PreferredSize(
-              /*leading: NeumorphicButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  style: const NeumorphicStyle(
-                    shape: NeumorphicShape.convex,
-                    boxShape: NeumorphicBoxShape.circle(),
-                    color: Colors.white,
-                    depth: 2,
-                    intensity: 1,
-                  ),
-                  child: Icon(
-                    Icons.chevron_left,
-                    color: AppColors.primaryColor,
-                  ),
-                ),*/
-              preferredSize: Size.fromHeight(kToolbarHeight),
-              child: TabBar(
-                tabs: [
-                  Tab(
-                    child: AutoSizeText('Product',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.primaryColor,
-                        ),
-                        maxLines: 1),
-                  ),
-                  Tab(
-                    /*text: 'Reviews',*/
-                    child: AutoSizeText(
-                      'Description',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryColor,
-                      ),
-                      maxLines: 1,
+              preferredSize: const Size.fromHeight(kToolbarHeight),
+              child: ColoredBox(
+                color: AppColors.primaryColor,
+                child: const TabBar(
+                  indicatorColor: Colors.white,
+                  tabs: [
+                    Tab(
+                      child: AutoSizeText('Product',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                          maxLines: 1),
                     ),
-                  ),
-                  Tab(
-                    /*text: 'Offers',*/
-                    child: AutoSizeText('Reviews',
+                    Tab(
+                      child: AutoSizeText(
+                        'Description',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: AppColors.primaryColor,
+                          color: Colors.white,
                         ),
-                        maxLines: 1),
-                  ),
-                ],
+                        maxLines: 1,
+                      ),
+                    ),
+                    Tab(
+                      child: AutoSizeText('Reviews',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                          maxLines: 1),
+                    ),
+                  ],
+                ),
               ),
             ),
             body: Padding(

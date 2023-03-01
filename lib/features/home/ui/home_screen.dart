@@ -275,7 +275,7 @@ class HomeScreen extends StatelessWidget {
                                           AutoSizeText(
                                             product.name,
                                             maxLines: 3,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontWeight: FontWeight.w700,
                                             ),
                                           ),
@@ -392,7 +392,7 @@ class HomeScreen extends StatelessWidget {
                                           AutoSizeText(
                                             product.name,
                                             maxLines: 3,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontWeight: FontWeight.w700,
                                             ),
                                           ),

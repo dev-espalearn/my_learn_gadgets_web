@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           home: SplashPage()),
       unknownRoute: GetPage(
         name: '/unknown_route',
-        page: () => UnknownRoute(),
+        page: () => const UnknownRoute(),
       ),
     );
   }
