@@ -18,7 +18,7 @@ class SearchScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(elevation: 0,
-          title: Text('Search'),
+          title: const Text('Search'),
           automaticallyImplyLeading: false,
         ),
         body: Column(

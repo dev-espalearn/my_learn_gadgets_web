@@ -13,6 +13,7 @@ class AdminDashboardPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
       appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Row(
           children: [
             Expanded(child: Image.asset('assets/images/My learn gadgets.png')),
@@ -32,7 +33,6 @@ class AdminDashboardPage extends StatelessWidget {
             ),
           ],
         ),
-        preferredSize: Size.fromHeight(kToolbarHeight),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
