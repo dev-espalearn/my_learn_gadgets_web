@@ -2,10 +2,12 @@ import 'dart:convert';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
+import 'package:my_learn_gadgets_web/features/authentication/ui/sign_in_screen.dart';
 import 'package:my_learn_gadgets_web/models/review_model.dart';
 
 import '../../../core/app_colors.dart';
@@ -205,7 +207,8 @@ class ReviewsTab extends StatelessWidget {
                                         ),
                                         AutoSizeText(review.description,
                                             maxLines: 15,
-                                            style: const TextStyle(fontSize: 16)),
+                                            style:
+                                                const TextStyle(fontSize: 16)),
                                       ],
                                     )),
                                     const SizedBox(
@@ -252,79 +255,85 @@ class ReviewsTab extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.dialog(AlertDialog(
-            title: const Text('Rate this product'),
-            content: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextField(
-                    controller: getController.reviewTitleController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Title',
-                    ),
-                    maxLines: 1,
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextField(
-                    controller: getController.reviewDescriptionController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Review',
-                    ),
-                    maxLines: 5,
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text('Ratings:'),
-                      RatingBar(
-                        ratingWidget: RatingWidget(
-                          full: const Icon(Icons.star, color: Colors.amber),
-                          half:
-                              const Icon(Icons.star_half, color: Colors.amber),
-                          empty: const Icon(Icons.star_border,
-                              color: Colors.amber),
-                        ),
-                        initialRating: 4.5,
-                        minRating: 1,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
-                        itemCount: 5,
-                        itemSize: 15,
-                        onRatingUpdate: (double value) {
-                          getController.ratings = value;
-                        },
-                        tapOnlyMode: true,
+          if (FirebaseAuth.instance.currentUser != null &&
+              FirebaseAuth.instance.currentUser!.email !=
+                  AppString.emailForTemporaryLogin) {
+            Get.dialog(AlertDialog(
+              title: const Text('Rate this product'),
+              content: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextField(
+                      controller: getController.reviewTitleController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Title',
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  NeumorphicButton(
-                    onPressed: () {
-                      getController.submitReview();
-                    },
-                    style: NeumorphicStyle(
-                      boxShape: NeumorphicBoxShape.roundRect(
-                          BorderRadius.circular(4)),
-                      intensity: 5,
-                      color: Colors.white,
-                      shape: NeumorphicShape.convex,
+                      maxLines: 1,
                     ),
-                    child: const Text('Submit'),
-                  )
-                ],
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    TextField(
+                      controller: getController.reviewDescriptionController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Review',
+                      ),
+                      maxLines: 5,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('Ratings:'),
+                        RatingBar(
+                          ratingWidget: RatingWidget(
+                            full: const Icon(Icons.star, color: Colors.amber),
+                            half: const Icon(Icons.star_half,
+                                color: Colors.amber),
+                            empty: const Icon(Icons.star_border,
+                                color: Colors.amber),
+                          ),
+                          initialRating: 4.5,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemSize: 15,
+                          onRatingUpdate: (double value) {
+                            getController.ratings = value;
+                          },
+                          tapOnlyMode: true,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    NeumorphicButton(
+                      onPressed: () {
+                        getController.submitReview();
+                      },
+                      style: NeumorphicStyle(
+                        boxShape: NeumorphicBoxShape.roundRect(
+                            BorderRadius.circular(4)),
+                        intensity: 5,
+                        color: Colors.white,
+                        shape: NeumorphicShape.convex,
+                      ),
+                      child: const Text('Submit'),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ));
+            ));
+          } else {
+            Get.offAll(() => SignInScreen());
+          }
         },
         backgroundColor: AppColors.secondaryColor,
         child: const Icon(Icons.rate_review),
