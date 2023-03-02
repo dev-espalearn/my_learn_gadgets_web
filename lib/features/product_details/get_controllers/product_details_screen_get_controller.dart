@@ -76,4 +76,17 @@ class ProductDetailsScreenGetController extends GetxController
           backgroundColor: Colors.green, colorText: Colors.white);
     });
   }
+
+  void addToWishList(){
+    FirebaseFirestore.instance
+        .collection(AppString.users)
+        .doc(FirebaseAuth.instance.currentUser!.email)
+        .collection(AppString.wishList)
+        .doc(product.id)
+        .set(product.toJson())
+        .then((value) {
+      Get.snackbar('Success', 'Product added to wish list',
+          backgroundColor: Colors.green, colorText: Colors.white);
+    });
+  }
 }

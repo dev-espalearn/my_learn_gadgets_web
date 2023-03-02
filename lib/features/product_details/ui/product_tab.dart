@@ -179,7 +179,9 @@ class ProductsTab extends StatelessWidget {
                 width: Get.width * 0.01,
               ),
               NeumorphicButton(
-                onPressed: () {},
+                onPressed: () {
+                  getController.addToWishList();
+                },
                 style: const NeumorphicStyle(
                   shape: NeumorphicShape.convex,
                   color: Colors.white,
