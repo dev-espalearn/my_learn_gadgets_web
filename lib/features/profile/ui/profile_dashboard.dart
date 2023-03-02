@@ -3,9 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
-import 'package:my_learn_gadgets_web/features/login_and_security/ui/change_password_screen.dart';
-import 'package:my_learn_gadgets_web/features/shopping_cart/ui/shopping_cart_screen.dart';
-import 'package:my_learn_gadgets_web/features/wish_list/ui/wish_list_screen.dart';
 
 import '../../../core/app_colors.dart';
 import '../get_controllers/profile_get_controller.dart';
@@ -22,7 +19,8 @@ class ProfileDashboard extends StatelessWidget {
         color: Colors.white,
         child: Scaffold(
           backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-          appBar: AppBar(elevation: 0,
+          appBar: AppBar(
+            elevation: 0,
             title: const Text('My Profile'),
             automaticallyImplyLeading: false,
           ),
@@ -36,25 +34,15 @@ class ProfileDashboard extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: NeumorphicButton(
                     onPressed: () {
-                      switch (index) {
-                        case 0:
-                          break;
-                        case 1:
-                          Get.to(() => const ChangePasswordScreen());
-                          break;
-                        case 2:
-                          Get.to(() => ShoppingCartScreen());
-                          break;
-                        case 3:
-                          Get.to(() => const WishListScreen());
-                          break;
+                      if (profileGetController.routing[index] != null) {
+                        Get.to(() => profileGetController.routing[index]!);
                       }
                     },
                     style: const NeumorphicStyle(
                       shape: NeumorphicShape.convex,
                       color: Colors.white,
-                      depth: 4,
-                      intensity: 0.8,
+                      depth: 2,
+                      intensity: 0.6,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +60,7 @@ class ProfileDashboard extends StatelessWidget {
               itemCount: profileGetController.options.length,
             ),
           ),
-          bottomSheet: Padding(
+          bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(4.0),
             child: Neumorphic(
               style: NeumorphicStyle(

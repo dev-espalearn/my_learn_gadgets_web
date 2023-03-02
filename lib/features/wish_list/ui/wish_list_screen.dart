@@ -27,6 +27,7 @@ class WishListScreen extends StatelessWidget {
               'Wish List',
               style: TextStyle(fontWeight: FontWeight.w500),
             ),
+            automaticallyImplyLeading: false,
           ),
           body: SizedBox(
             height: Get.height,
