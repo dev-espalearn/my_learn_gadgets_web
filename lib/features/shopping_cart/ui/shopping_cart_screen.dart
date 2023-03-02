@@ -55,7 +55,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                   .toList();
                               return Text(
                                   products.isNotEmpty
-                                      ? "Rs. ${products.map((e) => e.product.discountedPrice).reduce((value, element) => value + element)}"
+                                      ? "Rs. ${products.map((e) => e.product.discountedPrice * e.quantity).reduce((value, element) => value + element)}"
                                       : "Rs. 0.0",
                                   style: TextStyle(
                                       fontSize: 20,
@@ -219,6 +219,31 @@ class ShoppingCartScreen extends StatelessWidget {
               ],
             ),
           ),
+          bottomNavigationBar: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //proceed to checkout
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: NeumorphicButton(
+                  onPressed: () {},
+                  style: const NeumorphicStyle(
+                    shape: NeumorphicShape.flat,
+                    color: Colors.white,
+                    depth: 1,
+                    intensity: 1,
+                  ),
+                  child: Text(
+                    'Proceed to Checkout >>',
+                    style: TextStyle(
+                      color: AppColors.tertiaryColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ),
+            ],),
         ),
       ),
     );
