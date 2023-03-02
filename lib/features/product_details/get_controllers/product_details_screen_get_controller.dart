@@ -63,4 +63,17 @@ class ProductDetailsScreenGetController extends GetxController
       });
     });
   }
+
+  void addToShoppingCart() {
+    FirebaseFirestore.instance
+        .collection(AppString.users)
+        .doc(FirebaseAuth.instance.currentUser!.email)
+        .collection(AppString.shoppingCart)
+        .doc(product.id)
+        .set(product.toJson())
+        .then((value) {
+      Get.snackbar('Success', 'Product added to shopping cart',
+          backgroundColor: Colors.green, colorText: Colors.white);
+    });
+  }
 }

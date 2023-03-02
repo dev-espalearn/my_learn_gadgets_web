@@ -163,7 +163,9 @@ class ProductsTab extends StatelessWidget {
           Row(
             children: [
               NeumorphicButton(
-                onPressed: () {},
+                onPressed: () {
+                  getController.addToShoppingCart();
+                },
                 style: const NeumorphicStyle(
                   shape: NeumorphicShape.convex,
                   color: Colors.white,
