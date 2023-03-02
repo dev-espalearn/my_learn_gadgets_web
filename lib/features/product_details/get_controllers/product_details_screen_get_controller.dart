@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_learn_gadgets_web/models/cart_item.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../core/app_string.dart';
@@ -65,19 +66,20 @@ class ProductDetailsScreenGetController extends GetxController
   }
 
   void addToShoppingCart() {
+    CartItem cartItem = CartItem(product: product, quantity: 1);
     FirebaseFirestore.instance
         .collection(AppString.users)
         .doc(FirebaseAuth.instance.currentUser!.email)
         .collection(AppString.shoppingCart)
         .doc(product.id)
-        .set(product.toJson())
+        .set(cartItem.toJson())
         .then((value) {
       Get.snackbar('Success', 'Product added to shopping cart',
           backgroundColor: Colors.green, colorText: Colors.white);
     });
   }
 
-  void addToWishList(){
+  void addToWishList() {
     FirebaseFirestore.instance
         .collection(AppString.users)
         .doc(FirebaseAuth.instance.currentUser!.email)

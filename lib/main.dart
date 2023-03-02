@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
         primaryColor: AppColors.primaryColor,
         primarySwatch: AppColors.primaryColor,
         secondaryHeaderColor: AppColors.secondaryColor,
+        fontFamily: 'Digitalt-04no.ttf'
       ),
       debugShowCheckedModeBanner: true,
       home: NeumorphicApp(
