@@ -7,6 +7,7 @@ class CheckOutGetController extends GetxController{
   TextEditingController cityController = TextEditingController();
   TextEditingController stateController = TextEditingController();
   TextEditingController pinCodeController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 }

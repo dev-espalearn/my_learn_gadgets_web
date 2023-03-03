@@ -129,6 +129,18 @@ class CheckOutScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
+                  keyboardType: TextInputType.number,
+                ),
+                SizedBox(height: 20),
+                TextFormField(
+                  controller: checkOutGetController.phoneController,
+                  decoration: InputDecoration(
+                    labelText: "Phone",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  keyboardType: TextInputType.number,
                 ),
               ],
             ),
