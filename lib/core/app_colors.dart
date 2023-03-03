@@ -50,4 +50,6 @@ class AppColors {
       900: Color(0xff1a637f),
     },
   );
+
+  static const Color cardBgColor = Color(0xffef7f1a);
 }

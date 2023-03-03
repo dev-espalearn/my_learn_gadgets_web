@@ -15,6 +15,7 @@ import 'package:my_learn_gadgets_web/features/wish_list/ui/wish_list_screen.dart
 import 'package:my_learn_gadgets_web/models/product_model.dart';
 
 import '../../../core/app_string.dart';
+import '../../checkout/ui/check_out_screen.dart';
 import '../../product_details/ui/product_details_screen.dart';
 import '../../search/ui/search_screen.dart';
 import '../../search_by_category/ui/search_by_category_screen.dart';
@@ -199,7 +200,16 @@ class HomeScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(4),
                     child: NeumorphicButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (FirebaseAuth.instance.currentUser != null &&
+                            FirebaseAuth.instance.currentUser!.email !=
+                                AppString.emailForTemporaryLogin) {
+                          Get.to(() => CheckOutScreen());
+                        } else {
+                          Get.to(() => SignInScreen(),
+                              transition: Transition.cupertino);
+                       }
+                      },
                       style: const NeumorphicStyle(
                           shape: NeumorphicShape.convex,
                           color: Colors.white,
