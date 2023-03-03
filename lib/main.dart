@@ -3,7 +3,6 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/features/splash/ui/splash_page.dart';
-
 import 'features/unknown/unknown_route.dart';
 
 Future<void> main() async {
