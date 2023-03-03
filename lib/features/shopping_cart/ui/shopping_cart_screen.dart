@@ -27,7 +27,7 @@ class ShoppingCartScreen extends StatelessWidget {
           backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
           appBar: AppBar(
             elevation: 0,
-            leading: Icon(Icons.shopping_cart),
+            leading: const Icon(Icons.shopping_cart),
             title: const Text(
               'My Cart',
             ),
@@ -41,7 +41,7 @@ class ShoppingCartScreen extends StatelessWidget {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total:", style: TextStyle(fontSize: 20)),
+                      const Text("Total:", style: TextStyle(fontSize: 20)),
                       StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
                               .collection(AppString.users)
@@ -58,7 +58,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                   products.isNotEmpty
                                       ? "Rs. ${products.map((e) => e.product.discountedPrice * e.quantity).reduce((value, element) => value + element)}"
                                       : "Rs. 0.0",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w500));
                             }
@@ -161,7 +161,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                                   size: 20,
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 10,
                                               ),
                                               NeumorphicButton(
@@ -185,7 +185,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             width: 8,
                                           ),
                                           Neumorphic(

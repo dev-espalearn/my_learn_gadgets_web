@@ -4,8 +4,6 @@ import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import '../../../core/app_string.dart';
@@ -34,7 +32,7 @@ class CheckOutScreen extends StatelessWidget {
               children: [
                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total:", style: TextStyle(fontSize: 20)),
+                      const Text("Total:", style: TextStyle(fontSize: 20)),
                       StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
                               .collection(AppString.users)
@@ -55,7 +53,7 @@ class CheckOutScreen extends StatelessWidget {
                                       .reduce((value, element) =>
                                   value + element)}"
                                       : "Rs. 0.0",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w500));
                             }
@@ -68,7 +66,7 @@ class CheckOutScreen extends StatelessWidget {
                   thickness: 2,
                   color: AppColors.primaryColor,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
               TextFormField(
                 controller: checkOutGetController.addressLine1Controller,
@@ -79,7 +77,7 @@ class CheckOutScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 controller: checkOutGetController.addressLine2Controller,
                 decoration: InputDecoration(
@@ -89,7 +87,7 @@ class CheckOutScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
@@ -103,7 +101,7 @@ class CheckOutScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                       child: TextFormField(
                         controller: checkOutGetController.stateController,
@@ -117,7 +115,7 @@ class CheckOutScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
                   controller: checkOutGetController.pinCodeController,
                   decoration: InputDecoration(
@@ -128,7 +126,7 @@ class CheckOutScreen extends StatelessWidget {
                   ),
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
                   controller: checkOutGetController.phoneController,
                   decoration: InputDecoration(
@@ -139,8 +137,8 @@ class CheckOutScreen extends StatelessWidget {
                   ),
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(height: 20),
-                Text("Your Card Info", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 20),
+                const Text("Your Card Info", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 Column(
                   children: [
                     const SizedBox(
@@ -324,9 +322,9 @@ class CheckOutScreen extends StatelessWidget {
                                     intensity: 5,
                                     lightSource: LightSource.topLeft,
                                     color: Colors.white),
-                                padding: EdgeInsets.all(12),
+                                padding: const EdgeInsets.all(12),
                                 child: checkOutGetController.isLoading.value
-                                    ? Center(child: CircularProgressIndicator())
+                                    ? const Center(child: CircularProgressIndicator())
                                     : Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [

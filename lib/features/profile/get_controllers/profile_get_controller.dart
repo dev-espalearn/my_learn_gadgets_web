@@ -52,9 +52,9 @@ class ProfileGetController extends GetxController {
 
   Map<int, Widget?> routing = {
     0: null,
-    1: ChangePasswordScreen(),
+    1: const ChangePasswordScreen(),
     2: ShoppingCartScreen(),
-    3: WishListScreen(),
+    3: const WishListScreen(),
   };
 
   @override

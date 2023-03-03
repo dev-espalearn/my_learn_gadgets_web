@@ -12,7 +12,7 @@ class CheckOutGetController extends GetxController{
   TextEditingController phoneController = TextEditingController();
 
   RxBool isLoading = false.obs;
-  Uuid uuid = Uuid();
+  Uuid uuid = const Uuid();
   RxString cardNumber = ''.obs;
   RxString expiryDate = ''.obs;
   RxString cardHolderName = ''.obs;
