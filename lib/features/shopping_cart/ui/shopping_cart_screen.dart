@@ -7,6 +7,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
+import 'package:my_learn_gadgets_web/features/checkout/ui/check_out_screen.dart';
 
 import '../../../models/cart_item.dart';
 import '../get_controllers/shopping_cart_get_controller.dart';
@@ -226,7 +227,9 @@ class ShoppingCartScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: NeumorphicButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => CheckOutScreen());
+                  },
                   style: const NeumorphicStyle(
                     shape: NeumorphicShape.flat,
                     color: Colors.white,
@@ -243,7 +246,8 @@ class ShoppingCartScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ],),
+            ],
+          ),
         ),
       ),
     );

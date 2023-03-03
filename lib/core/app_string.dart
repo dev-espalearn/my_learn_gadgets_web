@@ -26,4 +26,8 @@ class AppString {
   static String newsletter = "newsLetter";
 
   static String reviews = "Reviews";
+
+  static String addresses = "Addresses";
+
+  static String address = "address";
 }
