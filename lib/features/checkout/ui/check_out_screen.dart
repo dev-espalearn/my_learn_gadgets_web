@@ -28,7 +28,7 @@ class CheckOutScreen extends StatelessWidget {
         ),
         body: Padding(
           padding:
-          EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
+          EdgeInsets.symmetric(horizontal: Get.width * 0.3, vertical: 8),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -146,37 +146,40 @@ class CheckOutScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    CreditCardWidget(
-                      glassmorphismConfig: checkOutGetController.useGlassMorphism.value
-                          ? Glassmorphism.defaultConfig()
-                          : null,
-                      cardNumber: checkOutGetController.cardNumber.value,
-                      expiryDate: checkOutGetController.expiryDate.value,
-                      cardHolderName: checkOutGetController.cardHolderName.value,
-                      cvvCode: checkOutGetController.cvvCode.value,
-                      bankName: 'Axis Bank',
-                      frontCardBorder: Border.all(color: AppColors.primaryColor.shade500),
-                      backCardBorder: Border.all(color: AppColors.primaryColor.shade500),
-                      showBackView: checkOutGetController.isCvvFocused.value,
-                      obscureCardNumber: true,
-                      obscureCardCvv: true,
-                      isHolderNameVisible: true,
-                      cardBgColor: AppColors.cardBgColor,
-                      backgroundImage: checkOutGetController.useGlassMorphism.value
-                          ? 'assets/card_bg.png'
-                          : null,
-                      isSwipeGestureEnabled: true,
-                      onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
-                      customCardTypeIcons: <CustomCardTypeIcon>[
-                        CustomCardTypeIcon(
-                          cardType: CardType.mastercard,
-                          cardImage: Image.asset(
-                            'assets/mastercard.png',
-                            height: 48,
-                            width: 48,
+                    SizedBox(
+                      height: Get.width * 0.2,
+                      child: CreditCardWidget(
+                        glassmorphismConfig: checkOutGetController.useGlassMorphism.value
+                            ? Glassmorphism.defaultConfig()
+                            : null,
+                        cardNumber: checkOutGetController.cardNumber.value,
+                        expiryDate: checkOutGetController.expiryDate.value,
+                        cardHolderName: checkOutGetController.cardHolderName.value,
+                        cvvCode: checkOutGetController.cvvCode.value,
+                        bankName: 'Axis Bank',
+                        frontCardBorder: Border.all(color: AppColors.primaryColor.shade500),
+                        backCardBorder: Border.all(color: AppColors.primaryColor.shade500),
+                        showBackView: checkOutGetController.isCvvFocused.value,
+                        obscureCardNumber: true,
+                        obscureCardCvv: true,
+                        isHolderNameVisible: true,
+                        cardBgColor: AppColors.cardBgColor,
+                        backgroundImage: checkOutGetController.useGlassMorphism.value
+                            ? 'assets/card_bg.png'
+                            : null,
+                        isSwipeGestureEnabled: true,
+                        onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
+                        customCardTypeIcons: <CustomCardTypeIcon>[
+                          CustomCardTypeIcon(
+                            cardType: CardType.mastercard,
+                            cardImage: Image.asset(
+                              'assets/mastercard.png',
+                              height: 48,
+                              width: 48,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
