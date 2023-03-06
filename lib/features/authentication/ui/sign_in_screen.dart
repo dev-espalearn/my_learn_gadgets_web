@@ -2,7 +2,6 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/features/authentication/ui/sign_up_screen.dart';
-
 import '../get_controllers/sign_in_get_controller.dart';
 
 class SignInScreen extends StatelessWidget {

@@ -30,4 +30,6 @@ class AppString {
   static String addresses = "Addresses";
 
   static String address = "address";
+
+  static String orders = "Orders";
 }

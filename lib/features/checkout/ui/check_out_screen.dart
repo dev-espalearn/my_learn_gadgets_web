@@ -18,6 +18,8 @@ class CheckOutScreen extends StatelessWidget {
 
   CheckOutGetController checkOutGetController = Get.put(CheckOutGetController());
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +48,8 @@ class CheckOutScreen extends StatelessWidget {
                                   CartItem.fromJson(
                                       jsonDecode(jsonEncode(e.data()))))
                                   .toList();
+
+                              checkOutGetController.products.value = products;
                               return Text(
                                   products.isNotEmpty
                                       ? "Rs. ${products.map((e) =>
@@ -163,18 +167,22 @@ class CheckOutScreen extends StatelessWidget {
                         isHolderNameVisible: true,
                         cardBgColor: AppColors.cardBgColor,
                         backgroundImage: checkOutGetController.useGlassMorphism.value
-                            ? 'assets/card_bg.png'
+                            ? 'assets/images/card_bg.png'
                             : null,
                         isSwipeGestureEnabled: true,
                         onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
                         customCardTypeIcons: <CustomCardTypeIcon>[
                           CustomCardTypeIcon(
                             cardType: CardType.mastercard,
-                            cardImage: Image.asset(
-                              'assets/mastercard.png',
-                              height: 48,
+                            cardImage:
+                            const Image(
+                              image: AssetImage(
+                                'assets/images/mastercard.png',
+                              ),
                               width: 48,
+                              height: 48,
                             ),
+
                           ),
                         ],
                       ),
@@ -312,7 +320,7 @@ class CheckOutScreen extends StatelessWidget {
                             return
                               NeumorphicButton(
                                 onPressed: () {
-
+                                  checkOutGetController.pay();
                                 },
                                 style: NeumorphicStyle(
                                     shape: NeumorphicShape.convex,
