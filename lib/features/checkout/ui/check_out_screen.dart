@@ -175,13 +175,18 @@ class CheckOutScreen extends StatelessWidget {
                           CustomCardTypeIcon(
                             cardType: CardType.mastercard,
                             cardImage:
-                            const Image(
-                              image: AssetImage(
-                                'assets/images/mastercard.png',
-                              ),
-                              width: 48,
+                            Image.asset(
+                              'assets/images/mastercard.png',
                               height: 48,
+                              width: 48,
                             ),
+                            // const Image(
+                            //   image: AssetImage(
+                            //     'assets/images/mastercard.png',
+                            //   ),
+                            //   width: 48,
+                            //   height: 48,
+                            // ),
 
                           ),
                         ],
