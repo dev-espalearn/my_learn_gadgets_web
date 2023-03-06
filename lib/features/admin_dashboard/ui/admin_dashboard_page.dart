@@ -10,151 +10,156 @@ class AdminDashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight),
-        child: Row(
-          children: [
-            Expanded(child: Image.asset('assets/images/My learn gadgets.png')),
-            NeumorphicButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut().then((value) {
-                  Get.offAll(() => SignInScreen());
-                });
-              },
-              style: const NeumorphicStyle(
-                  shape: NeumorphicShape.convex,
-                  boxShape: NeumorphicBoxShape.circle(),
-                  depth: 2,
-                  intensity: 0.4,
-                  color: Colors.white),
-              child: const Icon(Icons.logout),
+    return SafeArea(
+      child: ColoredBox(
+        color: Colors.white,
+        child: Scaffold(
+          backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(kToolbarHeight),
+            child: Row(
+              children: [
+                Expanded(child: Image.asset('assets/images/My learn gadgets.png')),
+                NeumorphicButton(
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut().then((value) {
+                      Get.offAll(() => SignInScreen());
+                    });
+                  },
+                  style: const NeumorphicStyle(
+                      shape: NeumorphicShape.convex,
+                      boxShape: NeumorphicBoxShape.circle(),
+                      depth: 2,
+                      intensity: 0.4,
+                      color: Colors.white),
+                  child: const Icon(Icons.logout),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: const [
-                    Text(
-                      "Products",
-                      style: TextStyle(fontSize: 24),
+          ),
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: const [
+                        Text(
+                          "Products",
+                          style: TextStyle(fontSize: 24),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              NeumorphicButton(
-                onPressed: () {},
-                style: const NeumorphicStyle(
-                    shape: NeumorphicShape.convex,
-                    depth: 2,
-                    intensity: 0.4,
-                    color: Colors.white),
-                child: const ListTile(
-                  leading: Icon(Icons.add),
-                  title: Text("Add Product"),
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              NeumorphicButton(
-                onPressed: () {},
-                style: const NeumorphicStyle(
-                    shape: NeumorphicShape.convex,
-                    depth: 2,
-                    intensity: 0.4,
-                    color: Colors.white),
-                child: const ListTile(
-                  leading: Icon(Icons.list),
-                  title: Text("All Products"),
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              NeumorphicButton(
-                onPressed: () {},
-                style: const NeumorphicStyle(
-                    shape: NeumorphicShape.convex,
-                    depth: 2,
-                    intensity: 0.4,
-                    color: Colors.white),
-                child: const ListTile(
-                  leading: Icon(Icons.refresh),
-                  title: Text("Refill Stock"),
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              NeumorphicButton(
-                onPressed: () {},
-                style: const NeumorphicStyle(
-                    shape: NeumorphicShape.convex,
-                    depth: 2,
-                    intensity: 0.4,
-                    color: Colors.white),
-                child: const ListTile(
-                  leading: Icon(Icons.star),
-                  title: Text("Choose Featured Product"),
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: const [
-                    Text(
-                      "Orders",
-                      style: TextStyle(fontSize: 24),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  NeumorphicButton(
+                    onPressed: () {},
+                    style: const NeumorphicStyle(
+                        shape: NeumorphicShape.convex,
+                        depth: 2,
+                        intensity: 0.4,
+                        color: Colors.white),
+                    child: const ListTile(
+                      leading: Icon(Icons.add),
+                      title: Text("Add Product"),
                     ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  NeumorphicButton(
+                    onPressed: () {},
+                    style: const NeumorphicStyle(
+                        shape: NeumorphicShape.convex,
+                        depth: 2,
+                        intensity: 0.4,
+                        color: Colors.white),
+                    child: const ListTile(
+                      leading: Icon(Icons.list),
+                      title: Text("All Products"),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  NeumorphicButton(
+                    onPressed: () {},
+                    style: const NeumorphicStyle(
+                        shape: NeumorphicShape.convex,
+                        depth: 2,
+                        intensity: 0.4,
+                        color: Colors.white),
+                    child: const ListTile(
+                      leading: Icon(Icons.refresh),
+                      title: Text("Refill Stock"),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  NeumorphicButton(
+                    onPressed: () {},
+                    style: const NeumorphicStyle(
+                        shape: NeumorphicShape.convex,
+                        depth: 2,
+                        intensity: 0.4,
+                        color: Colors.white),
+                    child: const ListTile(
+                      leading: Icon(Icons.star),
+                      title: Text("Choose Featured Product"),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: const [
+                        Text(
+                          "Orders",
+                          style: TextStyle(fontSize: 24),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  NeumorphicButton(
+                    onPressed: () {},
+                    style: const NeumorphicStyle(
+                        shape: NeumorphicShape.convex,
+                        depth: 2,
+                        intensity: 0.4,
+                        color: Colors.white),
+                    child: const ListTile(
+                      leading: Icon(Icons.history),
+                      title: Text("Orders History"),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  NeumorphicButton(
+                    onPressed: () {},
+                    style: const NeumorphicStyle(
+                        shape: NeumorphicShape.convex,
+                        depth: 2,
+                        intensity: 0.4,
+                        color: Colors.white),
+                    child: const ListTile(
+                      leading: Icon(Icons.timelapse_sharp),
+                      title: Text("Pending Orders"),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              NeumorphicButton(
-                onPressed: () {},
-                style: const NeumorphicStyle(
-                    shape: NeumorphicShape.convex,
-                    depth: 2,
-                    intensity: 0.4,
-                    color: Colors.white),
-                child: const ListTile(
-                  leading: Icon(Icons.history),
-                  title: Text("Orders History"),
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              NeumorphicButton(
-                onPressed: () {},
-                style: const NeumorphicStyle(
-                    shape: NeumorphicShape.convex,
-                    depth: 2,
-                    intensity: 0.4,
-                    color: Colors.white),
-                child: const ListTile(
-                  leading: Icon(Icons.timelapse_sharp),
-                  title: Text("Pending Orders"),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
