@@ -224,27 +224,34 @@ class ShoppingCartScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //proceed to checkout
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: NeumorphicButton(
-                  onPressed: () {
-                    Get.to(() => CheckOutScreen());
-                  },
-                  style: const NeumorphicStyle(
-                    shape: NeumorphicShape.flat,
-                    color: Colors.white,
-                    depth: 1,
-                    intensity: 1,
-                  ),
-                  child: Text(
-                    'Proceed to Checkout >>',
-                    style: TextStyle(
-                      color: AppColors.tertiaryColor,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
+              Obx((){
+                return
+                Visibility(
+                  visible: getController.cartItems.isNotEmpty,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: NeumorphicButton(
+                      onPressed: () {
+                        Get.to(() => CheckOutScreen());
+                      },
+                      style: const NeumorphicStyle(
+                        shape: NeumorphicShape.flat,
+                        color: Colors.white,
+                        depth: 1,
+                        intensity: 1,
+                      ),
+                      child: Text(
+                        'Proceed to Checkout >>',
+                        style: TextStyle(
+                          color: AppColors.tertiaryColor,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                );
+                }
               ),
             ],
           ),

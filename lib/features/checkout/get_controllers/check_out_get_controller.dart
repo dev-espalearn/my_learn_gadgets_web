@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_model.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
-
 import '../../../core/app_string.dart';
 import '../../../models/cart_item.dart';
 import '../../../models/order_model.dart';
