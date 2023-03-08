@@ -46,12 +46,15 @@ class PendingOrdersScreen extends StatelessWidget {
                           return ListView.builder(
                               itemBuilder: (context, index) {
                                 OrderModel order = products[index];
-                                return
-                                  GestureDetector(
-                                    onTap: (){
-                                      Get.to(transition: Transition.cupertino, () => PendingOrderDetail(products: order.products,));
-                                    },
-                                    child: Padding(
+                                return GestureDetector(
+                                  onTap: () {
+                                    Get.to(
+                                        transition: Transition.cupertino,
+                                        () => PendingOrderDetail(
+                                              products: order.products,
+                                            ));
+                                  },
+                                  child: Padding(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 8.0, vertical: 4),
                                     child: Neumorphic(
@@ -66,15 +69,14 @@ class PendingOrdersScreen extends StatelessWidget {
                                         child: Row(
                                           children: [
                                             SizedBox(
-                                                width: Get.width / 5,
-                                                child:
-                                                const Image(
-                                                  image: AssetImage(
-                                                    'assets/images/My learn gadgets.png',
-                                                  ),
-                                                  width: 60,
-                                                  height: 60,
+                                              width: Get.width / 5,
+                                              child: const Image(
+                                                image: AssetImage(
+                                                  'assets/images/My learn gadgets.png',
                                                 ),
+                                                width: 60,
+                                                height: 60,
+                                              ),
                                             ),
                                             const SizedBox(
                                               width: 20,
@@ -87,7 +89,8 @@ class PendingOrdersScreen extends StatelessWidget {
                                                   AutoSizeText(
                                                     'Order Id: ${order.id}',
                                                     style: const TextStyle(
-                                                      fontWeight: FontWeight.w500,
+                                                      fontWeight:
+                                                          FontWeight.w500,
                                                     ),
                                                   ),
                                                   const SizedBox(
@@ -96,7 +99,8 @@ class PendingOrdersScreen extends StatelessWidget {
                                                   AutoSizeText(
                                                     'Customer name: ${order.customer.firstName}',
                                                     style: const TextStyle(
-                                                      fontWeight: FontWeight.w500,
+                                                      fontWeight:
+                                                          FontWeight.w500,
                                                     ),
                                                   ),
                                                   const SizedBox(
@@ -122,8 +126,10 @@ class PendingOrdersScreen extends StatelessWidget {
                                                     height: 10,
                                                   ),
                                                   Neumorphic(
-                                                    style: const NeumorphicStyle(
-                                                      shape: NeumorphicShape.flat,
+                                                    style:
+                                                        const NeumorphicStyle(
+                                                      shape:
+                                                          NeumorphicShape.flat,
                                                       color: Colors.white,
                                                       depth: -1,
                                                       intensity: 1,
@@ -136,7 +142,8 @@ class PendingOrdersScreen extends StatelessWidget {
                                                       child: Text(
                                                         'View all items',
                                                         style: TextStyle(
-                                                            color: Colors.black),
+                                                            color:
+                                                                Colors.black),
                                                       ),
                                                     ),
                                                   ),
@@ -147,8 +154,8 @@ class PendingOrdersScreen extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                ),
-                                  );
+                                  ),
+                                );
                               },
                               itemCount: products.length);
                         }

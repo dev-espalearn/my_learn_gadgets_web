@@ -1,17 +1,11 @@
-import 'dart:convert';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
-import 'package:my_learn_gadgets_web/core/app_string.dart';
-import 'package:my_learn_gadgets_web/helpers/date_time_helpers.dart';
 import '../../../models/cart_item.dart';
-import '../../../models/order_model.dart';
-import '../../../models/product_model.dart';
 
 class PendingOrderDetail extends StatefulWidget {
-  final  List<CartItem> products;
+  final List<CartItem> products;
 
   PendingOrderDetail({Key? key, required this.products}) : super(key: key);
 
@@ -37,9 +31,8 @@ class _PendingOrderDetailState extends State<PendingOrderDetail> {
           ),
           body: Padding(
             padding:
-            EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
-            child:
-            Column(
+                EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
+            child: Column(
               children: [
                 Expanded(
                   child: ListView.separated(
@@ -52,87 +45,82 @@ class _PendingOrderDetailState extends State<PendingOrderDetail> {
                       primary: false,
                       itemBuilder: (context, index) {
                         final tile = widget.products[index];
-                        return
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8.0, vertical: 4),
-                            child: Neumorphic(
-                              style: const NeumorphicStyle(
-                                shape: NeumorphicShape.flat,
-                                color: Colors.white,
-                                depth: 1,
-                                intensity: 1,
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  children: [
-                                    SizedBox(
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8.0, vertical: 4),
+                          child: Neumorphic(
+                            style: const NeumorphicStyle(
+                              shape: NeumorphicShape.flat,
+                              color: Colors.white,
+                              depth: 1,
+                              intensity: 1,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  SizedBox(
                                       width: Get.width / 5,
-                                      child:
-                                      Image.network(
-                                          tile.product.image)
+                                      child: Image.network(tile.product.image)),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        AutoSizeText(
+                                          'Product id: ${tile.product.id}',
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        AutoSizeText(
+                                          'Product name: ${tile.product.name}',
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        AutoSizeText(
+                                          'Description: ${tile.product.description}',
+                                          maxLines: 4,
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        AutoSizeText(
+                                          'Category: ${tile.product.category}',
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        AutoSizeText(
+                                          'Ordered Quantity: ${tile.quantity.toString()}',
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        AutoSizeText(
+                                          'Quantity Left: ${tile.product.quantityLeft.toString()}',
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                      ],
                                     ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: [
-                                          AutoSizeText(
-                                            'Product id: ${tile.product.id}',
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          AutoSizeText(
-                                            'Product name: ${tile.product.name}',
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          AutoSizeText(
-                                            'Description: ${tile.product.description}',
-                                            maxLines: 4,
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          AutoSizeText(
-                                            'Category: ${tile.product.category}',
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          AutoSizeText(
-                                            'Ordered Quantity: ${tile.quantity.toString()}',
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          AutoSizeText(
-                                            'Quantity Left: ${tile.product.quantityLeft.toString()}',
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
-                          );
+                          ),
+                        );
                       }),
                 ),
               ],
