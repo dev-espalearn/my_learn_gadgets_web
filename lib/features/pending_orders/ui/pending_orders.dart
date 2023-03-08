@@ -22,7 +22,7 @@ class PendingOrdersScreen extends StatelessWidget {
             elevation: 0,
             leading: const Icon(Icons.shopping_cart),
             title: const Text(
-              'My Cart',
+              'Pending Orders',
             ),
             automaticallyImplyLeading: false,
           ),
@@ -61,8 +61,15 @@ class PendingOrdersScreen extends StatelessWidget {
                                         children: [
                                           SizedBox(
                                               width: Get.width / 5,
-                                              child: Image.network(order
-                                                  .products[0].product.image)),
+                                              child:
+                                              const Image(
+                                                image: AssetImage(
+                                                  'assets/images/My learn gadgets.png',
+                                                ),
+                                                width: 60,
+                                                height: 60,
+                                              ),
+                                          ),
                                           const SizedBox(
                                             width: 20,
                                           ),
