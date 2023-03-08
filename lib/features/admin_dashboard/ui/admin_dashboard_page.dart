@@ -3,6 +3,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/features/authentication/ui/sign_in_screen.dart';
 import '../../../core/app_colors.dart';
+import '../../pending_orders/ui/pending_orders.dart';
 import '../../widgets/card_tile.dart';
 import '../../widgets/chart_card_tile.dart';
 
@@ -216,13 +217,18 @@ class AdminDashboardPage extends StatelessWidget {
                                   MainAxisAlignment.center,
                                   crossAxisAlignment:
                                   CrossAxisAlignment.center,
-                                  children: const <Widget>[
-                                    CardTile(
-                                      cardColor: Colors.white,
-                                      cardTitle: 'Pending Orders',
-                                      icon: Icons.flight_takeoff,
-                                      subText: 'Todays',
-                                      typeText: '230',
+                                  children:  <Widget>[
+                                    GestureDetector(
+                                      onTap: (){
+                                        Get.offAll(transition: Transition.cupertino, () => PendingOrdersScreen());
+                                      },
+                                      child: const CardTile(
+                                        cardColor: Colors.white,
+                                        cardTitle: 'Pending Orders',
+                                        icon: Icons.flight_takeoff,
+                                        subText: 'Todays',
+                                        typeText: '230',
+                                      ),
                                     ),
                                     // ChartCardTile(
                                     //   cardColor: Colors.white,
