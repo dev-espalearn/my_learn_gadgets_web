@@ -105,7 +105,7 @@ class AdminDashboardPage extends StatelessWidget {
                                  // MainAxisAlignment.center,
                                  // crossAxisAlignment:
                                  // CrossAxisAlignment.center,
-                                 children: <Widget>[
+                                 children: const <Widget>[
 
                                    ChartCardTile(
                                      cardColor:
@@ -220,7 +220,7 @@ class AdminDashboardPage extends StatelessWidget {
                                   children:  <Widget>[
                                     GestureDetector(
                                       onTap: (){
-                                        Get.offAll(transition: Transition.cupertino, () => PendingOrdersScreen());
+                                        Get.to(transition: Transition.cupertino, () => PendingOrdersScreen());
                                       },
                                       child: const CardTile(
                                         cardColor: Colors.white,
