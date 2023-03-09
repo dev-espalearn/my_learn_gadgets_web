@@ -32,4 +32,6 @@ class AppString {
   static String address = "address";
 
   static String orders = "Orders";
+
+  static String progress = "Progress";
 }
