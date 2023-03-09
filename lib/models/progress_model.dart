@@ -1,23 +1,23 @@
 class ProgressModel {
   int id;
-  String status;
+  String name;
 
-  ProgressModel({required this.id, required this.status});
+  ProgressModel({required this.id, required this.name});
 
   factory ProgressModel.fromJson(Map<String, dynamic> json) => ProgressModel(
     id: json["id"],
-    status: json["status"],
+    name: json["name"],
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "status": status,
+    "name": name,
   };
 
   factory ProgressModel.empty() {
     return ProgressModel(
       id: 0,
-      status: 'pending',
+      name: 'Pending',
     );
   }
 }

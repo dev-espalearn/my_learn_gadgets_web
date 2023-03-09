@@ -120,11 +120,11 @@ class PendingOrdersScreen extends StatelessWidget {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                Obx(() {
-                                                  return AutoSizeText(
-                                                    'Status: ${getController.selectedProgressStatus.value.status}',
-                                                  );
-                                                }),
+
+                                                    AutoSizeText(
+                                                    'Status: ${order.progress.name}',
+                                                  ),
+
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
@@ -172,7 +172,7 @@ class PendingOrdersScreen extends StatelessWidget {
                                                             .width,
                                                     height: 50,
                                                     padding:
-                                                        EdgeInsets.symmetric(
+                                                        const EdgeInsets.symmetric(
                                                             vertical: 4,
                                                             horizontal: 8),
                                                     decoration: BoxDecoration(
@@ -191,15 +191,15 @@ class PendingOrdersScreen extends StatelessWidget {
                                                           value: getController
                                                               .selectedProgressStatus
                                                               .value
-                                                              .status,
+                                                              .name,
                                                           items: getController
                                                               .progress
                                                               .map((e) =>
                                                                   DropdownMenuItem(
                                                                     value: e
-                                                                        .status,
+                                                                        .name,
                                                                     child: Text(e
-                                                                        .status
+                                                                        .name
                                                                         .toString()),
                                                                   ))
                                                               .toList(),
@@ -212,12 +212,18 @@ class PendingOrdersScreen extends StatelessWidget {
                                                                       .progress
                                                                       .firstWhere((element) =>
                                                                           element
-                                                                              .status ==
+                                                                              .name ==
                                                                           value
                                                                               .toString());
                                                             }
+                                                            if( getController
+                                                                .selectedProgressStatus
+                                                                .value.name == 'Delivered')
+                                                              {
+                                                                getController.addToOrderHistory(order);
+                                                              }
                                                           },
-                                                          style: TextStyle(
+                                                          style: const TextStyle(
                                                             color: Color(
                                                                 0xff000000),
                                                             fontSize: 16,

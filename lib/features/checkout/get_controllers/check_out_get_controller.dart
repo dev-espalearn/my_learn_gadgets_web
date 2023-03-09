@@ -8,6 +8,7 @@ import 'package:uuid/uuid.dart';
 import '../../../core/app_string.dart';
 import '../../../models/cart_item.dart';
 import '../../../models/order_model.dart';
+import '../../../models/progress_model.dart';
 import '../../../models/user_model.dart';
 import '../../home/ui/home_screen.dart';
 import '../../shopping_cart/get_controllers/shopping_cart_get_controller.dart';
@@ -97,7 +98,7 @@ class CheckOutGetController extends GetxController {
       id: orderId,
       customer: userModel.value,
       orderDate: DateTime.now(),
-      progress: 0 ,
+      progress: ProgressModel.empty(),
       products: products,
       address: '${addressLine1Controller.text},${addressLine2Controller.text},${cityController.text},${stateController.text},${pinCodeController.text}',
       phoneNumber: phoneController.text,
@@ -107,7 +108,7 @@ class CheckOutGetController extends GetxController {
 
     await FirebaseFirestore.instance
         .collection(AppString.orders)
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .doc(orderId)
         .set(orderModel.toJson())
     .then((value) {
       isLoading.value = false;

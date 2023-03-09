@@ -33,5 +33,8 @@ class AppString {
 
   static String orders = "Orders";
 
-  static String progress = "Progress";
+ // static String progress = "Progress";
+
+  static String ordersHistory = "Orders History";
+
 }

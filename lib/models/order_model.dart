@@ -1,11 +1,12 @@
 import 'package:my_learn_gadgets_web/models/cart_item.dart';
+import 'package:my_learn_gadgets_web/models/progress_model.dart';
 import 'package:my_learn_gadgets_web/models/user_model.dart';
 
 class OrderModel {
   String id;
   UserModel customer;
   DateTime orderDate;
-  int progress; // 0: pending, 1: processing, 2: shipped, 3: delivered
+  ProgressModel progress; // 0: pending, 1: processing, 2: shipped, 3: delivered
   List<CartItem> products;
   String address;
   String phoneNumber;
@@ -27,7 +28,7 @@ class OrderModel {
       id: json['id'],
       customer: UserModel.fromJson(json['customer']),
       orderDate: DateTime.parse(json['orderDate']),
-      progress: json['progress'],
+      progress: ProgressModel.fromJson(json['progress']),
       products: List<CartItem>.from(
           json['products'].map((x) => CartItem.fromJson(x))),
       address: json['address'],
@@ -41,7 +42,7 @@ class OrderModel {
       'id': id,
       'customer': customer.toJson(),
       'orderDate': orderDate.toIso8601String(),
-      'progress': progress,
+      'progress': progress.toJson(),
       'products': List<dynamic>.from(products.map((x) => x.toJson())),
       'address': address,
       'phoneNumber': phoneNumber,
