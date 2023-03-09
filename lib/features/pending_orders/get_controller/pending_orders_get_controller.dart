@@ -1,5 +1,5 @@
+import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import '../../../core/app_string.dart';
 import '../../../models/order_model.dart';
@@ -21,20 +21,39 @@ class PendingOrdersGetController extends GetxController {
     });
   }
 
-  Future<void> addToOrderHistory(OrderModel selectedOrder) async{
+  Future<void> addToOrderHistory(OrderModel selectedOrder) async {
     await FirebaseFirestore.instance
         .collection(AppString.ordersHistory)
         .doc(selectedOrder.id)
-        .set(selectedOrder.toJson()).then((value) {
+        .set(selectedOrder.toJson())
+        .then((value) {
       removeFromOrders(selectedOrder);
     });
   }
 
-  Future<void> removeFromOrders(OrderModel selectedOrder) async{
+  Future<void> removeFromOrders(OrderModel selectedOrder) async {
     await FirebaseFirestore.instance
         .collection(AppString.orders)
         .doc(selectedOrder.id)
-        .delete();
+        .delete()
+        .then((value) {});
+  }
+
+  Future<void> changeProgressStatus(OrderModel selectedOrder) async {
+    FirebaseFirestore.instance
+        .collection(AppString.orders)
+        .doc(selectedOrder.id)
+        .get()
+        .then((value) {
+      OrderModel orderModel =
+          OrderModel.fromJson(jsonDecode(jsonEncode(value.data())));
+      orderModel = OrderModel.copyWith(orderModel,
+          progress: selectedProgressStatus.value);
+      FirebaseFirestore.instance
+          .collection(AppString.orders)
+          .doc(selectedOrder.id)
+          .set(orderModel.toJson());
+    });
   }
 
   @override

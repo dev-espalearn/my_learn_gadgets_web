@@ -47,9 +47,13 @@ class PendingOrdersScreen extends StatelessWidget {
                               .map((e) => OrderModel.fromJson(
                                   jsonDecode(jsonEncode(e.data()))))
                               .toList();
-                          return ListView.builder(
+                          return
+                            ListView.builder(
                               itemBuilder: (context, index) {
                                 OrderModel order = products[index];
+                                if (order.progress.name == 'Delivered') {
+                                  getController.addToOrderHistory(order);
+                                }
 
                                 return Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -216,12 +220,12 @@ class PendingOrdersScreen extends StatelessWidget {
                                                                           value
                                                                               .toString());
                                                             }
-                                                            if( getController
-                                                                .selectedProgressStatus
-                                                                .value.name == 'Delivered')
-                                                              {
-                                                                getController.addToOrderHistory(order);
-                                                              }
+                                                            getController.changeProgressStatus(order);
+
+
+
+
+
                                                           },
                                                           style: const TextStyle(
                                                             color: Color(

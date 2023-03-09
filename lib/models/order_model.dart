@@ -49,4 +49,26 @@ class OrderModel {
       'estimatedDeliveryDate': estimatedDeliveryDate.toIso8601String(),
     };
   }
+
+  factory OrderModel.copyWith(OrderModel orderModel,
+      {String? id,
+      UserModel? customer,
+      DateTime? orderDate,
+      ProgressModel? progress,
+      List<CartItem>? products,
+      String? address,
+      String? phoneNumber,
+      DateTime? estimatedDeliveryDate}) {
+    return OrderModel(
+      id: id ?? orderModel.id,
+      customer: customer ?? orderModel.customer,
+      orderDate: orderDate ?? orderModel.orderDate,
+      progress: progress ?? orderModel.progress,
+      products: products ?? orderModel.products,
+      address: address ?? orderModel.address,
+      phoneNumber: phoneNumber ?? orderModel.phoneNumber,
+      estimatedDeliveryDate:
+          estimatedDeliveryDate ?? orderModel.estimatedDeliveryDate,
+    );
+  }
 }
