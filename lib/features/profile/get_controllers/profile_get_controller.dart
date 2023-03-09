@@ -7,6 +7,7 @@ import 'package:my_learn_gadgets_web/core/app_string.dart';
 import 'package:my_learn_gadgets_web/models/user_model.dart';
 import '../../login_and_security/ui/change_password_screen.dart';
 import '../../shopping_cart/ui/shopping_cart_screen.dart';
+import '../../user_order_history/ui/user_order_history_screen.dart';
 import '../../wish_list/ui/wish_list_screen.dart';
 
 class ProfileGetController extends GetxController {
@@ -55,6 +56,7 @@ class ProfileGetController extends GetxController {
     1: const ChangePasswordScreen(),
     2: ShoppingCartScreen(),
     3: const WishListScreen(),
+    4: UserOrderHistoryScreen(),
   };
 
   @override
