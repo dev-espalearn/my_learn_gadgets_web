@@ -18,7 +18,7 @@ class ProfileDashboard extends StatelessWidget {
       child: ColoredBox(
         color: Colors.white,
         child: Scaffold(
-          backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
+         // backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
           appBar: AppBar(
             elevation: 0,
             title: const Text('My Profile'),
@@ -26,38 +26,80 @@ class ProfileDashboard extends StatelessWidget {
           ),
           body: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4),
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: NeumorphicButton(
-                    onPressed: () {
-                      if (profileGetController.routing[index] != null) {
-                        Get.to(() => profileGetController.routing[index]!);
-                      }
-                    },
-                    style: const NeumorphicStyle(
-                      shape: NeumorphicShape.convex,
-                      color: Colors.white,
-                      depth: 2,
-                      intensity: 0.6,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                            profileGetController.options.keys.elementAt(index)),
-                        Text(profileGetController.options.values
-                            .elementAt(index)),
-                      ],
-                    ),
+            child:
+            Container(
+                width: Get.width,
+                height: Get.height,
+              child: GridView.builder(
+                gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 5.0,
+                  mainAxisSpacing: 5.0,
+                  childAspectRatio: 3
+                ),
+                // const SliverGridDelegateWithFixedCrossAxisCount(
+                //     crossAxisCount: 1),
+                itemBuilder: (context, index) {
+                  return
+                    GestureDetector(
+                      onTap:
+                          () {
+                            if (profileGetController.routing[index] != null) {
+                              Get.to(() => profileGetController.routing[index]!);
+                            }
+                          },
+
+                      child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child:
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                              profileGetController.options.keys.elementAt(index)),
+                          // Icon(
+                          //     profileGetController.options.keys.elementAt(index), size: 70, color: AppColors.tertiaryColor[800],),
+                          SizedBox(width: 20,),
+                          Text(profileGetController.options.values
+                              .elementAt(index), style: TextStyle(fontSize: 18, color: AppColors.tertiaryColor),),
+                        ],
+                      ),
+                      // SizedBox(
+                      //   width: Get.width/4,
+                      //   height: Get.height/4,
+                      //   child: NeumorphicButton(
+                      //     onPressed:
+                        //     () {
+                      //       if (profileGetController.routing[index] != null) {
+                      //         Get.to(() => profileGetController.routing[index]!);
+                      //       }
+                      //     },
+                      //     style: const NeumorphicStyle(
+                      //       shape: NeumorphicShape.convex,
+                      //       color: Colors.white,
+                      //       depth: 2,
+                      //       intensity: 0.6,
+                      //     ),
+                      //     child:
+                      //     Column(
+                      //       mainAxisAlignment: MainAxisAlignment.center,
+                      //       mainAxisSize: MainAxisSize.min,
+                      //       children: [
+                      //         Icon(
+                      //             profileGetController.options.keys.elementAt(index)),
+                      //         Text(profileGetController.options.values
+                      //             .elementAt(index)),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                   ),
-                );
-              },
-              itemCount: profileGetController.options.length,
+                    );
+                },
+                itemCount: profileGetController.options.length,
+              ),
             ),
           ),
           bottomNavigationBar: Padding(

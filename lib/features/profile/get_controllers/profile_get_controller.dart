@@ -41,14 +41,23 @@ class ProfileGetController extends GetxController {
       });
     });
   }
+  //
+  // Map<IconData, String> options = {
+  //   Icons.location_history: "Track orders",
+  //   Icons.lock: "Login and Security",
+  //   Icons.shopping_cart: "My Cart",
+  //   Icons.favorite: "My Wishlist",
+  //   Icons.card_travel: "Order History",
+  //   Icons.person: "My Details",
+  // };
 
-  Map<IconData, String> options = {
-    Icons.location_history: "Track orders",
-    Icons.lock: "Login and Security",
-    Icons.shopping_cart: "My Cart",
-    Icons.favorite: "My Wishlist",
-    Icons.history: "Order History",
-    Icons.person: "My Details",
+  Map<String, String> options = {
+    'assets/images/track.png': "Track orders",
+    'assets/images/login.png' : "Login and Security",
+    'assets/images/cart.png' : "My Cart",
+    'assets/images/wishlist.png' : "My Wishlist",
+    'assets/images/history.png' : "Order History",
+    'assets/images/details.png' : "My Details",
   };
 
   Map<int, Widget?> routing = {

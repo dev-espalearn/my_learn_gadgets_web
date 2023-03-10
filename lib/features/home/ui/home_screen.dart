@@ -72,18 +72,17 @@ class HomeScreen extends StatelessWidget {
               icon: const Icon(Icons.logout)),
         ],
       ),
-      body: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: 8.0),
-        child: Column(
-          children: [
-            Table(
-              children: [
-                TableRow(children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: NeumorphicButton(
-                      onPressed: () {
+      body: SingleChildScrollView(
+        child: Padding(
+          padding:
+              EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: 8.0),
+          child: Column(
+            children: [
+              Table(
+                children: [
+                  TableRow(children: [
+                    GestureDetector(
+                      onTap: () {
                         if (FirebaseAuth.instance.currentUser != null &&
                             FirebaseAuth.instance.currentUser!.email !=
                                 AppString.emailForTemporaryLogin) {
@@ -93,35 +92,67 @@ class HomeScreen extends StatelessWidget {
                               transition: Transition.cupertino);
                         }
                       },
-                      style: const NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          color: Colors.white,
-                          depth: 2,
-                          intensity: 1),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.person,
-                            color: AppColors.secondaryColor.shade300,
-                            size: 20,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          AutoSizeText(
-                            "My Account",
-                            style: TextStyle(
-                                color: AppColors.secondaryColor.shade300,
-                                fontSize: 12),
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.person,
+                              color: AppColors.cardBgColor,
+                              size: 30,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            AutoSizeText(
+                              "My Account",
+                              style: TextStyle(
+                                color: AppColors.cardBgColor,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                        // NeumorphicButton(
+                        //   onPressed: () {
+                        //     if (FirebaseAuth.instance.currentUser != null &&
+                        //         FirebaseAuth.instance.currentUser!.email !=
+                        //             AppString.emailForTemporaryLogin) {
+                        //       Get.to(() => ProfileDashboard());
+                        //     } else {
+                        //       Get.to(() => SignInScreen(),
+                        //           transition: Transition.cupertino);
+                        //     }
+                        //   },
+                        //   style: const NeumorphicStyle(
+                        //       shape: NeumorphicShape.convex,
+                        //       color: AppColors.cardBgColor,
+                        //       depth: 2,
+                        //       intensity: 1),
+                        //   child:
+                        //   Column(
+                        //     children: [
+                        //       Icon(
+                        //         Icons.person,
+                        //         color:Colors.white,
+                        //         size: 20,
+                        //       ),
+                        //       const SizedBox(
+                        //         height: 4,
+                        //       ),
+                        //       AutoSizeText(
+                        //         "My Account",
+                        //         style: TextStyle(
+                        //             color: Colors.white,
+                        //             fontSize: 12),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: NeumorphicButton(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
                         if (FirebaseAuth.instance.currentUser != null &&
                             FirebaseAuth.instance.currentUser!.email !=
                                 AppString.emailForTemporaryLogin) {
@@ -131,37 +162,66 @@ class HomeScreen extends StatelessWidget {
                               transition: Transition.cupertino);
                         }
                       },
-                      style: const NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          color: Colors.white,
-                          depth: 2,
-                          intensity: 1),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.favorite,
-                            color: AppColors.secondaryColor.shade300,
-                            size: 20,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          AutoSizeText(
-                            "Wish List",
-                            style: TextStyle(
-                                color: AppColors.secondaryColor.shade300,
-                                fontSize: 12),
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.favorite,
+                              color: AppColors.cardBgColor,
+                              size: 30,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            AutoSizeText(
+                              "Wish List",
+                              style: TextStyle(
+                                  color: AppColors.cardBgColor, fontSize: 14),
+                            ),
+                          ],
+                        ),
+                        // NeumorphicButton(
+                        //   onPressed:
+                        //   () {
+                        //     if (FirebaseAuth.instance.currentUser != null &&
+                        //         FirebaseAuth.instance.currentUser!.email !=
+                        //             AppString.emailForTemporaryLogin) {
+                        //       Get.to(() => const WishListScreen());
+                        //     } else {
+                        //       Get.to(() => SignInScreen(),
+                        //           transition: Transition.cupertino);
+                        //     }
+                        //   },
+                        //   style: const NeumorphicStyle(
+                        //       shape: NeumorphicShape.convex,
+                        //       color: Colors.white,
+                        //       depth: 2,
+                        //       intensity: 1),
+                        //   child:
+                        //   Column(
+                        //     children: [
+                        //       Icon(
+                        //         Icons.favorite,
+                        //         color: AppColors.cardBgColor,
+                        //         size: 20,
+                        //       ),
+                        //       const SizedBox(
+                        //         width: 4,
+                        //       ),
+                        //       AutoSizeText(
+                        //         "Wish List",
+                        //         style: TextStyle(
+                        //             color: AppColors.cardBgColor,
+                        //             fontSize: 12),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
                       ),
                     ),
-                  ),
-                ]),
-                TableRow(children: [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: NeumorphicButton(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
                         /*Get.to(() => const ShoppingCartScreen());*/
                         if (FirebaseAuth.instance.currentUser != null &&
                             FirebaseAuth.instance.currentUser!.email !=
@@ -172,35 +232,66 @@ class HomeScreen extends StatelessWidget {
                               transition: Transition.cupertino);
                         }
                       },
-                      style: const NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          color: Colors.white,
-                          depth: 2,
-                          intensity: 1),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.shopping_cart,
-                            color: AppColors.secondaryColor.shade300,
-                            size: 20,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          AutoSizeText(
-                            "Shopping Cart",
-                            style: TextStyle(
-                                color: AppColors.secondaryColor.shade300,
-                                fontSize: 12),
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.shopping_cart,
+                              color: AppColors.cardBgColor,
+                              size: 30,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            AutoSizeText(
+                              "Shopping Cart",
+                              style: TextStyle(
+                                  color: AppColors.cardBgColor, fontSize: 14),
+                            ),
+                          ],
+                        ),
+                        // NeumorphicButton(
+                        //   onPressed:
+                        //   () {
+                        //     /*Get.to(() => const ShoppingCartScreen());*/
+                        //     if (FirebaseAuth.instance.currentUser != null &&
+                        //         FirebaseAuth.instance.currentUser!.email !=
+                        //             AppString.emailForTemporaryLogin) {
+                        //       Get.to(() => ShoppingCartScreen());
+                        //     } else {
+                        //       Get.to(() => SignInScreen(),
+                        //           transition: Transition.cupertino);
+                        //     }
+                        //   },
+                        //   style: const NeumorphicStyle(
+                        //       shape: NeumorphicShape.convex,
+                        //       color: Colors.white,
+                        //       depth: 2,
+                        //       intensity: 1),
+                        //   child: Column(
+                        //     children: [
+                        //       Icon(
+                        //         Icons.shopping_cart,
+                        //         color: AppColors.cardBgColor,
+                        //         size: 30,
+                        //       ),
+                        //       const SizedBox(
+                        //         width: 4,
+                        //       ),
+                        //       AutoSizeText(
+                        //         "Shopping Cart",
+                        //         style: TextStyle(
+                        //             color: AppColors.cardBgColor,
+                        //             fontSize: 14),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: NeumorphicButton(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
                         if (FirebaseAuth.instance.currentUser != null &&
                             FirebaseAuth.instance.currentUser!.email !=
                                 AppString.emailForTemporaryLogin) {
@@ -208,59 +299,347 @@ class HomeScreen extends StatelessWidget {
                         } else {
                           Get.to(() => SignInScreen(),
                               transition: Transition.cupertino);
-                       }
+                        }
                       },
-                      style: const NeumorphicStyle(
-                          shape: NeumorphicShape.convex,
-                          color: Colors.white,
-                          depth: 2,
-                          intensity: 1),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.replay,
-                            color: AppColors.secondaryColor.shade300,
-                            size: 20,
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          AutoSizeText(
-                            "Checkout",
-                            style: TextStyle(
-                                color: AppColors.secondaryColor.shade300,
-                                fontSize: 12),
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.replay,
+                              color: AppColors.cardBgColor,
+                              size: 30,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            AutoSizeText(
+                              "Checkout",
+                              style: TextStyle(
+                                  color: AppColors.cardBgColor, fontSize: 14),
+                            ),
+                          ],
+                        ),
+                        // NeumorphicButton(
+                        //   onPressed:
+                        //   () {
+                        //     if (FirebaseAuth.instance.currentUser != null &&
+                        //         FirebaseAuth.instance.currentUser!.email !=
+                        //             AppString.emailForTemporaryLogin) {
+                        //       Get.to(() => CheckOutScreen());
+                        //     } else {
+                        //       Get.to(() => SignInScreen(),
+                        //           transition: Transition.cupertino);
+                        //     }
+                        //   },
+                        //   style: const NeumorphicStyle(
+                        //       shape: NeumorphicShape.convex,
+                        //       color: Colors.white,
+                        //       depth: 2,
+                        //       intensity: 1),
+                        //   child: Column(
+                        //     children: [
+                        //       Icon(
+                        //         Icons.replay,
+                        //         color: AppColors.cardBgColor,
+                        //         size: 30,
+                        //       ),
+                        //       const SizedBox(
+                        //         width: 8,
+                        //       ),
+                        //       AutoSizeText(
+                        //         "Checkout",
+                        //         style: TextStyle(
+                        //             color: AppColors.cardBgColor,
+                        //             fontSize: 14),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
                       ),
                     ),
+                  ]),
+                  // TableRow(children: [
+                  //   Padding(
+                  //     padding: const EdgeInsets.all(4.0),
+                  //     child: NeumorphicButton(
+                  //       onPressed: () {
+                  //         /*Get.to(() => const ShoppingCartScreen());*/
+                  //         if (FirebaseAuth.instance.currentUser != null &&
+                  //             FirebaseAuth.instance.currentUser!.email !=
+                  //                 AppString.emailForTemporaryLogin) {
+                  //           Get.to(() => ShoppingCartScreen());
+                  //         } else {
+                  //           Get.to(() => SignInScreen(),
+                  //               transition: Transition.cupertino);
+                  //         }
+                  //       },
+                  //       style: const NeumorphicStyle(
+                  //           shape: NeumorphicShape.convex,
+                  //           color: Colors.white,
+                  //           depth: 2,
+                  //           intensity: 1),
+                  //       child: Row(
+                  //         children: [
+                  //           Icon(
+                  //             Icons.shopping_cart,
+                  //             color: AppColors.secondaryColor.shade300,
+                  //             size: 20,
+                  //           ),
+                  //           const SizedBox(
+                  //             width: 4,
+                  //           ),
+                  //           AutoSizeText(
+                  //             "Shopping Cart",
+                  //             style: TextStyle(
+                  //                 color: AppColors.secondaryColor.shade300,
+                  //                 fontSize: 12),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  //   Padding(
+                  //     padding: const EdgeInsets.all(4),
+                  //     child: NeumorphicButton(
+                  //       onPressed: () {
+                  //         if (FirebaseAuth.instance.currentUser != null &&
+                  //             FirebaseAuth.instance.currentUser!.email !=
+                  //                 AppString.emailForTemporaryLogin) {
+                  //           Get.to(() => CheckOutScreen());
+                  //         } else {
+                  //           Get.to(() => SignInScreen(),
+                  //               transition: Transition.cupertino);
+                  //        }
+                  //       },
+                  //       style: const NeumorphicStyle(
+                  //           shape: NeumorphicShape.convex,
+                  //           color: Colors.white,
+                  //           depth: 2,
+                  //           intensity: 1),
+                  //       child: Row(
+                  //         children: [
+                  //           Icon(
+                  //             Icons.replay,
+                  //             color: AppColors.secondaryColor.shade300,
+                  //             size: 20,
+                  //           ),
+                  //           const SizedBox(
+                  //             width: 4,
+                  //           ),
+                  //           AutoSizeText(
+                  //             "Checkout",
+                  //             style: TextStyle(
+                  //                 color: AppColors.secondaryColor.shade300,
+                  //                 fontSize: 12),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ])
+                ],
+              ),
+              Divider(
+                color: AppColors.primaryColor.shade300,
+                thickness: 1,
+              ),
+              Container(
+                height: Get.height * 0.5,
+                color: AppColors.cardBgColorLight,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Expanded(
+                    child: StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection(AppString.products)
+                            .where(AppString.banner, isEqualTo: true)
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            List<ProductModel> products = snapshot.data!.docs
+                                .map((e) => ProductModel.fromJson(
+                                    jsonDecode(jsonEncode(e.data()))))
+                                .toList();
+                            return Row(
+                              children: [
+                                Expanded(
+                                  child: CarouselSlider(
+                                      items: products
+                                          .map((product) => Padding(
+                                                padding:
+                                                    const EdgeInsets.all(4.0),
+                                                child: NeumorphicButton(
+                                                  onPressed: () {
+                                                    Get.to(() =>
+                                                        ProductDetailsScreen(
+                                                            product: product));
+                                                  },
+                                                  style: const NeumorphicStyle(
+                                                      shape: NeumorphicShape
+                                                          .convex,
+                                                      color: Colors.white,
+                                                      depth: 1,
+                                                      intensity: 0.5),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        Expanded(
+                                                            child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8),
+                                                                child: Image
+                                                                    .network(product
+                                                                        .image))),
+                                                        const SizedBox(
+                                                          height: 8,
+                                                        ),
+                                                        Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            AutoSizeText(
+                                                              product.name,
+                                                              maxLines: 3,
+                                                              style:
+                                                                  const TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 8,
+                                                        ),
+                                                        AutoSizeText(
+                                                          '${product.description}\n\n RAM: ${product.specification['Ram']!}|SSD: ${product.specification['SSD']!}',
+                                                          maxLines: 3,
+                                                          style:
+                                                              const TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 8,
+                                                        ),
+                                                        //discounted price, original price
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            AutoSizeText(
+                                                              "\$${product.discountedPrice}",
+                                                              style: TextStyle(
+                                                                  color: AppColors
+                                                                      .secondaryColor
+                                                                      .shade300,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                            ),
+                                                            // const SizedBox(
+                                                            //   width: 8,
+                                                            // ),
+                                                            AutoSizeText(
+                                                              "\$${product.originalPrice}",
+                                                              style: TextStyle(
+                                                                  color: AppColors
+                                                                      .secondaryColor,
+                                                                  fontSize: 12,
+                                                                  decoration:
+                                                                      TextDecoration
+                                                                          .lineThrough,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ))
+                                          .toList(),
+                                      options: CarouselOptions(
+                                          autoPlay: true,
+                                          autoPlayInterval:
+                                              const Duration(seconds: 3),
+                                          autoPlayAnimationDuration:
+                                              const Duration(milliseconds: 800),
+                                          autoPlayCurve: Curves.fastOutSlowIn,
+                                          enlargeCenterPage: true,
+                                          scrollDirection: Axis.horizontal,
+                                          viewportFraction: 0.4,
+                                          enlargeFactor: 0.3)),
+                                ),
+                              ],
+                            );
+                          }
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }),
                   ),
-                ])
-              ],
-            ),
-            Divider(
-              color: AppColors.primaryColor.shade300,
-              thickness: 1,
-            ),
-            Expanded(
-              child: StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection(AppString.products)
-                      .where(AppString.banner, isEqualTo: true)
-                      .snapshots(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      List<ProductModel> products = snapshot.data!.docs
-                          .map((e) => ProductModel.fromJson(
-                              jsonDecode(jsonEncode(e.data()))))
-                          .toList();
-                      return Row(
-                        children: [
-                          Expanded(
-                            child: CarouselSlider(
-                                items: products
-                                    .map((product) => Padding(
-                                          padding: const EdgeInsets.all(4.0),
+                ),
+              ),
+              SizedBox(
+                height: Get.height * 0.02,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Featured Products",
+                    style: TextStyle(
+                        color: AppColors.secondaryColor.shade300,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: Get.height * 0.02,
+              ),
+              Container(
+                width: Get.width,
+                height: Get.height * 0.5,
+                color: AppColors.tertiaryColor[50],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Expanded(
+                    child: StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection(AppString.products)
+                            .where(AppString.featured, isEqualTo: true)
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            List<ProductModel> products = snapshot.data!.docs
+                                .map((e) => ProductModel.fromJson(
+                                    jsonDecode(jsonEncode(e.data()))))
+                                .toList();
+                            return SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Expanded(
+                                child: Row(
+                                  children: [
+                                    ...products.map((product) => Padding(
+                                          padding: const EdgeInsets.all(8.0),
                                           child: NeumorphicButton(
                                             onPressed: () {
                                               Get.to(() => ProductDetailsScreen(
@@ -299,14 +678,15 @@ class HomeScreen extends StatelessWidget {
                                                     height: 8,
                                                   ),
                                                   //discounted price, original price
-                                                  Wrap(
+                                                  Row(
                                                     children: [
-                                                      AutoSizeText(
+                                                      Text(
                                                         "\$${product.discountedPrice}",
                                                         style: TextStyle(
                                                             color: AppColors
                                                                 .secondaryColor
                                                                 .shade300,
+                                                            fontSize: 12,
                                                             fontWeight:
                                                                 FontWeight
                                                                     .bold),
@@ -314,7 +694,7 @@ class HomeScreen extends StatelessWidget {
                                                       const SizedBox(
                                                         width: 8,
                                                       ),
-                                                      AutoSizeText(
+                                                      Text(
                                                         "\$${product.originalPrice}",
                                                         style: TextStyle(
                                                             color: AppColors
@@ -334,137 +714,20 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                           ),
                                         ))
-                                    .toList(),
-                                options: CarouselOptions(
-                                    autoPlay: true,
-                                    autoPlayInterval:
-                                        const Duration(seconds: 3),
-                                    autoPlayAnimationDuration:
-                                        const Duration(milliseconds: 800),
-                                    autoPlayCurve: Curves.fastOutSlowIn,
-                                    enlargeCenterPage: true,
-                                    scrollDirection: Axis.horizontal,
-                                    viewportFraction: 0.4,
-                                    enlargeFactor: 0.3)),
-                          ),
-                        ],
-                      );
-                    }
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }),
-            ),
-            SizedBox(
-              height: Get.height * 0.02,
-            ),
-            Row(
-              children: [
-                Text(
-                  "Featured Products",
-                  style: TextStyle(
-                      color: AppColors.secondaryColor.shade300,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                                  ],
+                                ),
+                              ),
+                            );
+                          }
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }),
+                  ),
                 ),
-              ],
-            ),
-            Expanded(
-              child: StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection(AppString.products)
-                      .where(AppString.featured, isEqualTo: true)
-                      .snapshots(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      List<ProductModel> products = snapshot.data!.docs
-                          .map((e) => ProductModel.fromJson(
-                              jsonDecode(jsonEncode(e.data()))))
-                          .toList();
-                      return SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            ...products.map((product) => Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: NeumorphicButton(
-                                    onPressed: () {
-                                      Get.to(() => ProductDetailsScreen(
-                                          product: product));
-                                    },
-                                    style: const NeumorphicStyle(
-                                        shape: NeumorphicShape.flat,
-                                        color: Colors.white,
-                                        depth: 1,
-                                        intensity: 0.5),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Expanded(
-                                              child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                  child: Image.network(
-                                                      product.image))),
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          AutoSizeText(
-                                            product.name,
-                                            maxLines: 3,
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          //discounted price, original price
-                                          Row(
-                                            children: [
-                                              Text(
-                                                "\$${product.discountedPrice}",
-                                                style: TextStyle(
-                                                    color: AppColors
-                                                        .secondaryColor
-                                                        .shade300,
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              const SizedBox(
-                                                width: 8,
-                                              ),
-                                              Text(
-                                                "\$${product.originalPrice}",
-                                                style: TextStyle(
-                                                    color: AppColors
-                                                        .secondaryColor,
-                                                    fontSize: 12,
-                                                    decoration: TextDecoration
-                                                        .lineThrough,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ))
-                          ],
-                        ),
-                      );
-                    }
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }),
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
       drawer: Drawer(

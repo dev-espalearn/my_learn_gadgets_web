@@ -21,15 +21,16 @@ class ProductsTab extends StatelessWidget {
           Flexible(
             child: AutoSizeText(
               getController.product.name,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: AppColors.tertiaryColor[900]
               ),
               maxLines: 4,
             ),
           ),
           SizedBox(
-            height: Get.height * 0.01,
+            height: Get.height * 0.03,
           ),
           Flexible(
             child: Row(
@@ -103,7 +104,7 @@ class ProductsTab extends StatelessWidget {
                                                       .selectedImageLink.value,
                                                   heroTag: getController
                                                       .selectedImageLink.value,
-                                                  isLocal: true,
+                                                  isLocal: false,
                                                 ));
                                           },
                                           style: const NeumorphicStyle(
@@ -168,11 +169,17 @@ class ProductsTab extends StatelessWidget {
                 },
                 style: const NeumorphicStyle(
                   shape: NeumorphicShape.convex,
-                  color: Colors.white,
+                  color: AppColors.cardBgColor,
                 ),
-                child: Icon(
-                  Icons.add_shopping_cart,
-                  color: AppColors.primaryColor,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.add_shopping_cart,
+                      color: Colors.white,
+                    ),
+                    SizedBox(width: 10,),
+                    Text('ADD TO CART', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
+                  ],
                 ),
               ),
               SizedBox(
