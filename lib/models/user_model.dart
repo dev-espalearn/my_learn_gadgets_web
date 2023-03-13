@@ -24,8 +24,6 @@ class UserModel {
       'email': email,
     };
   }
-
-  //empty
   factory UserModel.empty() => UserModel(
         firstName: '',
         lastName: '',

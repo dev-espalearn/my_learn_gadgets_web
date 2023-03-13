@@ -48,26 +48,15 @@ class UserTrackOrderScreen extends StatelessWidget {
                           .instance.currentUser!.email)
                           .collection(AppString.placedOrders)
                           .snapshots(),
-                      // FirebaseFirestore.instance
-                      //     .collection(AppString.orders)
-                      //     .snapshots(),
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           List<OrderModel> products = snapshot.data!.docs
                               .map((e) => OrderModel.fromJson(
                                   jsonDecode(jsonEncode(e.data()))))
                               .toList();
-                          // List<OrderModel> productsUser = [];
-                          // for (int i = 0; i < products.length; i++) {
-                          //   if (products[i].customer.email ==
-                          //       getController.currentUser.value.email) {
-                          //     productsUser.add(products[i]);
-                          //   }
-                          // }
 
                           return ListView.builder(
                               itemBuilder: (context, index) {
-                              //  OrderModel order = productsUser[index];
                                 OrderModel order = products[index];
                                 getController.setPercentage(order.progress);
 
@@ -148,43 +137,6 @@ class UserTrackOrderScreen extends StatelessWidget {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                // GestureDetector(
-                                                //   onTap: () {
-                                                //     Get.to(
-                                                //         transition: Transition
-                                                //             .cupertino,
-                                                //             () =>
-                                                //             PendingOrderDetail(
-                                                //               products: order
-                                                //                   .products,
-                                                //             ));
-                                                //   },
-                                                //   child: Neumorphic(
-                                                //     style:
-                                                //     const NeumorphicStyle(
-                                                //       shape:
-                                                //       NeumorphicShape.flat,
-                                                //       color: Colors.white,
-                                                //       depth: -1,
-                                                //       intensity: 1,
-                                                //     ),
-                                                //     child: const Padding(
-                                                //       padding:
-                                                //       EdgeInsets.symmetric(
-                                                //           horizontal: 16,
-                                                //           vertical: 8.0),
-                                                //       child: Text(
-                                                //         'View all items',
-                                                //         style: TextStyle(
-                                                //             color:
-                                                //             Colors.black),
-                                                //       ),
-                                                //     ),
-                                                //   ),
-                                                // ),
-                                                // const SizedBox(
-                                                //   height: 10,
-                                                // ),
                                                 _AnimatedLiquidLinearProgressIndicator(
                                                     progressModel:
                                                         order.progress),
@@ -242,7 +194,6 @@ class _AnimatedLiquidLinearProgressIndicatorState
     );
 
     _animationController.addListener(() => setState(() {}));
-    //  _animationController.repeat();
   }
 
   @override

@@ -62,7 +62,6 @@ class HomeScreen extends StatelessWidget {
               )),
         ),
         actions: [
-          //logout iconbutton
           IconButton(
               onPressed: () {
                 FirebaseAuth.instance.signOut().then((value) {
@@ -113,42 +112,6 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        // NeumorphicButton(
-                        //   onPressed: () {
-                        //     if (FirebaseAuth.instance.currentUser != null &&
-                        //         FirebaseAuth.instance.currentUser!.email !=
-                        //             AppString.emailForTemporaryLogin) {
-                        //       Get.to(() => ProfileDashboard());
-                        //     } else {
-                        //       Get.to(() => SignInScreen(),
-                        //           transition: Transition.cupertino);
-                        //     }
-                        //   },
-                        //   style: const NeumorphicStyle(
-                        //       shape: NeumorphicShape.convex,
-                        //       color: AppColors.cardBgColor,
-                        //       depth: 2,
-                        //       intensity: 1),
-                        //   child:
-                        //   Column(
-                        //     children: [
-                        //       Icon(
-                        //         Icons.person,
-                        //         color:Colors.white,
-                        //         size: 20,
-                        //       ),
-                        //       const SizedBox(
-                        //         height: 4,
-                        //       ),
-                        //       AutoSizeText(
-                        //         "My Account",
-                        //         style: TextStyle(
-                        //             color: Colors.white,
-                        //             fontSize: 12),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
                       ),
                     ),
                     GestureDetector(
@@ -213,43 +176,6 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        // NeumorphicButton(
-                        //   onPressed:
-                        //   () {
-                        //     if (FirebaseAuth.instance.currentUser != null &&
-                        //         FirebaseAuth.instance.currentUser!.email !=
-                        //             AppString.emailForTemporaryLogin) {
-                        //       Get.to(() => const WishListScreen());
-                        //     } else {
-                        //       Get.to(() => SignInScreen(),
-                        //           transition: Transition.cupertino);
-                        //     }
-                        //   },
-                        //   style: const NeumorphicStyle(
-                        //       shape: NeumorphicShape.convex,
-                        //       color: Colors.white,
-                        //       depth: 2,
-                        //       intensity: 1),
-                        //   child:
-                        //   Column(
-                        //     children: [
-                        //       Icon(
-                        //         Icons.favorite,
-                        //         color: AppColors.cardBgColor,
-                        //         size: 20,
-                        //       ),
-                        //       const SizedBox(
-                        //         width: 4,
-                        //       ),
-                        //       AutoSizeText(
-                        //         "Wish List",
-                        //         style: TextStyle(
-                        //             color: AppColors.cardBgColor,
-                        //             fontSize: 12),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
                       ),
                     ),
                     GestureDetector(
@@ -314,43 +240,6 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        // NeumorphicButton(
-                        //   onPressed:
-                        //   () {
-                        //     /*Get.to(() => const ShoppingCartScreen());*/
-                        //     if (FirebaseAuth.instance.currentUser != null &&
-                        //         FirebaseAuth.instance.currentUser!.email !=
-                        //             AppString.emailForTemporaryLogin) {
-                        //       Get.to(() => ShoppingCartScreen());
-                        //     } else {
-                        //       Get.to(() => SignInScreen(),
-                        //           transition: Transition.cupertino);
-                        //     }
-                        //   },
-                        //   style: const NeumorphicStyle(
-                        //       shape: NeumorphicShape.convex,
-                        //       color: Colors.white,
-                        //       depth: 2,
-                        //       intensity: 1),
-                        //   child: Column(
-                        //     children: [
-                        //       Icon(
-                        //         Icons.shopping_cart,
-                        //         color: AppColors.cardBgColor,
-                        //         size: 30,
-                        //       ),
-                        //       const SizedBox(
-                        //         width: 4,
-                        //       ),
-                        //       AutoSizeText(
-                        //         "Shopping Cart",
-                        //         style: TextStyle(
-                        //             color: AppColors.cardBgColor,
-                        //             fontSize: 14),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
                       ),
                     ),
                     GestureDetector(
@@ -383,124 +272,9 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        // NeumorphicButton(
-                        //   onPressed:
-                        //   () {
-                        //     if (FirebaseAuth.instance.currentUser != null &&
-                        //         FirebaseAuth.instance.currentUser!.email !=
-                        //             AppString.emailForTemporaryLogin) {
-                        //       Get.to(() => CheckOutScreen());
-                        //     } else {
-                        //       Get.to(() => SignInScreen(),
-                        //           transition: Transition.cupertino);
-                        //     }
-                        //   },
-                        //   style: const NeumorphicStyle(
-                        //       shape: NeumorphicShape.convex,
-                        //       color: Colors.white,
-                        //       depth: 2,
-                        //       intensity: 1),
-                        //   child: Column(
-                        //     children: [
-                        //       Icon(
-                        //         Icons.replay,
-                        //         color: AppColors.cardBgColor,
-                        //         size: 30,
-                        //       ),
-                        //       const SizedBox(
-                        //         width: 8,
-                        //       ),
-                        //       AutoSizeText(
-                        //         "Checkout",
-                        //         style: TextStyle(
-                        //             color: AppColors.cardBgColor,
-                        //             fontSize: 14),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
                       ),
                     ),
                   ]),
-                  // TableRow(children: [
-                  //   Padding(
-                  //     padding: const EdgeInsets.all(4.0),
-                  //     child: NeumorphicButton(
-                  //       onPressed: () {
-                  //         /*Get.to(() => const ShoppingCartScreen());*/
-                  //         if (FirebaseAuth.instance.currentUser != null &&
-                  //             FirebaseAuth.instance.currentUser!.email !=
-                  //                 AppString.emailForTemporaryLogin) {
-                  //           Get.to(() => ShoppingCartScreen());
-                  //         } else {
-                  //           Get.to(() => SignInScreen(),
-                  //               transition: Transition.cupertino);
-                  //         }
-                  //       },
-                  //       style: const NeumorphicStyle(
-                  //           shape: NeumorphicShape.convex,
-                  //           color: Colors.white,
-                  //           depth: 2,
-                  //           intensity: 1),
-                  //       child: Row(
-                  //         children: [
-                  //           Icon(
-                  //             Icons.shopping_cart,
-                  //             color: AppColors.secondaryColor.shade300,
-                  //             size: 20,
-                  //           ),
-                  //           const SizedBox(
-                  //             width: 4,
-                  //           ),
-                  //           AutoSizeText(
-                  //             "Shopping Cart",
-                  //             style: TextStyle(
-                  //                 color: AppColors.secondaryColor.shade300,
-                  //                 fontSize: 12),
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  //   Padding(
-                  //     padding: const EdgeInsets.all(4),
-                  //     child: NeumorphicButton(
-                  //       onPressed: () {
-                  //         if (FirebaseAuth.instance.currentUser != null &&
-                  //             FirebaseAuth.instance.currentUser!.email !=
-                  //                 AppString.emailForTemporaryLogin) {
-                  //           Get.to(() => CheckOutScreen());
-                  //         } else {
-                  //           Get.to(() => SignInScreen(),
-                  //               transition: Transition.cupertino);
-                  //        }
-                  //       },
-                  //       style: const NeumorphicStyle(
-                  //           shape: NeumorphicShape.convex,
-                  //           color: Colors.white,
-                  //           depth: 2,
-                  //           intensity: 1),
-                  //       child: Row(
-                  //         children: [
-                  //           Icon(
-                  //             Icons.replay,
-                  //             color: AppColors.secondaryColor.shade300,
-                  //             size: 20,
-                  //           ),
-                  //           const SizedBox(
-                  //             width: 4,
-                  //           ),
-                  //           AutoSizeText(
-                  //             "Checkout",
-                  //             style: TextStyle(
-                  //                 color: AppColors.secondaryColor.shade300,
-                  //                 fontSize: 12),
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ])
                 ],
               ),
               Divider(
@@ -599,7 +373,6 @@ class HomeScreen extends StatelessWidget {
                                                         const SizedBox(
                                                           height: 8,
                                                         ),
-                                                        //discounted price, original price
                                                         Row(
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
@@ -615,9 +388,6 @@ class HomeScreen extends StatelessWidget {
                                                                       FontWeight
                                                                           .bold),
                                                             ),
-                                                            // const SizedBox(
-                                                            //   width: 8,
-                                                            // ),
                                                             AutoSizeText(
                                                               "\$${product.originalPrice}",
                                                               style: TextStyle(
@@ -740,7 +510,6 @@ class HomeScreen extends StatelessWidget {
                                                   const SizedBox(
                                                     height: 8,
                                                   ),
-                                                  //discounted price, original price
                                                   Row(
                                                     children: [
                                                       Text(

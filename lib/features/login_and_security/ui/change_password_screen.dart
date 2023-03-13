@@ -38,9 +38,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                /*TextEditingController oldPasswordController = TextEditingController();
-  TextEditingController newPasswordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();*/
+                
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(

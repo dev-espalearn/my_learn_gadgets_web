@@ -112,17 +112,12 @@ class CheckOutGetController extends GetxController {
         .set(orderModel.toJson())
     .then((value) {
 
-      //
-
         FirebaseFirestore.instance
             .collection(AppString.users)
             .doc(FirebaseAuth.instance.currentUser!.email)
             .collection(AppString.placedOrders)
             .doc(orderModel.id)
             .set(orderModel.toJson());
-
-
-      //
       isLoading.value = false;
       Get.snackbar('Congratulations!', 'Your order has been placed',
           backgroundColor: Colors.green, colorText: Colors.white);

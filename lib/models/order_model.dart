@@ -6,7 +6,7 @@ class OrderModel {
   String id;
   UserModel customer;
   DateTime orderDate;
-  ProgressModel progress; // 0: pending, 1: processing, 2: shipped, 3: delivered
+  ProgressModel progress;
   List<CartItem> products;
   String address;
   String phoneNumber;

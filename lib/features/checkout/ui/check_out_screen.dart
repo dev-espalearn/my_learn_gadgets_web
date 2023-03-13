@@ -186,13 +186,6 @@ class CheckOutScreen extends StatelessWidget {
                               height: 48,
                               width: 48,
                             ),
-                            // const Image(
-                            //   image: AssetImage(
-                            //     'assets/images/mastercard.png',
-                            //   ),
-                            //   width: 48,
-                            //   height: 48,
-                            // ),
                           ),
                         ],
                       ),
@@ -259,31 +252,6 @@ class CheckOutScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-
-                    // Padding(
-                    //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    //   child: Neumorphic(
-                    //     style: NeumorphicStyle(
-                    //       boxShape: NeumorphicBoxShape.roundRect(
-                    //         BorderRadius.circular(4),
-                    //       ),
-                    //       depth: -1,
-                    //       intensity: 5,
-                    //       lightSource: LightSource.topLeft,
-                    //       color: Colors.white,
-                    //     ),
-                    //     child:  ListTile(
-                    //       title: Text('Amount to pay:'),
-                    //       trailing: Text(
-                    //         '₹500.0', style: TextStyle(color: AppColors.primaryColor.shade500),
-                    //         // style: ,
-                    //         // bold: true,
-                    //         // fontSize: 18,
-                    //         // color: Colors.green.shade600,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: Row(
@@ -332,7 +300,6 @@ class CheckOutScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    //   StandardDivider(),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Obx(() {
@@ -360,9 +327,6 @@ class CheckOutScreen extends StatelessWidget {
                                     ),
                                     const Text(
                                       "Pay Now",
-                                      // fontSize: 18,
-                                      // fontWeight: 600,
-                                      // color: AppColors.primary,
                                     ),
                                   ],
                                 ),

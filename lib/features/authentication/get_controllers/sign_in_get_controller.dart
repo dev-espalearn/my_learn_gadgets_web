@@ -8,7 +8,6 @@ import 'package:my_learn_gadgets_web/features/home/ui/home_screen.dart';
 import '../../admin_dashboard/ui/admin_dashboard_page.dart';
 
 class SignInGetController extends GetxController {
-  //email, password
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 

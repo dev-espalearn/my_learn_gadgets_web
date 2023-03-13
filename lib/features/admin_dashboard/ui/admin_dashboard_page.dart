@@ -43,12 +43,6 @@ class AdminDashboardPage extends StatelessWidget {
           body: Center(
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
-                // if (constraints.maxWidth <= 800) {
-                //   return const Center(
-                //     child: Text('Mobile'),
-                //   );
-                // } else if (constraints.maxWidth <= 1280 &&
-                //     constraints.maxWidth >= 800) {
                   return
                     SingleChildScrollView(
                     child: Material(
@@ -88,7 +82,6 @@ class AdminDashboardPage extends StatelessWidget {
                                     ),
                                     ChartCardTile(
                                       cardColor: Colors.green,
-                                      // Color(0xFF25C6DA),
                                       cardTitle: 'All Product',
                                       subText: 'March 2017',
                                       icon: Icons.border_all_outlined,
@@ -105,7 +98,6 @@ class AdminDashboardPage extends StatelessWidget {
                                   children: const <Widget>[
                                     ChartCardTile(
                                       cardColor: Colors.indigo,
-                                      // Color(0xFF7560ED),
                                       cardTitle: 'Refill Stock',
                                       subText: 'March 2017',
                                       icon: Icons.format_color_fill,
@@ -183,8 +175,6 @@ class AdminDashboardPage extends StatelessWidget {
                       ),
                     ),
                   );
-                // }
-                // return Container(color: Colors.amber);
               },
             ),
           ),

@@ -12,17 +12,7 @@ import 'package:uuid/uuid.dart';
 class AddProductScreenGetController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  /*  final String name;
-  final String description;
-  final String image;
-  final List<String> secondaryImages;
-  final double discountedPrice;
-  final double originalPrice;
-  final Map<String, dynamic> specification;
-  final bool featured;
-  final bool banner;
-  final String category;
-  final int quantityLeft;*/
+  
 
   TextEditingController nameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();

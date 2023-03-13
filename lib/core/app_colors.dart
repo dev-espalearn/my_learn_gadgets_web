@@ -34,10 +34,10 @@ class AppColors {
   );
 
   static MaterialColor tertiaryColor = const MaterialColor(
-    /*#2ba5d4*/
+    
     0xff2ba5d4,
     <int, Color>{
-      /*95d2ea  80c9e5  6bc0e1  55b7dd  40aed8  2ba5d4	2795bf	2284aa	1e7394	1a637f*/
+      
       50: Color(0xff95d2ea),
       100: Color(0xff80c9e5),
       200: Color(0xff6bc0e1),

@@ -53,8 +53,7 @@ class AddProductScreen extends StatelessWidget {
                   SizedBox(
                     height: Get.height * 0.02,
                   ),
-                  /*RxList<String> categories = <String>[].obs;
-  RxString chosenCategory = ''.obs;*/
+                  
                   Neumorphic(
                     style: const NeumorphicStyle(
                       shape: NeumorphicShape.flat,

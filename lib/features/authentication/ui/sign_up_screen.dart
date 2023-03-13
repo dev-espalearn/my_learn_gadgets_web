@@ -237,7 +237,6 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ]),
                       ),
-                      //I have read and agree to the Privacy Policy
                       const SizedBox(
                         height: 10,
                       ),
@@ -263,7 +262,6 @@ class SignUpScreen extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      //submit
                       NeumorphicButton(
                         onPressed: () {
                           getController.signUpUsingEmailAndPassword();
@@ -295,7 +293,6 @@ class SignUpScreen extends StatelessWidget {
                 thickness: 1,
                 color: AppColors.primaryColor,
               ),
-              //already have an account
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(

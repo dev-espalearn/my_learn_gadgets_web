@@ -56,7 +56,6 @@ class WishListScreen extends StatelessWidget {
                                       context: context,
                                       builder: (context) {
                                         return AlertDialog(
-                                          //are you sure you want to delete this from your wish list?
                                           title: const Text('Are you sure?'),
                                           content: const Text(
                                               'Do you want to delete this item from your wish list?'),

@@ -235,7 +235,6 @@ class ShoppingCartScreen extends StatelessWidget {
           bottomNavigationBar: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //proceed to checkout
               Obx(() {
                 return Visibility(
                   visible: getController.cartItems.isNotEmpty,

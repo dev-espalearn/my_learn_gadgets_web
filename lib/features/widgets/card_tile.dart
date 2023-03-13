@@ -12,15 +12,13 @@ class CardTile extends StatelessWidget {
  final String? typeText;
 
   const CardTile(
-      {super.key, 
-        // Key key,
+      {super.key,
         this.cardColor,
         this.cardTitle,
         this.subText,
         this.icon,
         this.typeText
       });
-  //  : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +47,6 @@ class CardTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    // Icon(icon, size: 30, color: Colors.black),
                     const SizedBox(width: 40),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -76,7 +73,6 @@ class CardTile extends StatelessWidget {
                     )
                   ],
                 ),
-               // Spacer(),
                 const Divider(),
                 Text(
                   typeText!,
@@ -85,7 +81,6 @@ class CardTile extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                // SizedBox(height: 20),
               ],
             ),
           ),
