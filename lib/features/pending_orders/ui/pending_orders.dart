@@ -147,7 +147,7 @@ class PendingOrdersScreen extends StatelessWidget {
                                                     style:
                                                         const NeumorphicStyle(
                                                       shape:
-                                                          NeumorphicShape.convex,
+                                                          NeumorphicShape.flat,
                                                       color: Colors.white,
                                                       depth: 2,
                                                       intensity: 0.6,
