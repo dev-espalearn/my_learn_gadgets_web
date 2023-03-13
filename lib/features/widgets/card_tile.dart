@@ -85,17 +85,20 @@ class CardTile extends StatelessWidget {
           Positioned(
             top: 0,
             left: 20,
-            child: Container(
-              decoration: BoxDecoration(
-                color: AppColors.cardBgColor,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              height: media.height / 18,
-              width: media.width / 20,
-              child: Icon(
-                icon,
-                size: 25,
-                color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColors.cardBgColor,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                height: media.height / 18,
+                width: media.width / 20,
+                child: Icon(
+                  icon,
+                  size: 25,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
