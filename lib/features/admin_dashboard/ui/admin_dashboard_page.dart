@@ -80,7 +80,7 @@ class AdminDashboardPage extends StatelessWidget {
                                       cardColor: Color(0xFF7560ED),
                                       cardTitle: 'Add Product',
                                       subText: 'March 2017',
-                                      icon: Icons.pie_chart,
+                                      icon: Icons.add_circle,
                                       typeText: '',
                                     ),
                                     SizedBox(
@@ -91,7 +91,7 @@ class AdminDashboardPage extends StatelessWidget {
                                       // Color(0xFF25C6DA),
                                       cardTitle: 'All Product',
                                       subText: 'March 2017',
-                                      icon: Icons.cloud_upload,
+                                      icon: Icons.border_all_outlined,
                                       typeText: '35487',
                                     ),
                                   ],
@@ -108,7 +108,7 @@ class AdminDashboardPage extends StatelessWidget {
                                       // Color(0xFF7560ED),
                                       cardTitle: 'Refill Stock',
                                       subText: 'March 2017',
-                                      icon: Icons.pie_chart,
+                                      icon: Icons.format_color_fill,
                                       typeText: '',
                                     ),
                                     SizedBox(
@@ -118,7 +118,7 @@ class AdminDashboardPage extends StatelessWidget {
                                       cardColor: Color(0xFF25C6DA),
                                       cardTitle: 'Featured Product',
                                       subText: 'March 2017',
-                                      icon: Icons.cloud_upload,
+                                      icon: Icons.featured_video,
                                       typeText: '5487',
                                     ),
                                   ],
@@ -147,7 +147,7 @@ class AdminDashboardPage extends StatelessWidget {
                                     CardTile(
                                       cardColor: Colors.white,
                                       cardTitle: 'Orders History',
-                                      icon: Icons.show_chart,
+                                      icon: Icons.history,
                                       subText: '3300',
                                       typeText: 'stdt',
                                     ),
@@ -169,7 +169,7 @@ class AdminDashboardPage extends StatelessWidget {
                                       child: const CardTile(
                                         cardColor: Colors.white,
                                         cardTitle: 'Pending Orders',
-                                        icon: Icons.flight_takeoff,
+                                        icon: Icons.pending_actions,
                                         subText: 'Today',
                                         typeText: '230',
                                       ),
