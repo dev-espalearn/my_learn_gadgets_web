@@ -106,6 +106,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                                 width: Get.width / 5,
                                                 child: Image.network(
                                                     product.product.image)),
+                                            SizedBox(width: Get.width / 20,),
                                             Expanded(
                                               child: Column(
                                                 crossAxisAlignment:

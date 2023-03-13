@@ -93,11 +93,14 @@ class WishListScreen extends StatelessWidget {
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Row(
+
                                       children: [
                                         SizedBox(
                                             width: Get.width / 5,
                                             child:
                                                 Image.network(product.image)),
+                                        SizedBox(width: Get.width / 20,),
+
                                         Expanded(
                                           child: Column(
                                             crossAxisAlignment:
