@@ -12,7 +12,7 @@ class CardTile extends StatelessWidget {
  final String? typeText;
 
   const CardTile(
-      {
+      {super.key, 
         // Key key,
         this.cardColor,
         this.cardTitle,
@@ -24,7 +24,7 @@ class CardTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _media = MediaQuery.of(context).size;
+    final media = MediaQuery.of(context).size;
     return Material(
       elevation: 12,
       borderRadius: BorderRadius.circular(4),
@@ -34,13 +34,13 @@ class CardTile extends StatelessWidget {
         children: <Widget>[
           Container(
             padding:
-            _media.width >= 1280 ? EdgeInsets.all(15) : EdgeInsets.all(5),
+            media.width >= 1280 ? const EdgeInsets.all(15) : const EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               color: cardColor,
             ),
-            height: _media.height / 4,
-            width: _media.width / 4,
+            height: media.height / 4,
+            width: media.width / 4,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +50,7 @@ class CardTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     // Icon(icon, size: 30, color: Colors.black),
-                    SizedBox(width: 40),
+                    const SizedBox(width: 40),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -68,19 +68,19 @@ class CardTile extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Text(subText!,
                             style:
-                            TextStyle(fontSize: 12, color: Colors.black)),
+                            const TextStyle(fontSize: 12, color: Colors.black)),
                       ],
                     )
                   ],
                 ),
                // Spacer(),
-                Divider(),
+                const Divider(),
                 Text(
                   typeText!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black,
                   ),
@@ -101,8 +101,8 @@ class CardTile extends StatelessWidget {
                   color: AppColors.cardBgColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                height: _media.height / 18,
-                width: _media.width / 20,
+                height: media.height / 18,
+                width: media.width / 20,
                 child: Icon(
                   icon,
                   size: 35,

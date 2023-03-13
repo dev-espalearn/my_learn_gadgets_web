@@ -27,14 +27,14 @@ class ProfileDashboard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child:
             Neumorphic(
-              style: NeumorphicStyle(
+              style: const NeumorphicStyle(
                 shape: NeumorphicShape.flat,
                 color: Colors.white,
                 depth: 1,
                 intensity: 0.6,
               ),
               child:
-              Container(
+              SizedBox(
                   width: Get.width,
                   height: Get.height,
                 child: GridView.builder(
@@ -68,7 +68,7 @@ class ProfileDashboard extends StatelessWidget {
                                 profileGetController.options.keys.elementAt(index)),
                             // Icon(
                             //     profileGetController.options.keys.elementAt(index), size: 40, color: AppColors.secondaryColor[500],),
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                             Text(profileGetController.options.values
                                 .elementAt(index), style: TextStyle(fontSize: 18, color: AppColors.secondaryColor[500]),),
                           ],
@@ -128,7 +128,7 @@ class ProfileDashboard extends StatelessWidget {
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(4.0),
             child: Neumorphic(
-              style: NeumorphicStyle(
+              style: const NeumorphicStyle(
                 shape: NeumorphicShape.flat,
                 color: AppColors.cardBgColor,
                 depth: 1,

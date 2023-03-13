@@ -6,7 +6,6 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
-import 'package:my_learn_gadgets_web/features/pending_orders/ui/pending_order_detail.dart';
 import 'package:my_learn_gadgets_web/helpers/date_time_helpers.dart';
 import 'package:my_learn_gadgets_web/models/progress_model.dart';
 import '../../../models/order_model.dart';
@@ -217,7 +216,7 @@ class UserTrackOrderScreen extends StatelessWidget {
 class _AnimatedLiquidLinearProgressIndicator extends StatefulWidget {
   final ProgressModel progressModel;
 
-  _AnimatedLiquidLinearProgressIndicator(
+  const _AnimatedLiquidLinearProgressIndicator(
       {Key? key, required this.progressModel})
       : super(key: key);
 
@@ -239,7 +238,7 @@ class _AnimatedLiquidLinearProgressIndicatorState
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: const Duration(seconds: 10),
     );
 
     _animationController.addListener(() => setState(() {}));
@@ -258,16 +257,16 @@ class _AnimatedLiquidLinearProgressIndicatorState
       child: Container(
         width: double.infinity,
         height: 50.0,
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Obx(() {
           return LiquidLinearProgressIndicator(
             value: getController.percentage.value,
             backgroundColor: Colors.white,
-            valueColor: AlwaysStoppedAnimation(AppColors.cardBgColor),
+            valueColor: const AlwaysStoppedAnimation(AppColors.cardBgColor),
             borderRadius: 12.0,
             center: Text(
               widget.progressModel.name,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.cardBgColorLight,
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,

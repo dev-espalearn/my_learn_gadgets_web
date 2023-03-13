@@ -180,10 +180,10 @@ class PendingOrdersScreen extends StatelessWidget {
                                                             vertical: 4,
                                                             horizontal: 8),
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xffffffff),
+                                                      color: const Color(0xffffffff),
                                                       border: Border.all(
                                                           color:
-                                                              Color(0x28000000),
+                                                              const Color(0x28000000),
                                                           width: 1),
                                                       borderRadius:
                                                           BorderRadius.circular(

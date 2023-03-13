@@ -7,7 +7,7 @@ import '../../../models/cart_item.dart';
 class PendingOrderDetail extends StatefulWidget {
   final List<CartItem> products;
 
-  PendingOrderDetail({Key? key, required this.products}) : super(key: key);
+  const PendingOrderDetail({Key? key, required this.products}) : super(key: key);
 
   @override
   State<PendingOrderDetail> createState() => _PendingOrderDetailState();
@@ -36,8 +36,8 @@ class _PendingOrderDetailState extends State<PendingOrderDetail> {
               children: [
                 Expanded(
                   child: ListView.separated(
-                      physics: BouncingScrollPhysics(),
-                      padding: EdgeInsets.only(top: 16),
+                      physics: const BouncingScrollPhysics(),
+                      padding: const EdgeInsets.only(top: 16),
                       separatorBuilder: (context, index) =>
                           Container(height: 8),
                       itemCount: widget.products.length,

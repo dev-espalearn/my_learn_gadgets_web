@@ -6,7 +6,7 @@ class ResponsiveWidget extends StatelessWidget {
   final Widget? smallScreen;
 
   const ResponsiveWidget(
-      {
+      {super.key, 
       //   Key key,
       @required this.largeScreen,
       this.mediumScreen,

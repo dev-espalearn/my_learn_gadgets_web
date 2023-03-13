@@ -172,7 +172,7 @@ class ProductsTab extends StatelessWidget {
                   color: AppColors.cardBgColor,
                 ),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.add_shopping_cart,
                       color: Colors.white,

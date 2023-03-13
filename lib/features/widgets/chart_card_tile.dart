@@ -11,7 +11,7 @@ class ChartCardTile extends StatelessWidget {
   final String? typeText;
 
   const ChartCardTile(
-      {
+      {super.key, 
         // Key key,
       this.cardColor,
       this.cardTitle,
@@ -22,7 +22,7 @@ class ChartCardTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _media = MediaQuery.of(context).size;
+    final media = MediaQuery.of(context).size;
     return Material(
       elevation: 8,
       borderRadius: BorderRadius.circular(4),
@@ -32,13 +32,13 @@ class ChartCardTile extends StatelessWidget {
         children: <Widget>[
           Container(
             padding:
-                _media.width >= 1280 ? EdgeInsets.all(15) : EdgeInsets.all(5),
+                media.width >= 1280 ? const EdgeInsets.all(15) : const EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               color: cardColor,
             ),
-            height: _media.height / 4,
-            width: _media.width / 4,
+            height: media.height / 4,
+            width: media.width / 4,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class ChartCardTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Icon(icon, size: 30, color: Colors.white),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -65,23 +65,23 @@ class ChartCardTile extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Text(subText!,
                             style:
-                                TextStyle(fontSize: 12, color: Colors.white)),
+                                const TextStyle(fontSize: 12, color: Colors.white)),
                       ],
                     )
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   typeText!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 24,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
               ],
             ),
           ),

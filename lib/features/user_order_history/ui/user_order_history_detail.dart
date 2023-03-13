@@ -7,7 +7,7 @@ import '../../../models/cart_item.dart';
 class UserOrderHistoryDetail extends StatefulWidget {
   final List<CartItem> products;
 
-  UserOrderHistoryDetail({Key? key, required this.products}) : super(key: key);
+  const UserOrderHistoryDetail({Key? key, required this.products}) : super(key: key);
 
   @override
   State<UserOrderHistoryDetail> createState() => _UserOrderHistoryDetailState();
@@ -36,8 +36,8 @@ class _UserOrderHistoryDetailState extends State<UserOrderHistoryDetail> {
               children: [
                 Expanded(
                   child: ListView.separated(
-                      physics: BouncingScrollPhysics(),
-                      padding: EdgeInsets.only(top: 16),
+                      physics: const BouncingScrollPhysics(),
+                      padding: const EdgeInsets.only(top: 16),
                       separatorBuilder: (context, index) =>
                           Container(height: 8),
                       itemCount: widget.products.length,

@@ -95,13 +95,13 @@ class HomeScreen extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Column(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.person,
                               color: AppColors.cardBgColor,
                               size: 30,
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 8,
                             ),
                             AutoSizeText(
@@ -168,7 +168,7 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Stack(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.favorite,
                                   color: AppColors.cardBgColor,
                                   size: 30,
@@ -206,7 +206,7 @@ class HomeScreen extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            AutoSizeText(
+                            const AutoSizeText(
                               "Wish List",
                               style: TextStyle(
                                   color: AppColors.cardBgColor, fontSize: 14),
@@ -269,7 +269,7 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             Stack(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.shopping_cart,
                                   color: AppColors.cardBgColor,
                                   size: 30,
@@ -307,7 +307,7 @@ class HomeScreen extends StatelessWidget {
                             const SizedBox(
                               height: 8,
                             ),
-                            AutoSizeText(
+                            const AutoSizeText(
                               "Shopping Cart",
                               style: TextStyle(
                                   color: AppColors.cardBgColor, fontSize: 14),
@@ -367,13 +367,13 @@ class HomeScreen extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(4),
                         child: Column(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.replay,
                               color: AppColors.cardBgColor,
                               size: 30,
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 8,
                             ),
                             AutoSizeText(
