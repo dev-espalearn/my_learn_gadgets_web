@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/features/authentication/ui/sign_in_screen.dart';
 import '../../../core/app_colors.dart';
 import '../../add_product/ui/add_product_screen.dart';
+import '../../all_product/ui/all_product_screen.dart';
 import '../../pending_orders/ui/pending_orders.dart';
 import '../../widgets/card_tile.dart';
 import '../../widgets/chart_card_tile.dart';
@@ -87,12 +88,19 @@ class AdminDashboardPage extends StatelessWidget {
                                   const  SizedBox(
                                     height: 20,
                                   ),
-                                  const  ChartCardTile(
-                                    cardColor: Colors.green,
-                                    cardTitle: 'All Product',
-                                    subText: 'March 2017',
-                                    icon: Icons.border_all_outlined,
-                                    typeText: '35487',
+                                  GestureDetector(
+                                    onTap: (){
+                                      Get.to(
+                                          transition: Transition.cupertino,
+                                              () => AllProductScreen());
+                                    },
+                                    child: const  ChartCardTile(
+                                      cardColor: Colors.green,
+                                      cardTitle: 'All Product',
+                                      subText: 'March 2017',
+                                      icon: Icons.border_all_outlined,
+                                      typeText: '35487',
+                                    ),
                                   ),
                                 ],
                               ),
