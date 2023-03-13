@@ -60,14 +60,14 @@ class ProfileDashboard extends StatelessWidget {
                         child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child:
-                        Column(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            // Image.asset(
-                            //     profileGetController.options.keys.elementAt(index)),
-                            Icon(
-                                profileGetController.options.keys.elementAt(index), size: 40, color: AppColors.secondaryColor[500],),
+                            Image.asset(
+                                profileGetController.options.keys.elementAt(index)),
+                            // Icon(
+                            //     profileGetController.options.keys.elementAt(index), size: 40, color: AppColors.secondaryColor[500],),
                             SizedBox(width: 20,),
                             Text(profileGetController.options.values
                                 .elementAt(index), style: TextStyle(fontSize: 18, color: AppColors.secondaryColor[500]),),
@@ -130,7 +130,7 @@ class ProfileDashboard extends StatelessWidget {
             child: Neumorphic(
               style: NeumorphicStyle(
                 shape: NeumorphicShape.flat,
-                color: AppColors.secondaryColor[600],
+                color: AppColors.cardBgColor,
                 depth: 1,
                 intensity: 0.6,
               ),
