@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
 import 'package:my_learn_gadgets_web/features/pending_orders/ui/pending_order_detail.dart';
+import 'package:my_learn_gadgets_web/features/user_order_history/ui/user_order_history_detail.dart';
 import 'package:my_learn_gadgets_web/helpers/date_time_helpers.dart';
 import '../../../models/order_model.dart';
 import '../get_controller/user_order_history_get_controller.dart';
@@ -138,7 +139,7 @@ class UserOrderHistoryScreen extends StatelessWidget {
                                                           transition: Transition
                                                               .cupertino,
                                                               () =>
-                                                              PendingOrderDetail(
+                                                                  UserOrderHistoryDetail(
                                                                 products: order
                                                                     .products,
                                                               ));
