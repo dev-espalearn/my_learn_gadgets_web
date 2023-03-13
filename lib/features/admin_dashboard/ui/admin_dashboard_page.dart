@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/features/authentication/ui/sign_in_screen.dart';
-
 import '../../../core/app_colors.dart';
+import '../../add_product/ui/add_product_screen.dart';
 import '../../pending_orders/ui/pending_orders.dart';
 import '../../widgets/card_tile.dart';
 import '../../widgets/chart_card_tile.dart';
@@ -69,18 +69,25 @@ class AdminDashboardPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Column(
-                                children: const <Widget>[
-                                  ChartCardTile(
-                                    cardColor: Color(0xFF7560ED),
-                                    cardTitle: 'Add Product',
-                                    subText: 'March 2017',
-                                    icon: Icons.add_circle,
-                                    typeText: '',
+                                children:  <Widget>[
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.to(
+                                          transition: Transition.cupertino,
+                                              () => AddProductScreen());
+                                    },
+                                    child: const ChartCardTile(
+                                      cardColor: Color(0xFF7560ED),
+                                      cardTitle: 'Add Product',
+                                      subText: 'March 2017',
+                                      icon: Icons.add_circle,
+                                      typeText: '',
+                                    ),
                                   ),
-                                  SizedBox(
+                                  const  SizedBox(
                                     height: 20,
                                   ),
-                                  ChartCardTile(
+                                  const  ChartCardTile(
                                     cardColor: Colors.green,
                                     cardTitle: 'All Product',
                                     subText: 'March 2017',

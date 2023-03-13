@@ -19,7 +19,7 @@ class PendingOrdersGetController extends GetxController {
       for (var element in value.docs) {
         progress.add(ProgressModel.fromJson(element.data()));
       }
-      selectedProgressStatus.value = progress.first;
+     // selectedProgressStatus.value = progress.first;
     });
   }
 

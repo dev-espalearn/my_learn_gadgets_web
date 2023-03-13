@@ -52,6 +52,8 @@ class PendingOrdersScreen extends StatelessWidget {
                           return ListView.builder(
                               itemBuilder: (context, index) {
                                 OrderModel order = products[index];
+
+                                getController.selectedProgressStatus.value = order.progress;
                                 if (order.progress.name == 'Delivered') {
                                   getController.addToOrderHistory(order);
                                 }
@@ -220,9 +222,9 @@ class PendingOrdersScreen extends StatelessWidget {
                                                                           value
                                                                               .toString());
                                                             }
-                                                            getController
-                                                                .changeProgressStatus(
-                                                                    order);
+                                                            // getController
+                                                            //     .changeProgressStatus(
+                                                            //         order);
                                                           },
                                                           style:
                                                               const TextStyle(
@@ -239,6 +241,41 @@ class PendingOrdersScreen extends StatelessWidget {
                                                         ),
                                                       );
                                                     })),
+                                                const SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Align(
+                                                  alignment: Alignment.bottomRight,
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      getController
+                                                          .changeProgressStatus(
+                                                          order);
+                                                    },
+                                                    child: Neumorphic(
+                                                      style:
+                                                      const NeumorphicStyle(
+                                                        shape:
+                                                        NeumorphicShape.flat,
+                                                        color: Colors.white,
+                                                        depth: -1,
+                                                        intensity: 1,
+                                                      ),
+                                                      child: const Padding(
+                                                        padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 16,
+                                                            vertical: 8.0),
+                                                        child: Text(
+                                                          'Change Progress Status',
+                                                          style: TextStyle(
+                                                              color:
+                                                              Colors.black),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
                                               ],
                                             ),
                                           ),
