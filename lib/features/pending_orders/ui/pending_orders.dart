@@ -223,7 +223,9 @@ class PendingOrdersScreen extends StatelessWidget {
                                                                           value
                                                                               .toString());
                                                             }
-
+                                                            // getController
+                                                            //     .changeProgressStatus(
+                                                            //         order);
                                                           },
                                                           style:
                                                               const TextStyle(
@@ -258,7 +260,7 @@ class PendingOrdersScreen extends StatelessWidget {
                                                         NeumorphicShape.flat,
                                                         color: Colors.white,
                                                         depth: 2,
-                                                        intensity: 0.6,
+                                                        intensity: 0.4,
                                                       ),
                                                       child: const Padding(
                                                         padding:
