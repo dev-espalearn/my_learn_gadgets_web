@@ -149,8 +149,12 @@ class HomeScreen extends StatelessWidget {
                                       builder: (context, snapshot) {
                                         if (snapshot.hasData) {
                                           return Visibility(
-                                            visible:
-                                                snapshot.data!.docs.isNotEmpty,
+                                            visible: snapshot
+                                                    .data!.docs.isNotEmpty &&
+                                                FirebaseAuth.instance
+                                                        .currentUser!.email !=
+                                                    AppString
+                                                        .emailForTemporaryLogin,
                                             child: CircleAvatar(
                                               radius: 10,
                                               backgroundColor: Colors.red,
@@ -216,8 +220,12 @@ class HomeScreen extends StatelessWidget {
                                       builder: (context, snapshot) {
                                         if (snapshot.hasData) {
                                           return Visibility(
-                                            visible:
-                                                snapshot.data!.docs.isNotEmpty,
+                                            visible: snapshot
+                                                    .data!.docs.isNotEmpty &&
+                                                FirebaseAuth.instance
+                                                        .currentUser!.email !=
+                                                    AppString
+                                                        .emailForTemporaryLogin,
                                             child: CircleAvatar(
                                               radius: 10,
                                               backgroundColor: Colors.red,
@@ -318,15 +326,14 @@ class HomeScreen extends StatelessWidget {
                                                           product: product));
                                                 },
                                                 style: const NeumorphicStyle(
-                                                    shape: NeumorphicShape
-                                                        .convex,
+                                                    shape:
+                                                        NeumorphicShape.convex,
                                                     color: Colors.white,
                                                     depth: 1,
                                                     intensity: 0.5),
                                                 child: Padding(
                                                   padding:
-                                                      const EdgeInsets.all(
-                                                          8.0),
+                                                      const EdgeInsets.all(8.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
@@ -369,8 +376,7 @@ class HomeScreen extends StatelessWidget {
                                                       AutoSizeText(
                                                         '${product.description}\n\n RAM: ${product.specification['Ram']!}|SSD: ${product.specification['SSD']!}',
                                                         maxLines: 3,
-                                                        style:
-                                                            const TextStyle(
+                                                        style: const TextStyle(
                                                           fontWeight:
                                                               FontWeight.w300,
                                                         ),
@@ -486,16 +492,15 @@ class HomeScreen extends StatelessWidget {
                                             depth: 1,
                                             intensity: 0.5),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsets.all(8.0),
+                                          padding: const EdgeInsets.all(8.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
                                               Expanded(
                                                   child: ClipRRect(
                                                       borderRadius:
-                                                          BorderRadius
-                                                              .circular(8),
+                                                          BorderRadius.circular(
+                                                              8),
                                                       child: Image.network(
                                                           product.image))),
                                               const SizedBox(
@@ -505,8 +510,7 @@ class HomeScreen extends StatelessWidget {
                                                 product.name,
                                                 maxLines: 3,
                                                 style: const TextStyle(
-                                                  fontWeight:
-                                                      FontWeight.w700,
+                                                  fontWeight: FontWeight.w700,
                                                 ),
                                               ),
                                               const SizedBox(
@@ -522,8 +526,7 @@ class HomeScreen extends StatelessWidget {
                                                             .shade300,
                                                         fontSize: 12,
                                                         fontWeight:
-                                                            FontWeight
-                                                                .bold),
+                                                            FontWeight.bold),
                                                   ),
                                                   const SizedBox(
                                                     width: 8,
@@ -538,8 +541,7 @@ class HomeScreen extends StatelessWidget {
                                                             TextDecoration
                                                                 .lineThrough,
                                                         fontWeight:
-                                                            FontWeight
-                                                                .bold),
+                                                            FontWeight.bold),
                                                   ),
                                                 ],
                                               ),
