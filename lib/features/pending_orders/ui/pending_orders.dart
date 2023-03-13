@@ -74,12 +74,13 @@ class PendingOrdersScreen extends StatelessWidget {
                                         children: [
                                           SizedBox(
                                             width: Get.width / 5,
-                                            child: const Image(
-                                              image: AssetImage(
-                                                'assets/images/My learn gadgets.png',
+                                            child: Image(
+                                              image: NetworkImage(
+                                                products[0]
+                                                    .products[0]
+                                                    .product
+                                                    .image,
                                               ),
-                                              width: 60,
-                                              height: 60,
                                             ),
                                           ),
                                           const SizedBox(
@@ -150,8 +151,8 @@ class PendingOrdersScreen extends StatelessWidget {
                                                       shape:
                                                           NeumorphicShape.flat,
                                                       color: Colors.white,
-                                                      depth: -1,
-                                                      intensity: 1,
+                                                      depth: 2,
+                                                      intensity: 0.6,
                                                     ),
                                                     child: const Padding(
                                                       padding:
