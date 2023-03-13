@@ -69,7 +69,7 @@ class PendingOrdersGetController extends GetxController {
     }).then((value) {
       FirebaseFirestore.instance
           .collection(AppString.users)
-          .doc(FirebaseAuth.instance.currentUser!.email)
+          .doc(selectedOrder.customer.email)
           .collection(AppString.placedOrders)
           .doc(selectedOrder.id)
           .get()
@@ -80,7 +80,7 @@ class PendingOrdersGetController extends GetxController {
             progress: selectedProgressStatus.value);
         FirebaseFirestore.instance
             .collection(AppString.users)
-            .doc(FirebaseAuth.instance.currentUser!.email)
+            .doc(selectedOrder.customer.email)
             .collection(AppString.placedOrders)
             .doc(selectedOrder.id)
 
