@@ -147,21 +147,24 @@ class HomeScreen extends StatelessWidget {
                                           .collection(AppString.wishList)
                                           .snapshots(),
                                       builder: (context, snapshot) {
-                                        return Visibility(
-                                          visible:
-                                              snapshot.data!.docs.isNotEmpty,
-                                          child: CircleAvatar(
-                                            radius: 10,
-                                            backgroundColor: Colors.red,
-                                            child: Text(
-                                              snapshot.data!.docs.length
-                                                  .toString(),
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 10),
+                                        if (snapshot.hasData) {
+                                          return Visibility(
+                                            visible:
+                                                snapshot.data!.docs.isNotEmpty,
+                                            child: CircleAvatar(
+                                              radius: 10,
+                                              backgroundColor: Colors.red,
+                                              child: Text(
+                                                snapshot.data!.docs.length
+                                                    .toString(),
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 10),
+                                              ),
                                             ),
-                                          ),
-                                        );
+                                          );
+                                        }
+                                        return const SizedBox();
                                       }),
                                 )
                               ],
@@ -211,21 +214,24 @@ class HomeScreen extends StatelessWidget {
                                           .collection(AppString.shoppingCart)
                                           .snapshots(),
                                       builder: (context, snapshot) {
-                                        return Visibility(
-                                          visible:
-                                              snapshot.data!.docs.isNotEmpty,
-                                          child: CircleAvatar(
-                                            radius: 10,
-                                            backgroundColor: Colors.red,
-                                            child: Text(
-                                              snapshot.data!.docs.length
-                                                  .toString(),
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 10),
+                                        if (snapshot.hasData) {
+                                          return Visibility(
+                                            visible:
+                                                snapshot.data!.docs.isNotEmpty,
+                                            child: CircleAvatar(
+                                              radius: 10,
+                                              backgroundColor: Colors.red,
+                                              child: Text(
+                                                snapshot.data!.docs.length
+                                                    .toString(),
+                                                style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 10),
+                                              ),
                                             ),
-                                          ),
-                                        );
+                                          );
+                                        }
+                                        return const SizedBox();
                                       }),
                                 )
                               ],
@@ -286,149 +292,147 @@ class HomeScreen extends StatelessWidget {
                 color: AppColors.cardBgColorLight,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Expanded(
-                    child: StreamBuilder<QuerySnapshot>(
-                        stream: FirebaseFirestore.instance
-                            .collection(AppString.products)
-                            .where(AppString.banner, isEqualTo: true)
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            List<ProductModel> products = snapshot.data!.docs
-                                .map((e) => ProductModel.fromJson(
-                                    jsonDecode(jsonEncode(e.data()))))
-                                .toList();
-                            return Row(
-                              children: [
-                                Expanded(
-                                  child: CarouselSlider(
-                                      items: products
-                                          .map((product) => Padding(
-                                                padding:
-                                                    const EdgeInsets.all(4.0),
-                                                child: NeumorphicButton(
-                                                  onPressed: () {
-                                                    Get.to(() =>
-                                                        ProductDetailsScreen(
-                                                            product: product));
-                                                  },
-                                                  style: const NeumorphicStyle(
-                                                      shape: NeumorphicShape
-                                                          .convex,
-                                                      color: Colors.white,
-                                                      depth: 1,
-                                                      intensity: 0.5),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            8.0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        Expanded(
-                                                            child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8),
-                                                                child: Image
-                                                                    .network(product
-                                                                        .image))),
-                                                        const SizedBox(
-                                                          height: 8,
+                  child: StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance
+                          .collection(AppString.products)
+                          .where(AppString.banner, isEqualTo: true)
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          List<ProductModel> products = snapshot.data!.docs
+                              .map((e) => ProductModel.fromJson(
+                                  jsonDecode(jsonEncode(e.data()))))
+                              .toList();
+                          return Row(
+                            children: [
+                              Expanded(
+                                child: CarouselSlider(
+                                    items: products
+                                        .map((product) => Padding(
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
+                                              child: NeumorphicButton(
+                                                onPressed: () {
+                                                  Get.to(() =>
+                                                      ProductDetailsScreen(
+                                                          product: product));
+                                                },
+                                                style: const NeumorphicStyle(
+                                                    shape: NeumorphicShape
+                                                        .convex,
+                                                    color: Colors.white,
+                                                    depth: 1,
+                                                    intensity: 0.5),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(
+                                                          8.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Expanded(
+                                                          child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8),
+                                                              child: Image
+                                                                  .network(product
+                                                                      .image))),
+                                                      const SizedBox(
+                                                        height: 8,
+                                                      ),
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          AutoSizeText(
+                                                            product.name,
+                                                            maxLines: 3,
+                                                            style:
+                                                                const TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 8,
+                                                      ),
+                                                      AutoSizeText(
+                                                        '${product.description}\n\n RAM: ${product.specification['Ram']!}|SSD: ${product.specification['SSD']!}',
+                                                        maxLines: 3,
+                                                        style:
+                                                            const TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w300,
                                                         ),
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              product.name,
-                                                              maxLines: 3,
-                                                              style:
-                                                                  const TextStyle(
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 8,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          AutoSizeText(
+                                                            "\$${product.discountedPrice}",
+                                                            style: TextStyle(
+                                                                color: AppColors
+                                                                    .secondaryColor
+                                                                    .shade300,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w700,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        const SizedBox(
-                                                          height: 8,
-                                                        ),
-                                                        AutoSizeText(
-                                                          '${product.description}\n\n RAM: ${product.specification['Ram']!}|SSD: ${product.specification['SSD']!}',
-                                                          maxLines: 3,
-                                                          style:
-                                                              const TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.w300,
+                                                                        .bold),
                                                           ),
-                                                        ),
-                                                        const SizedBox(
-                                                          height: 8,
-                                                        ),
-                                                        Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              "\$${product.discountedPrice}",
-                                                              style: TextStyle(
-                                                                  color: AppColors
-                                                                      .secondaryColor
-                                                                      .shade300,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
-                                                            ),
-                                                            AutoSizeText(
-                                                              "\$${product.originalPrice}",
-                                                              style: TextStyle(
-                                                                  color: AppColors
-                                                                      .secondaryColor,
-                                                                  fontSize: 12,
-                                                                  decoration:
-                                                                      TextDecoration
-                                                                          .lineThrough,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
+                                                          AutoSizeText(
+                                                            "\$${product.originalPrice}",
+                                                            style: TextStyle(
+                                                                color: AppColors
+                                                                    .secondaryColor,
+                                                                fontSize: 12,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .lineThrough,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
-                                              ))
-                                          .toList(),
-                                      options: CarouselOptions(
-                                          autoPlay: true,
-                                          autoPlayInterval:
-                                              const Duration(seconds: 3),
-                                          autoPlayAnimationDuration:
-                                              const Duration(milliseconds: 800),
-                                          autoPlayCurve: Curves.fastOutSlowIn,
-                                          enlargeCenterPage: true,
-                                          scrollDirection: Axis.horizontal,
-                                          viewportFraction: 0.4,
-                                          enlargeFactor: 0.3)),
-                                ),
-                              ],
-                            );
-                          }
-                          return const Center(
-                            child: CircularProgressIndicator(),
+                                              ),
+                                            ))
+                                        .toList(),
+                                    options: CarouselOptions(
+                                        autoPlay: true,
+                                        autoPlayInterval:
+                                            const Duration(seconds: 3),
+                                        autoPlayAnimationDuration:
+                                            const Duration(milliseconds: 800),
+                                        autoPlayCurve: Curves.fastOutSlowIn,
+                                        enlargeCenterPage: true,
+                                        scrollDirection: Axis.horizontal,
+                                        viewportFraction: 0.4,
+                                        enlargeFactor: 0.3)),
+                              ),
+                            ],
                           );
-                        }),
-                  ),
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }),
                 ),
               ),
               SizedBox(
@@ -454,108 +458,104 @@ class HomeScreen extends StatelessWidget {
                 color: AppColors.tertiaryColor[50],
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Expanded(
-                    child: StreamBuilder<QuerySnapshot>(
-                        stream: FirebaseFirestore.instance
-                            .collection(AppString.products)
-                            .where(AppString.featured, isEqualTo: true)
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            List<ProductModel> products = snapshot.data!.docs
-                                .map((e) => ProductModel.fromJson(
-                                    jsonDecode(jsonEncode(e.data()))))
-                                .toList();
-                            return SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Expanded(
-                                child: Row(
-                                  children: [
-                                    ...products.map((product) => Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: NeumorphicButton(
-                                            onPressed: () {
-                                              Get.to(() => ProductDetailsScreen(
-                                                  product: product));
-                                            },
-                                            style: const NeumorphicStyle(
-                                                shape: NeumorphicShape.flat,
-                                                color: Colors.white,
-                                                depth: 1,
-                                                intensity: 0.5),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
+                  child: StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance
+                          .collection(AppString.products)
+                          .where(AppString.featured, isEqualTo: true)
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          List<ProductModel> products = snapshot.data!.docs
+                              .map((e) => ProductModel.fromJson(
+                                  jsonDecode(jsonEncode(e.data()))))
+                              .toList();
+                          return SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                ...products.map((product) => Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: NeumorphicButton(
+                                        onPressed: () {
+                                          Get.to(() => ProductDetailsScreen(
+                                              product: product));
+                                        },
+                                        style: const NeumorphicStyle(
+                                            shape: NeumorphicShape.flat,
+                                            color: Colors.white,
+                                            depth: 1,
+                                            intensity: 0.5),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.all(8.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Expanded(
+                                                  child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius
+                                                              .circular(8),
+                                                      child: Image.network(
+                                                          product.image))),
+                                              const SizedBox(
+                                                height: 8,
+                                              ),
+                                              AutoSizeText(
+                                                product.name,
+                                                maxLines: 3,
+                                                style: const TextStyle(
+                                                  fontWeight:
+                                                      FontWeight.w700,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 8,
+                                              ),
+                                              Row(
                                                 children: [
-                                                  Expanded(
-                                                      child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(8),
-                                                          child: Image.network(
-                                                              product.image))),
-                                                  const SizedBox(
-                                                    height: 8,
-                                                  ),
-                                                  AutoSizeText(
-                                                    product.name,
-                                                    maxLines: 3,
-                                                    style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                    ),
+                                                  Text(
+                                                    "\$${product.discountedPrice}",
+                                                    style: TextStyle(
+                                                        color: AppColors
+                                                            .secondaryColor
+                                                            .shade300,
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight
+                                                                .bold),
                                                   ),
                                                   const SizedBox(
-                                                    height: 8,
+                                                    width: 8,
                                                   ),
-                                                  Row(
-                                                    children: [
-                                                      Text(
-                                                        "\$${product.discountedPrice}",
-                                                        style: TextStyle(
-                                                            color: AppColors
-                                                                .secondaryColor
-                                                                .shade300,
-                                                            fontSize: 12,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                      const SizedBox(
-                                                        width: 8,
-                                                      ),
-                                                      Text(
-                                                        "\$${product.originalPrice}",
-                                                        style: TextStyle(
-                                                            color: AppColors
-                                                                .secondaryColor,
-                                                            fontSize: 12,
-                                                            decoration:
-                                                                TextDecoration
-                                                                    .lineThrough,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                    ],
+                                                  Text(
+                                                    "\$${product.originalPrice}",
+                                                    style: TextStyle(
+                                                        color: AppColors
+                                                            .secondaryColor,
+                                                        fontSize: 12,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .lineThrough,
+                                                        fontWeight:
+                                                            FontWeight
+                                                                .bold),
                                                   ),
                                                 ],
                                               ),
-                                            ),
+                                            ],
                                           ),
-                                        ))
-                                  ],
-                                ),
-                              ),
-                            );
-                          }
-                          return const Center(
-                            child: CircularProgressIndicator(),
+                                        ),
+                                      ),
+                                    ))
+                              ],
+                            ),
                           );
-                        }),
-                  ),
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }),
                 ),
               ),
             ],
