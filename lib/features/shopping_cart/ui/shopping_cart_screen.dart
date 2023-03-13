@@ -84,133 +84,145 @@ class ShoppingCartScreen extends StatelessWidget {
                               .map((e) => CartItem.fromJson(
                                   jsonDecode(jsonEncode(e.data()))))
                               .toList();
-                          return ListView.builder(
-                              itemBuilder: (context, index) {
-                                CartItem product = products[index];
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8.0, vertical: 4),
-                                  child: Neumorphic(
-                                    style: const NeumorphicStyle(
-                                      shape: NeumorphicShape.flat,
-                                      color: Colors.white,
-                                      depth: 1,
-                                      intensity: 1,
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        children: [
-                                          SizedBox(
-                                              width: Get.width / 5,
-                                              child: Image.network(
-                                                  product.product.image)),
-                                          Expanded(
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                          if (products.isNotEmpty) {
+                            return ListView.builder(
+                                itemBuilder: (context, index) {
+                                  CartItem product = products[index];
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0, vertical: 4),
+                                    child: Neumorphic(
+                                      style: const NeumorphicStyle(
+                                        shape: NeumorphicShape.flat,
+                                        color: Colors.white,
+                                        depth: 1,
+                                        intensity: 1,
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          children: [
+                                            SizedBox(
+                                                width: Get.width / 5,
+                                                child: Image.network(
+                                                    product.product.image)),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  AutoSizeText(
+                                                    product.product.name,
+                                                    style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                  AutoSizeText(
+                                                    product.product.description,
+                                                    maxLines: 4,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Text(
+                                              'Rs. ${product.product.discountedPrice}',
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            IconButton(
+                                              onPressed: () {},
+                                              icon: const Icon(Icons.delete),
+                                            ),
+                                            const SizedBox(
+                                              width: 10,
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
-                                                AutoSizeText(
-                                                  product.product.name,
-                                                  style: const TextStyle(
-                                                    fontWeight: FontWeight.w500,
+                                                NeumorphicButton(
+                                                  onPressed: () {
+                                                    getController
+                                                        .incrementQuantity(
+                                                            product);
+                                                  },
+                                                  style: const NeumorphicStyle(
+                                                    shape: NeumorphicShape.flat,
+                                                    boxShape: NeumorphicBoxShape
+                                                        .circle(),
+                                                    color: Colors.white,
+                                                    depth: 1,
+                                                    intensity: 0.6,
+                                                  ),
+                                                  child: const Icon(
+                                                    Icons.arrow_drop_up,
+                                                    size: 20,
                                                   ),
                                                 ),
-                                                AutoSizeText(
-                                                  product.product.description,
-                                                  maxLines: 4,
+                                                const SizedBox(
+                                                  height: 10,
+                                                ),
+                                                NeumorphicButton(
+                                                  onPressed: () {
+                                                    getController
+                                                        .decrementQuantity(
+                                                            product);
+                                                  },
+                                                  style: const NeumorphicStyle(
+                                                    shape: NeumorphicShape.flat,
+                                                    boxShape: NeumorphicBoxShape
+                                                        .circle(),
+                                                    color: Colors.white,
+                                                    depth: 1,
+                                                    intensity: 0.6,
+                                                  ),
+                                                  child: const Icon(
+                                                    Icons.arrow_drop_down,
+                                                    size: 20,
+                                                  ),
                                                 ),
                                               ],
                                             ),
-                                          ),
-                                          Text(
-                                            'Rs. ${product.product.discountedPrice}',
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.w500,
+                                            const SizedBox(
+                                              width: 8,
                                             ),
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(Icons.delete),
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              NeumorphicButton(
-                                                onPressed: () {
-                                                  getController
-                                                      .incrementQuantity(
-                                                          product);
-                                                },
-                                                style: const NeumorphicStyle(
-                                                  shape: NeumorphicShape.flat,
-                                                  boxShape: NeumorphicBoxShape
-                                                      .circle(),
-                                                  color: Colors.white,
-                                                  depth: 1,
-                                                  intensity: 0.6,
-                                                ),
-                                                child: const Icon(
-                                                  Icons.arrow_drop_up,
-                                                  size: 20,
-                                                ),
+                                            Neumorphic(
+                                              style: const NeumorphicStyle(
+                                                shape: NeumorphicShape.flat,
+                                                color: Colors.white,
+                                                depth: -1,
+                                                intensity: 1,
                                               ),
-                                              const SizedBox(
-                                                height: 10,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 16,
+                                                        vertical: 8.0),
+                                                child: Text(product.quantity
+                                                    .toString()),
                                               ),
-                                              NeumorphicButton(
-                                                onPressed: () {
-                                                  getController
-                                                      .decrementQuantity(
-                                                          product);
-                                                },
-                                                style: const NeumorphicStyle(
-                                                  shape: NeumorphicShape.flat,
-                                                  boxShape: NeumorphicBoxShape
-                                                      .circle(),
-                                                  color: Colors.white,
-                                                  depth: 1,
-                                                  intensity: 0.6,
-                                                ),
-                                                child: const Icon(
-                                                  Icons.arrow_drop_down,
-                                                  size: 20,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            width: 8,
-                                          ),
-                                          Neumorphic(
-                                            style: const NeumorphicStyle(
-                                              shape: NeumorphicShape.flat,
-                                              color: Colors.white,
-                                              depth: -1,
-                                              intensity: 1,
                                             ),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 16,
-                                                      vertical: 8.0),
-                                              child: Text(
-                                                  product.quantity.toString()),
-                                            ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
-                              itemCount: products.length);
+                                  );
+                                },
+                                itemCount: products.length);
+                          }
+                          return const Center(
+                            child: Text(
+                              "No items in cart",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          );
                         }
                         return const Center(
                           child: CircularProgressIndicator(),
@@ -224,9 +236,8 @@ class ShoppingCartScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //proceed to checkout
-              Obx((){
-                return
-                Visibility(
+              Obx(() {
+                return Visibility(
                   visible: getController.cartItems.isNotEmpty,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -251,8 +262,7 @@ class ShoppingCartScreen extends StatelessWidget {
                     ),
                   ),
                 );
-                }
-              ),
+              }),
             ],
           ),
         ),
