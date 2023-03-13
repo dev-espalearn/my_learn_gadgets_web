@@ -222,7 +222,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        /*Get.to(() => const ShoppingCartScreen());*/
+
                         if (FirebaseAuth.instance.currentUser != null &&
                             FirebaseAuth.instance.currentUser!.email !=
                                 AppString.emailForTemporaryLogin) {
