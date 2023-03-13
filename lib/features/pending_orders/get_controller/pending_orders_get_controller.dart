@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import '../../../core/app_string.dart';
 import '../../../models/order_model.dart';
@@ -65,6 +66,26 @@ class PendingOrdersGetController extends GetxController {
           .collection(AppString.orders)
           .doc(selectedOrder.id)
           .set(orderModel.toJson());
+    }).then((value) {
+      FirebaseFirestore.instance
+          .collection(AppString.users)
+          .doc(FirebaseAuth.instance.currentUser!.email)
+          .collection(AppString.placedOrders)
+          .doc(selectedOrder.id)
+          .get()
+          .then((value) {
+        OrderModel orderModel =
+        OrderModel.fromJson(jsonDecode(jsonEncode(value.data())));
+        orderModel = OrderModel.copyWith(orderModel,
+            progress: selectedProgressStatus.value);
+        FirebaseFirestore.instance
+            .collection(AppString.users)
+            .doc(FirebaseAuth.instance.currentUser!.email)
+            .collection(AppString.placedOrders)
+            .doc(selectedOrder.id)
+
+            .set(orderModel.toJson());
+      });
     });
   }
 
