@@ -267,10 +267,42 @@ class HomeScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(4.0),
                         child: Column(
                           children: [
-                            Icon(
-                              Icons.shopping_cart,
-                              color: AppColors.cardBgColor,
-                              size: 30,
+                            Stack(
+                              children: [
+                                Icon(
+                                  Icons.shopping_cart,
+                                  color: AppColors.cardBgColor,
+                                  size: 30,
+                                ),
+                                Positioned(
+                                  right: 0,
+                                  top: 0,
+                                  child: StreamBuilder<QuerySnapshot>(
+                                      stream: FirebaseFirestore.instance
+                                          .collection(AppString.users)
+                                          .doc(FirebaseAuth
+                                              .instance.currentUser!.email)
+                                          .collection(AppString.shoppingCart)
+                                          .snapshots(),
+                                      builder: (context, snapshot) {
+                                        return Visibility(
+                                          visible:
+                                              snapshot.data!.docs.isNotEmpty,
+                                          child: CircleAvatar(
+                                            radius: 10,
+                                            backgroundColor: Colors.red,
+                                            child: Text(
+                                              snapshot.data!.docs.length
+                                                  .toString(),
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 10),
+                                            ),
+                                          ),
+                                        );
+                                      }),
+                                )
+                              ],
                             ),
                             const SizedBox(
                               height: 8,
