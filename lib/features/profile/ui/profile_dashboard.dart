@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
-
 import '../../../core/app_colors.dart';
 import '../get_controllers/profile_get_controller.dart';
 
@@ -32,7 +31,7 @@ class ProfileDashboard extends StatelessWidget {
                 height: Get.height,
               child: GridView.builder(
                 gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(
+                const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 5.0,
                   mainAxisSpacing: 5.0,

@@ -43,13 +43,14 @@ class AdminDashboardPage extends StatelessWidget {
           body: Center(
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
-                if (constraints.maxWidth <= 800) {
-                  return const Center(
-                    child: Text('Mobile'),
-                  );
-                } else if (constraints.maxWidth <= 1280 &&
-                    constraints.maxWidth >= 800) {
-                  return SingleChildScrollView(
+                // if (constraints.maxWidth <= 800) {
+                //   return const Center(
+                //     child: Text('Mobile'),
+                //   );
+                // } else if (constraints.maxWidth <= 1280 &&
+                //     constraints.maxWidth >= 800) {
+                  return
+                    SingleChildScrollView(
                     child: Material(
                       child: Center(
                         child: Column(
@@ -182,8 +183,8 @@ class AdminDashboardPage extends StatelessWidget {
                       ),
                     ),
                   );
-                }
-                return Container(color: Colors.amber);
+                // }
+                // return Container(color: Colors.amber);
               },
             ),
           ),
