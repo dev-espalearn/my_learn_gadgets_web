@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_learn_gadgets_web/features/widgets/responsive_widget.dart';
 
-
-
 class ChartCardTile extends StatelessWidget {
   final Color? cardColor;
   final String? cardTitle;
@@ -29,8 +27,9 @@ class ChartCardTile extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            padding:
-                media.width >= 1280 ? const EdgeInsets.all(15) : const EdgeInsets.all(5),
+            padding: media.width >= 1280
+                ? const EdgeInsets.all(15)
+                : const EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               color: cardColor,
@@ -65,8 +64,8 @@ class ChartCardTile extends StatelessWidget {
                         ),
                         const SizedBox(height: 5),
                         Text(subText!,
-                            style:
-                                const TextStyle(fontSize: 12, color: Colors.white)),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.white)),
                       ],
                     )
                   ],

@@ -11,8 +11,6 @@ class SplashPageGetController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late AnimationController animationController;
 
-  
-
   @override
   void onInit() {
     animationController = AnimationController(
@@ -47,7 +45,6 @@ class SplashPageGetController extends GetxController
           Get.offAll(() => HomeScreen());
         });
       }
-      
     });
 
     super.onInit();
@@ -60,6 +57,4 @@ class SplashPageGetController extends GetxController
           password: AppString.passwordForTemporaryLogin);
     }
   }
-
-
 }

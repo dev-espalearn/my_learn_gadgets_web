@@ -45,7 +45,8 @@ class DescriptionTab extends StatelessWidget {
                       child: SizedBox(
                         width: Get.width * 0.55,
                         child: AutoSizeText(
-                          getController.product.specification.values.toList()[index],
+                          getController.product.specification.values
+                              .toList()[index],
                           maxLines: 5,
                           style: const TextStyle(
                             fontWeight: FontWeight.w700,

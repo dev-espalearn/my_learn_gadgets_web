@@ -18,7 +18,8 @@ class SignUpScreen extends StatelessWidget {
         color: Colors.white,
         child: Scaffold(
           backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-          appBar: AppBar(elevation: 0,
+          appBar: AppBar(
+              elevation: 0,
               automaticallyImplyLeading: false,
               title: const Text('Sign Up',
                   style: TextStyle(fontWeight: FontWeight.w500))),

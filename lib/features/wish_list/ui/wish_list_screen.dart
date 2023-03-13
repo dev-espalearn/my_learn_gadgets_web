@@ -41,7 +41,7 @@ class WishListScreen extends StatelessWidget {
                   if (snapshot.hasData) {
                     List<ProductModel> products = snapshot.data!.docs
                         .map((e) => ProductModel.fromJson(
-                        jsonDecode(jsonEncode(e.data()))))
+                            jsonDecode(jsonEncode(e.data()))))
                         .toList();
                     if (products.isNotEmpty) {
                       return ListView.builder(
@@ -68,11 +68,12 @@ class WishListScreen extends StatelessWidget {
                                             TextButton(
                                                 onPressed: () {
                                                   FirebaseFirestore.instance
-                                                      .collection(AppString.users)
-                                                      .doc(FirebaseAuth.instance
-                                                      .currentUser!.email)
                                                       .collection(
-                                                      AppString.wishList)
+                                                          AppString.users)
+                                                      .doc(FirebaseAuth.instance
+                                                          .currentUser!.email)
+                                                      .collection(
+                                                          AppString.wishList)
                                                       .doc(product.id)
                                                       .delete();
                                                   Navigator.of(context).pop();
@@ -95,11 +96,12 @@ class WishListScreen extends StatelessWidget {
                                       children: [
                                         SizedBox(
                                             width: Get.width / 5,
-                                            child: Image.network(product.image)),
+                                            child:
+                                                Image.network(product.image)),
                                         Expanded(
                                           child: Column(
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start,
                                             children: [
                                               AutoSizeText(
                                                 product.name,
@@ -129,10 +131,10 @@ class WishListScreen extends StatelessWidget {
                                                 product: product, quantity: 1);
                                             FirebaseFirestore.instance
                                                 .collection(AppString.users)
-                                                .doc(FirebaseAuth
-                                                .instance.currentUser!.email)
+                                                .doc(FirebaseAuth.instance
+                                                    .currentUser!.email)
                                                 .collection(
-                                                AppString.shoppingCart)
+                                                    AppString.shoppingCart)
                                                 .doc(product.id)
                                                 .set(cartItem.toJson());
                                           },

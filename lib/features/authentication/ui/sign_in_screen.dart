@@ -2,6 +2,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/features/authentication/ui/sign_up_screen.dart';
+
 import '../get_controllers/sign_in_get_controller.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -15,7 +16,8 @@ class SignInScreen extends StatelessWidget {
         color: Colors.white,
         child: Scaffold(
             backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-            appBar: AppBar(elevation: 0,
+            appBar: AppBar(
+              elevation: 0,
               title: const Text('Sign In',
                   style: TextStyle(fontWeight: FontWeight.w500)),
               automaticallyImplyLeading: false,

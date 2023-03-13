@@ -1,6 +1,8 @@
 import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
+
 import '../../../core/app_string.dart';
 import '../../../models/order_model.dart';
 import '../../../models/progress_model.dart';
@@ -74,7 +76,7 @@ class PendingOrdersGetController extends GetxController {
           .get()
           .then((value) {
         OrderModel orderModel =
-        OrderModel.fromJson(jsonDecode(jsonEncode(value.data())));
+            OrderModel.fromJson(jsonDecode(jsonEncode(value.data())));
         orderModel = OrderModel.copyWith(orderModel,
             progress: selectedProgressStatus.value);
         FirebaseFirestore.instance
@@ -82,7 +84,6 @@ class PendingOrdersGetController extends GetxController {
             .doc(selectedOrder.customer.email)
             .collection(AppString.placedOrders)
             .doc(selectedOrder.id)
-
             .set(orderModel.toJson());
       });
     });

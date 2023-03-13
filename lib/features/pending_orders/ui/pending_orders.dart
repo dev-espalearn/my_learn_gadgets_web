@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -7,6 +8,7 @@ import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
 import 'package:my_learn_gadgets_web/features/pending_orders/ui/pending_order_detail.dart';
 import 'package:my_learn_gadgets_web/helpers/date_time_helpers.dart';
+
 import '../../../models/order_model.dart';
 import '../get_controller/pending_orders_get_controller.dart';
 
@@ -47,8 +49,7 @@ class PendingOrdersScreen extends StatelessWidget {
                               .map((e) => OrderModel.fromJson(
                                   jsonDecode(jsonEncode(e.data()))))
                               .toList();
-                          return
-                            ListView.builder(
+                          return ListView.builder(
                               itemBuilder: (context, index) {
                                 OrderModel order = products[index];
                                 if (order.progress.name == 'Delivered') {
@@ -124,11 +125,9 @@ class PendingOrdersScreen extends StatelessWidget {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-
-                                                    AutoSizeText(
-                                                    'Status: ${order.progress.name}',
-                                                  ),
-
+                                                AutoSizeText(
+                                                  'Status: ${order.progress.name}',
+                                                ),
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
@@ -175,15 +174,16 @@ class PendingOrdersScreen extends StatelessWidget {
                                                             .size
                                                             .width,
                                                     height: 50,
-                                                    padding:
-                                                        const EdgeInsets.symmetric(
-                                                            vertical: 4,
-                                                            horizontal: 8),
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        vertical: 4,
+                                                        horizontal: 8),
                                                     decoration: BoxDecoration(
-                                                      color: const Color(0xffffffff),
+                                                      color: const Color(
+                                                          0xffffffff),
                                                       border: Border.all(
-                                                          color:
-                                                              const Color(0x28000000),
+                                                          color: const Color(
+                                                              0x28000000),
                                                           width: 1),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -200,8 +200,8 @@ class PendingOrdersScreen extends StatelessWidget {
                                                               .progress
                                                               .map((e) =>
                                                                   DropdownMenuItem(
-                                                                    value: e
-                                                                        .name,
+                                                                    value:
+                                                                        e.name,
                                                                     child: Text(e
                                                                         .name
                                                                         .toString()),
@@ -220,14 +220,12 @@ class PendingOrdersScreen extends StatelessWidget {
                                                                           value
                                                                               .toString());
                                                             }
-                                                            getController.changeProgressStatus(order);
-
-
-
-
-
+                                                            getController
+                                                                .changeProgressStatus(
+                                                                    order);
                                                           },
-                                                          style: const TextStyle(
+                                                          style:
+                                                              const TextStyle(
                                                             color: Color(
                                                                 0xff000000),
                                                             fontSize: 16,

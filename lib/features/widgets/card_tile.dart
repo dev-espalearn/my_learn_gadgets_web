@@ -2,23 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/features/widgets/responsive_widget.dart';
 
-
-
 class CardTile extends StatelessWidget {
   final Color? cardColor;
   final String? cardTitle;
   final String? subText;
   final IconData? icon;
- final String? typeText;
+  final String? typeText;
 
   const CardTile(
       {super.key,
-        this.cardColor,
-        this.cardTitle,
-        this.subText,
-        this.icon,
-        this.typeText
-      });
+      this.cardColor,
+      this.cardTitle,
+      this.subText,
+      this.icon,
+      this.typeText});
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +28,9 @@ class CardTile extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            padding:
-            media.width >= 1280 ? const EdgeInsets.all(15) : const EdgeInsets.all(5),
+            padding: media.width >= 1280
+                ? const EdgeInsets.all(15)
+                : const EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               color: cardColor,
@@ -43,7 +41,7 @@ class CardTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                 Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
@@ -67,8 +65,8 @@ class CardTile extends StatelessWidget {
                         ),
                         const SizedBox(height: 5),
                         Text(subText!,
-                            style:
-                            const TextStyle(fontSize: 12, color: Colors.black)),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.black)),
                       ],
                     )
                   ],

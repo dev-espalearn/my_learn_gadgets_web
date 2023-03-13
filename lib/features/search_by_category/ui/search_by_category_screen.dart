@@ -18,7 +18,8 @@ class SearchByCategoryScreen extends StatelessWidget {
         Get.put(SearchByCategoryGetController(searchQuery: searchQuery));
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(elevation: 0,
+        appBar: AppBar(
+          elevation: 0,
           automaticallyImplyLeading: false,
           title: Text(searchQuery),
         ),

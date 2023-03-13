@@ -39,8 +39,8 @@ class SignInGetController extends GetxController {
     if (formKey.currentState!.validate()) {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(
-          email: AppString.emailForTemporaryLogin,
-          password: AppString.passwordForTemporaryLogin)
+              email: AppString.emailForTemporaryLogin,
+              password: AppString.passwordForTemporaryLogin)
           .then((value) async {
         await FirebaseFirestore.instance
             .collection(AppString.admins)
@@ -59,7 +59,8 @@ class SignInGetController extends GetxController {
               Get.offAll(() => const AdminDashboardPage());
             }).catchError((e) {
               showLoader.value = false;
-              Get.snackbar("Error", e.toString(), backgroundColor: Colors.red, colorText: Colors.white);
+              Get.snackbar("Error", e.toString(),
+                  backgroundColor: Colors.red, colorText: Colors.white);
             });
             showLoader.value = false;
           } else {

@@ -2,12 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
+
 import '../../../models/cart_item.dart';
 
 class UserOrderHistoryDetail extends StatefulWidget {
   final List<CartItem> products;
 
-  const UserOrderHistoryDetail({Key? key, required this.products}) : super(key: key);
+  const UserOrderHistoryDetail({Key? key, required this.products})
+      : super(key: key);
 
   @override
   State<UserOrderHistoryDetail> createState() => _UserOrderHistoryDetailState();
@@ -31,7 +33,7 @@ class _UserOrderHistoryDetailState extends State<UserOrderHistoryDetail> {
           ),
           body: Padding(
             padding:
-            EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
+                EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
             child: Column(
               children: [
                 Expanded(
@@ -68,7 +70,7 @@ class _UserOrderHistoryDetailState extends State<UserOrderHistoryDetail> {
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         AutoSizeText(
                                           'Product id: ${tile.product.id}',

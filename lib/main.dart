@@ -3,6 +3,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/features/splash/ui/splash_page.dart';
+
 import 'features/unknown/unknown_route.dart';
 
 Future<void> main() async {
@@ -22,16 +23,16 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'My Learn Gadgets',
       theme: ThemeData(
-        primaryColor: AppColors.primaryColor,
-        primarySwatch: AppColors.primaryColor,
-        secondaryHeaderColor: AppColors.secondaryColor,
-        fontFamily: 'Digitalt-04no.ttf'
-      ),
+          primaryColor: AppColors.primaryColor,
+          primarySwatch: AppColors.primaryColor,
+          secondaryHeaderColor: AppColors.secondaryColor,
+          fontFamily: 'Digitalt-04no.ttf'),
       debugShowCheckedModeBanner: true,
       home: NeumorphicApp(
           theme: NeumorphicThemeData(

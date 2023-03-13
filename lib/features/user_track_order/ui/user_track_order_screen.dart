@@ -1,16 +1,17 @@
 import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
 import 'package:my_learn_gadgets_web/helpers/date_time_helpers.dart';
 import 'package:my_learn_gadgets_web/models/progress_model.dart';
-import '../../../models/order_model.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
+import '../../../models/order_model.dart';
 import '../get_controller/user_track_order_get_controller.dart';
 
 class UserTrackOrderScreen extends StatelessWidget {
@@ -41,11 +42,9 @@ class UserTrackOrderScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: StreamBuilder<QuerySnapshot>(
-                      stream:
-                      FirebaseFirestore.instance
+                      stream: FirebaseFirestore.instance
                           .collection(AppString.users)
-                          .doc(FirebaseAuth
-                          .instance.currentUser!.email)
+                          .doc(FirebaseAuth.instance.currentUser!.email)
                           .collection(AppString.placedOrders)
                           .snapshots(),
                       builder: (context, snapshot) {
@@ -129,11 +128,9 @@ class UserTrackOrderScreen extends StatelessWidget {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-
                                                 AutoSizeText(
                                                   'Status: ${order.progress.name}',
                                                 ),
-
                                                 const SizedBox(
                                                   height: 10,
                                                 ),

@@ -1,10 +1,12 @@
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
 import 'package:my_learn_gadgets_web/models/user_model.dart';
+
 import '../../login_and_security/ui/change_password_screen.dart';
 import '../../shopping_cart/ui/shopping_cart_screen.dart';
 import '../../user_order_history/ui/user_order_history_screen.dart';
@@ -45,11 +47,11 @@ class ProfileGetController extends GetxController {
 
   Map<String, String> options = {
     'assets/images/track.png': "Track orders",
-    'assets/images/login.png' : "Login and Security",
-    'assets/images/cart.png' : "My Cart",
-    'assets/images/wishlist.png' : "My Wishlist",
-    'assets/images/history.png' : "Order History",
-    'assets/images/details.png' : "My Details",
+    'assets/images/login.png': "Login and Security",
+    'assets/images/cart.png': "My Cart",
+    'assets/images/wishlist.png': "My Wishlist",
+    'assets/images/history.png': "Order History",
+    'assets/images/details.png': "My Details",
   };
 
   Map<int, Widget?> routing = {

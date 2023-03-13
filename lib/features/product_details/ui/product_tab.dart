@@ -21,11 +21,10 @@ class ProductsTab extends StatelessWidget {
           Flexible(
             child: AutoSizeText(
               getController.product.name,
-              style:  TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: AppColors.tertiaryColor[900]
-              ),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.tertiaryColor[900]),
               maxLines: 4,
             ),
           ),
@@ -177,8 +176,14 @@ class ProductsTab extends StatelessWidget {
                       Icons.add_shopping_cart,
                       color: Colors.white,
                     ),
-                    SizedBox(width: 10,),
-                    Text('ADD TO CART', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'ADD TO CART',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    )
                   ],
                 ),
               ),

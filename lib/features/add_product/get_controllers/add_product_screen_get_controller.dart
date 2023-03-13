@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -11,8 +12,6 @@ import 'package:uuid/uuid.dart';
 
 class AddProductScreenGetController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  
 
   TextEditingController nameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
@@ -119,8 +118,10 @@ class AddProductScreenGetController extends GetxController {
   }
 
   Future<void> fetchCategories() async {
-    if(FirebaseAuth.instance.currentUser == null){
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: AppString.emailForTemporaryLogin, password: AppString.passwordForTemporaryLogin);
+    if (FirebaseAuth.instance.currentUser == null) {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: AppString.emailForTemporaryLogin,
+          password: AppString.passwordForTemporaryLogin);
     }
     FirebaseFirestore.instance
         .collection(AppString.categories)

@@ -2,12 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
+
 import '../../../models/cart_item.dart';
 
 class PendingOrderDetail extends StatefulWidget {
   final List<CartItem> products;
 
-  const PendingOrderDetail({Key? key, required this.products}) : super(key: key);
+  const PendingOrderDetail({Key? key, required this.products})
+      : super(key: key);
 
   @override
   State<PendingOrderDetail> createState() => _PendingOrderDetailState();

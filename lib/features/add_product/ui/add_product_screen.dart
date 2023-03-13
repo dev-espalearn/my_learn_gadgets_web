@@ -14,7 +14,8 @@ class AddProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor.shade50.withOpacity(0.1),
-      appBar: AppBar(elevation: 0,
+      appBar: AppBar(
+        elevation: 0,
         title: const Text('Add Product'),
         automaticallyImplyLeading: false,
       ),
@@ -24,7 +25,8 @@ class AddProductScreen extends StatelessWidget {
           key: addProductScreenGetController.formKey,
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
               child: Column(
                 children: [
                   Neumorphic(
@@ -37,7 +39,8 @@ class AddProductScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextFormField(
-                        controller: addProductScreenGetController.nameController,
+                        controller:
+                            addProductScreenGetController.nameController,
                         decoration: const InputDecoration(
                           labelText: 'Name',
                         ),
@@ -53,7 +56,6 @@ class AddProductScreen extends StatelessWidget {
                   SizedBox(
                     height: Get.height * 0.02,
                   ),
-                  
                   Neumorphic(
                     style: const NeumorphicStyle(
                       shape: NeumorphicShape.flat,
@@ -65,7 +67,8 @@ class AddProductScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Obx(
                         () => DropdownButtonFormField<String>(
-                          value: addProductScreenGetController.chosenCategory.value,
+                          value: addProductScreenGetController
+                              .chosenCategory.value,
                           decoration: const InputDecoration(
                             labelText: 'Category',
                           ),
@@ -106,7 +109,11 @@ class AddProductScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: const [
-                              Text('Specification', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
+                              Text(
+                                'Specification',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 16),
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -123,10 +130,11 @@ class AddProductScreen extends StatelessWidget {
                                     intensity: 1,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
                                     child: TextFormField(
-                                      controller:
-                                      addProductScreenGetController.keyController,
+                                      controller: addProductScreenGetController
+                                          .keyController,
                                       decoration: const InputDecoration(
                                         labelText: 'Key',
                                       ),
@@ -152,10 +160,11 @@ class AddProductScreen extends StatelessWidget {
                                     intensity: 1,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0),
                                     child: TextFormField(
-                                      controller:
-                                      addProductScreenGetController.valueController,
+                                      controller: addProductScreenGetController
+                                          .valueController,
                                       decoration: const InputDecoration(
                                         labelText: 'Value',
                                       ),
@@ -173,10 +182,12 @@ class AddProductScreen extends StatelessWidget {
                                 width: Get.width * 0.02,
                               ),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
                                 child: NeumorphicButton(
                                   onPressed: () {
-                                    addProductScreenGetController.addSpecification();
+                                    addProductScreenGetController
+                                        .addSpecification();
                                   },
                                   style: const NeumorphicStyle(
                                     shape: NeumorphicShape.convex,
@@ -195,7 +206,6 @@ class AddProductScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-
                           SizedBox(
                             height: Get.height * 0.02,
                           ),
@@ -216,23 +226,25 @@ class AddProductScreen extends StatelessWidget {
                                     return Row(
                                       children: [
                                         Expanded(
-                                          child: Text(addProductScreenGetController
-                                              .specification.keys
-                                              .toList()[index]),
+                                          child: Text(
+                                              addProductScreenGetController
+                                                  .specification.keys
+                                                  .toList()[index]),
                                         ),
                                         SizedBox(
                                           width: Get.width * 0.02,
                                         ),
                                         Expanded(
-                                          child: Text(addProductScreenGetController
-                                              .specification.values
-                                              .toList()[index]),
+                                          child: Text(
+                                              addProductScreenGetController
+                                                  .specification.values
+                                                  .toList()[index]),
                                         )
                                       ],
                                     );
                                   },
-                                  itemCount:
-                                      addProductScreenGetController.specification.length,
+                                  itemCount: addProductScreenGetController
+                                      .specification.length,
                                 );
                               }),
                             ),
@@ -309,8 +321,8 @@ class AddProductScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextFormField(
-                        controller:
-                            addProductScreenGetController.originalPriceController,
+                        controller: addProductScreenGetController
+                            .originalPriceController,
                         decoration: const InputDecoration(
                           labelText: 'Original Price',
                         ),
@@ -444,8 +456,8 @@ class AddProductScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextFormField(
-                        controller:
-                            addProductScreenGetController.quantityLeftController,
+                        controller: addProductScreenGetController
+                            .quantityLeftController,
                         decoration: const InputDecoration(
                           labelText: 'Quantity Left',
                         ),
@@ -470,28 +482,29 @@ class AddProductScreen extends StatelessWidget {
                                 ? addProductScreenGetController
                                     .secondaryImagesPath
                                     .map((element) => Stack(
-                                      children: [
-                                        Image.network(element),
-                                        Positioned(
-                                          top: 0,
-                                          right: 0,
-                                          child: NeumorphicButton(
-                                            onPressed: () {
-                                              addProductScreenGetController
-                                                  .secondaryImagesPath
-                                                  .remove(element);
-                                            },
-                                            style: const NeumorphicStyle(
-                                              color: Colors.white,
-                                              boxShape: NeumorphicBoxShape.circle(),
-                                              depth: 3,
-                                              intensity: 0.6,
+                                          children: [
+                                            Image.network(element),
+                                            Positioned(
+                                              top: 0,
+                                              right: 0,
+                                              child: NeumorphicButton(
+                                                onPressed: () {
+                                                  addProductScreenGetController
+                                                      .secondaryImagesPath
+                                                      .remove(element);
+                                                },
+                                                style: const NeumorphicStyle(
+                                                  color: Colors.white,
+                                                  boxShape: NeumorphicBoxShape
+                                                      .circle(),
+                                                  depth: 3,
+                                                  intensity: 0.6,
+                                                ),
+                                                child: const Icon(Icons.close),
+                                              ),
                                             ),
-                                            child: const Icon(Icons.close),
-                                          ),
-                                        ),
-                                      ],
-                                    ))
+                                          ],
+                                        ))
                                     .toList()
                                 : [
                                     Center(
@@ -568,14 +581,12 @@ class AddProductScreen extends StatelessWidget {
                         ),
                         Text(
                           'Submit',
-                          style:
-                              TextStyle(color: AppColors.tertiaryColor.shade700),
+                          style: TextStyle(
+                              color: AppColors.tertiaryColor.shade700),
                         ),
                       ],
                     ),
                   ),
-
-
                 ],
               ),
             ),
