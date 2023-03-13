@@ -5,6 +5,7 @@ import 'package:my_learn_gadgets_web/features/authentication/ui/sign_in_screen.d
 import '../../../core/app_colors.dart';
 import '../../add_product/ui/add_product_screen.dart';
 import '../../all_product/ui/all_product_screen.dart';
+import '../../featured_product/ui/featured_product_screen.dart';
 import '../../pending_orders/ui/pending_orders.dart';
 import '../../widgets/card_tile.dart';
 import '../../widgets/chart_card_tile.dart';
@@ -110,23 +111,30 @@ class AdminDashboardPage extends StatelessWidget {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                children: const <Widget>[
-                                  ChartCardTile(
+                                children:  <Widget>[
+                                  const ChartCardTile(
                                     cardColor: Colors.indigo,
                                     cardTitle: 'Refill Stock',
                                     subText: 'March 2017',
                                     icon: Icons.format_color_fill,
                                     typeText: '',
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 20,
                                   ),
-                                  ChartCardTile(
-                                    cardColor: Color(0xFF25C6DA),
-                                    cardTitle: 'Featured Product',
-                                    subText: 'March 2017',
-                                    icon: Icons.featured_video,
-                                    typeText: '5487',
+                                  GestureDetector(
+                                    onTap: (){
+                                      Get.to(
+                                          transition: Transition.cupertino,
+                                              () => FeaturedProductScreen());
+                                    },
+                                    child: const ChartCardTile(
+                                      cardColor: Color(0xFF25C6DA),
+                                      cardTitle: 'Featured Product',
+                                      subText: 'March 2017',
+                                      icon: Icons.featured_video,
+                                      typeText: '5487',
+                                    ),
                                   ),
                                 ],
                               ),
