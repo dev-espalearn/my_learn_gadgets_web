@@ -47,7 +47,7 @@ class RefillStockPage extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Neumorphic(
-                          style: NeumorphicStyle(
+                          style: const NeumorphicStyle(
                             depth: 1,
                             intensity: 0.5,
                             color: Colors.white,
@@ -60,7 +60,7 @@ class RefillStockPage extends StatelessWidget {
                                   product.image,
                                   width: Get.width * 0.1,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
                                 Expanded(
@@ -85,7 +85,7 @@ class RefillStockPage extends StatelessWidget {
                                           border: OutlineInputBorder(),
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 20,
                                       ),
                                       TextFormField(
@@ -98,11 +98,11 @@ class RefillStockPage extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
                                 NeumorphicButton(
-                                  style: NeumorphicStyle(
+                                  style: const NeumorphicStyle(
                                     depth: 2,
                                     intensity: 0.5,
                                     color: Colors.white,

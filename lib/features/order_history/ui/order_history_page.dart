@@ -54,11 +54,11 @@ class OrderHistoryPage extends StatelessWidget {
                             Row(
                               children: [
                                 CircleAvatar(
+                                  radius: Get.width * 0.02,
                                   child: Text(order.customer.firstName[0],
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: Get.width * 0.02)),
-                                  radius: Get.width * 0.02,
                                 ),
                                 const SizedBox(
                                   width: 20,
@@ -73,7 +73,7 @@ class OrderHistoryPage extends StatelessWidget {
                                             .textTheme
                                             .headlineMedium,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       Text(
@@ -82,7 +82,7 @@ class OrderHistoryPage extends StatelessWidget {
                                             .textTheme
                                             .bodyLarge,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       Row(
@@ -106,7 +106,7 @@ class OrderHistoryPage extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
                                 Column(
@@ -115,7 +115,7 @@ class OrderHistoryPage extends StatelessWidget {
                                       order.address,
                                       maxLines: 5,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Text(
@@ -143,7 +143,7 @@ class OrderHistoryPage extends StatelessWidget {
                                 },
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
+                                  children: const [
                                     Icon(Icons.arrow_drop_down),
                                   ],
                                 ),
@@ -157,7 +157,7 @@ class OrderHistoryPage extends StatelessWidget {
                                     },
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
+                                      children: const [
                                         Icon(Icons.arrow_drop_down),
                                       ],
                                     ),

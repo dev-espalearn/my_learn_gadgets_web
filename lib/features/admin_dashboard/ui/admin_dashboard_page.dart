@@ -117,7 +117,7 @@ class AdminDashboardPage extends StatelessWidget {
                                 children: <Widget>[
                                   GestureDetector(
                                     onTap: () {
-                                      Get.to(() => RefillStockPage());
+                                      Get.to(() => const RefillStockPage());
                                     },
                                     child: const ChartCardTile(
                                       cardColor: Colors.indigo,
@@ -171,9 +171,9 @@ class AdminDashboardPage extends StatelessWidget {
                                     onTap: () {
                                       Get.to(
                                           transition: Transition.cupertino,
-                                          () => OrderHistoryPage());
+                                          () => const OrderHistoryPage());
                                     },
-                                    child: CardTile(
+                                    child: const CardTile(
                                       cardColor: Colors.white,
                                       cardTitle: 'Orders History',
                                       icon: Icons.history,
