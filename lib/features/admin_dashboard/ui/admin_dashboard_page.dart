@@ -166,7 +166,7 @@ class AdminDashboardPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Column(
-                                children:  <Widget>[
+                                children: <Widget>[
                                   GestureDetector(
                                     onTap: () {
                                       Get.to(

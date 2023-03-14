@@ -1,5 +1,3 @@
 import 'package:get/get.dart';
 
-class RefillStockGetController extends GetxController{
-
-}
+class RefillStockGetController extends GetxController {}

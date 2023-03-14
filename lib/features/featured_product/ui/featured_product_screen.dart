@@ -1,20 +1,20 @@
 import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
+
 import '../../../models/product_model.dart';
 import '../get_controller/featured_product_get_controller.dart';
-
-
 
 class FeaturedProductScreen extends StatelessWidget {
   FeaturedProductScreen({Key? key}) : super(key: key);
 
   FeaturedProductGetController getController =
-  Get.put(FeaturedProductGetController());
+      Get.put(FeaturedProductGetController());
 
   @override
   Widget build(BuildContext context) {
@@ -33,25 +33,24 @@ class FeaturedProductScreen extends StatelessWidget {
           ),
           body: Padding(
             padding:
-            EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
+                EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
             child: Column(
               children: [
                 Expanded(
                   child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance
                           .collection(AppString.products)
-                          .where('featured' , isEqualTo: true)
+                          .where('featured', isEqualTo: true)
                           .snapshots(),
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           List<ProductModel> products = snapshot.data!.docs
                               .map((e) => ProductModel.fromJson(
-                              jsonDecode(jsonEncode(e.data()))))
+                                  jsonDecode(jsonEncode(e.data()))))
                               .toList();
                           return ListView.builder(
                               itemBuilder: (context, index) {
                                 ProductModel product = products[index];
-
 
                                 return Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -71,10 +70,7 @@ class FeaturedProductScreen extends StatelessWidget {
                                             width: Get.width / 5,
                                             child: Image(
                                               image: NetworkImage(
-
-
-                                                product
-                                                    .image,
+                                                product.image,
                                               ),
                                             ),
                                           ),
@@ -84,7 +80,7 @@ class FeaturedProductScreen extends StatelessWidget {
                                           Expanded(
                                             child: Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 AutoSizeText(
                                                   'Product Id: ${product.id}',
@@ -112,7 +108,7 @@ class FeaturedProductScreen extends StatelessWidget {
                                                   height: 10,
                                                 ),
                                                 AutoSizeText(
-                                                  'Original Price: \$${product.originalPrice}' ,
+                                                  'Original Price: \$${product.originalPrice}',
                                                 ),
                                                 const SizedBox(
                                                   height: 10,
@@ -132,26 +128,29 @@ class FeaturedProductScreen extends StatelessWidget {
                                                 AutoSizeText(
                                                   'Quantity left: ${product.quantityLeft}',
                                                 ),
-
                                               ],
                                             ),
                                           ),
                                           NeumorphicButton(
                                             style: const NeumorphicStyle(
                                               color: Colors.white,
-                                              boxShape: NeumorphicBoxShape.stadium(),
+                                              boxShape:
+                                                  NeumorphicBoxShape.stadium(),
                                               depth: 3,
                                               intensity: 0.6,
                                             ),
                                             onPressed: () async {
-                                               getController.removeFromFeaturedProduct(product);
+                                              getController
+                                                  .removeFromFeaturedProduct(
+                                                      product);
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Icon(
                                                   Icons.delete,
-                                                  color: AppColors.tertiaryColor.shade700,
+                                                  color: AppColors
+                                                      .tertiaryColor.shade700,
                                                 ),
                                                 const SizedBox(
                                                   width: 8,
@@ -159,7 +158,9 @@ class FeaturedProductScreen extends StatelessWidget {
                                                 Text(
                                                   'Remove from featured product list',
                                                   style: TextStyle(
-                                                      color: AppColors.tertiaryColor.shade700),
+                                                      color: AppColors
+                                                          .tertiaryColor
+                                                          .shade700),
                                                 ),
                                               ],
                                             ),

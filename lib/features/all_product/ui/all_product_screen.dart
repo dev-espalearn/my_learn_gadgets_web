@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -9,13 +10,10 @@ import 'package:my_learn_gadgets_web/core/app_string.dart';
 import '../../../models/product_model.dart';
 import '../get_controller/all_product_get_controller.dart';
 
-
-
 class AllProductScreen extends StatelessWidget {
   AllProductScreen({Key? key}) : super(key: key);
 
-  AllProductGetController getController =
-  Get.put(AllProductGetController());
+  AllProductGetController getController = Get.put(AllProductGetController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,7 @@ class AllProductScreen extends StatelessWidget {
           ),
           body: Padding(
             padding:
-            EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
+                EdgeInsets.symmetric(horizontal: Get.width * 0.1, vertical: 8),
             child: Column(
               children: [
                 Expanded(
@@ -46,12 +44,11 @@ class AllProductScreen extends StatelessWidget {
                         if (snapshot.hasData) {
                           List<ProductModel> products = snapshot.data!.docs
                               .map((e) => ProductModel.fromJson(
-                              jsonDecode(jsonEncode(e.data()))))
+                                  jsonDecode(jsonEncode(e.data()))))
                               .toList();
                           return ListView.builder(
                               itemBuilder: (context, index) {
                                 ProductModel product = products[index];
-
 
                                 return Padding(
                                   padding: const EdgeInsets.symmetric(
@@ -71,10 +68,7 @@ class AllProductScreen extends StatelessWidget {
                                             width: Get.width / 5,
                                             child: Image(
                                               image: NetworkImage(
-
-
-                                                    product
-                                                    .image,
+                                                product.image,
                                               ),
                                             ),
                                           ),
@@ -84,7 +78,7 @@ class AllProductScreen extends StatelessWidget {
                                           Expanded(
                                             child: Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 AutoSizeText(
                                                   'Product Id: ${product.id}',
@@ -112,7 +106,7 @@ class AllProductScreen extends StatelessWidget {
                                                   height: 10,
                                                 ),
                                                 AutoSizeText(
-                                                  'Original Price: \$${product.originalPrice}' ,
+                                                  'Original Price: \$${product.originalPrice}',
                                                 ),
                                                 const SizedBox(
                                                   height: 10,
@@ -132,26 +126,29 @@ class AllProductScreen extends StatelessWidget {
                                                 AutoSizeText(
                                                   'Quantity left: ${product.quantityLeft}',
                                                 ),
-
                                               ],
                                             ),
                                           ),
                                           NeumorphicButton(
                                             style: const NeumorphicStyle(
                                               color: Colors.white,
-                                              boxShape: NeumorphicBoxShape.stadium(),
+                                              boxShape:
+                                                  NeumorphicBoxShape.stadium(),
                                               depth: 3,
                                               intensity: 0.6,
                                             ),
                                             onPressed: () async {
-                                              getController.addToFeaturedProduct(product);
+                                              getController
+                                                  .addToFeaturedProduct(
+                                                      product);
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Icon(
                                                   Icons.delete,
-                                                  color: AppColors.tertiaryColor.shade700,
+                                                  color: AppColors
+                                                      .tertiaryColor.shade700,
                                                 ),
                                                 const SizedBox(
                                                   width: 8,
@@ -159,7 +156,9 @@ class AllProductScreen extends StatelessWidget {
                                                 Text(
                                                   'Add to featured product list',
                                                   style: TextStyle(
-                                                      color: AppColors.tertiaryColor.shade700),
+                                                      color: AppColors
+                                                          .tertiaryColor
+                                                          .shade700),
                                                 ),
                                               ],
                                             ),

@@ -69,22 +69,21 @@ class ProductModel {
     };
   }
 
-  factory ProductModel.copyWith(ProductModel productModel,
-      {
-
-         String? id,
-         String? name,
-         String? description,
-         String? image,
-         List<String>? secondaryImages,
-         double? discountedPrice,
-         double? originalPrice,
-         Map<String, String>? specification,
-       bool? featured,
-       bool? banner,
-      String? category,
-       int? quantityLeft,
-      }) {
+  factory ProductModel.copyWith(
+    ProductModel productModel, {
+    String? id,
+    String? name,
+    String? description,
+    String? image,
+    List<String>? secondaryImages,
+    double? discountedPrice,
+    double? originalPrice,
+    Map<String, String>? specification,
+    bool? featured,
+    bool? banner,
+    String? category,
+    int? quantityLeft,
+  }) {
     return ProductModel(
       id: id ?? productModel.id,
       name: name ?? productModel.name,

@@ -53,7 +53,8 @@ class PendingOrdersScreen extends StatelessWidget {
                               itemBuilder: (context, index) {
                                 OrderModel order = products[index];
 
-                                getController.selectedProgressStatus.value = order.progress;
+                                getController.selectedProgressStatus.value =
+                                    order.progress;
                                 if (order.progress.name == 'Delivered') {
                                   getController.addToOrderHistory(order);
                                 }
@@ -246,32 +247,33 @@ class PendingOrdersScreen extends StatelessWidget {
                                                   height: 10,
                                                 ),
                                                 Align(
-                                                  alignment: Alignment.bottomRight,
+                                                  alignment:
+                                                      Alignment.bottomRight,
                                                   child: GestureDetector(
                                                     onTap: () {
                                                       getController
                                                           .changeProgressStatus(
-                                                          order);
+                                                              order);
                                                     },
                                                     child: Neumorphic(
                                                       style:
-                                                      const NeumorphicStyle(
-                                                        shape:
-                                                        NeumorphicShape.flat,
+                                                          const NeumorphicStyle(
+                                                        shape: NeumorphicShape
+                                                            .flat,
                                                         color: Colors.white,
                                                         depth: 2,
                                                         intensity: 0.4,
                                                       ),
                                                       child: const Padding(
-                                                        padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 16,
-                                                            vertical: 8.0),
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 16,
+                                                                vertical: 8.0),
                                                         child: Text(
                                                           'Change Progress Status',
                                                           style: TextStyle(
                                                               color:
-                                                              Colors.black),
+                                                                  Colors.black),
                                                         ),
                                                       ),
                                                     ),

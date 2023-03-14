@@ -7,18 +7,16 @@ import '../../../core/app_string.dart';
 import '../../../models/product_model.dart';
 
 class FeaturedProductGetController extends GetxController {
-
-  Future<void> removeFromFeaturedProduct(ProductModel product) async{
+  Future<void> removeFromFeaturedProduct(ProductModel product) async {
     await FirebaseFirestore.instance
         .collection(AppString.products)
         .doc(product.id)
         .get()
-        .then((value) async{
+        .then((value) async {
       ProductModel productModel =
-      ProductModel.fromJson(jsonDecode(jsonEncode(value.data())));
+          ProductModel.fromJson(jsonDecode(jsonEncode(value.data())));
 
-      productModel = ProductModel.copyWith(productModel,
-          featured: false);
+      productModel = ProductModel.copyWith(productModel, featured: false);
 
       await FirebaseFirestore.instance
           .collection(AppString.products)
@@ -26,6 +24,4 @@ class FeaturedProductGetController extends GetxController {
           .set(productModel.toJson());
     });
   }
-
-
 }
