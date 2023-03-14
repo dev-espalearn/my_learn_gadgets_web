@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/helpers/date_time_helpers.dart';
 import 'package:my_learn_gadgets_web/models/order_model.dart';
-
 import '../../../core/app_colors.dart';
 import '../../../core/app_string.dart';
 
