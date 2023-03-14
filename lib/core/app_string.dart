@@ -36,4 +36,8 @@ class AppString {
   static String placedOrders = "Placed Orders";
 
   static String ordersHistory = "Orders History";
+
+  static String discountedPrice = 'discountedPrice';
+
+  static String quantityLeft = 'quantityLeft';
 }

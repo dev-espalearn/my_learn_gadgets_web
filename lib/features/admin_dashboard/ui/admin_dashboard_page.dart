@@ -2,11 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/features/authentication/ui/sign_in_screen.dart';
+
 import '../../../core/app_colors.dart';
 import '../../add_product/ui/add_product_screen.dart';
 import '../../all_product/ui/all_product_screen.dart';
 import '../../featured_product/ui/featured_product_screen.dart';
 import '../../pending_orders/ui/pending_orders.dart';
+import '../../refill_stock/ui/refill_stock_page.dart';
 import '../../widgets/card_tile.dart';
 import '../../widgets/chart_card_tile.dart';
 
@@ -71,12 +73,12 @@ class AdminDashboardPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Column(
-                                children:  <Widget>[
+                                children: <Widget>[
                                   GestureDetector(
                                     onTap: () {
                                       Get.to(
                                           transition: Transition.cupertino,
-                                              () => AddProductScreen());
+                                          () => AddProductScreen());
                                     },
                                     child: const ChartCardTile(
                                       cardColor: Color(0xFF7560ED),
@@ -86,16 +88,16 @@ class AdminDashboardPage extends StatelessWidget {
                                       typeText: '',
                                     ),
                                   ),
-                                  const  SizedBox(
+                                  const SizedBox(
                                     height: 20,
                                   ),
                                   GestureDetector(
-                                    onTap: (){
+                                    onTap: () {
                                       Get.to(
                                           transition: Transition.cupertino,
-                                              () => AllProductScreen());
+                                          () => AllProductScreen());
                                     },
-                                    child: const  ChartCardTile(
+                                    child: const ChartCardTile(
                                       cardColor: Colors.green,
                                       cardTitle: 'All Product',
                                       subText: 'March 2017',
@@ -111,22 +113,27 @@ class AdminDashboardPage extends StatelessWidget {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                children:  <Widget>[
-                                  const ChartCardTile(
-                                    cardColor: Colors.indigo,
-                                    cardTitle: 'Refill Stock',
-                                    subText: 'March 2017',
-                                    icon: Icons.format_color_fill,
-                                    typeText: '',
+                                children: <Widget>[
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.to(() => RefillStockPage());
+                                    },
+                                    child: const ChartCardTile(
+                                      cardColor: Colors.indigo,
+                                      cardTitle: 'Refill Stock',
+                                      subText: 'March 2017',
+                                      icon: Icons.format_color_fill,
+                                      typeText: '',
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 20,
                                   ),
                                   GestureDetector(
-                                    onTap: (){
+                                    onTap: () {
                                       Get.to(
                                           transition: Transition.cupertino,
-                                              () => FeaturedProductScreen());
+                                          () => FeaturedProductScreen());
                                     },
                                     child: const ChartCardTile(
                                       cardColor: Color(0xFF25C6DA),

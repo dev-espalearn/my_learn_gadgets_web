@@ -60,4 +60,12 @@ class ProductModel {
       'quantityLeft': quantityLeft,
     };
   }
+
+  //update quantityleft and discountedPrice
+  Map<String, dynamic> toUpdateJson() {
+    return {
+      'discountedPrice': discountedPrice,
+      'quantityLeft': quantityLeft,
+    };
+  }
 }
