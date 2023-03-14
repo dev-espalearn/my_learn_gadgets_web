@@ -9,12 +9,15 @@ import 'package:my_learn_gadgets_web/features/pending_orders/ui/pending_order_de
 import 'package:my_learn_gadgets_web/helpers/date_time_helpers.dart';
 
 import '../../../models/product_model.dart';
+import '../get_controller/all_product_get_controller.dart';
 
 
 
 class AllProductScreen extends StatelessWidget {
   AllProductScreen({Key? key}) : super(key: key);
 
+  AllProductGetController getController =
+  Get.put(AllProductGetController());
 
   @override
   Widget build(BuildContext context) {
@@ -132,6 +135,34 @@ class AllProductScreen extends StatelessWidget {
                                                   'Quantity left: ${product.quantityLeft}',
                                                 ),
 
+                                              ],
+                                            ),
+                                          ),
+                                          NeumorphicButton(
+                                            style: const NeumorphicStyle(
+                                              color: Colors.white,
+                                              boxShape: NeumorphicBoxShape.stadium(),
+                                              depth: 3,
+                                              intensity: 0.6,
+                                            ),
+                                            onPressed: () async {
+                                              getController.addToFeaturedProduct(product);
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Icon(
+                                                  Icons.delete,
+                                                  color: AppColors.tertiaryColor.shade700,
+                                                ),
+                                                const SizedBox(
+                                                  width: 8,
+                                                ),
+                                                Text(
+                                                  'Add to featured product list',
+                                                  style: TextStyle(
+                                                      color: AppColors.tertiaryColor.shade700),
+                                                ),
                                               ],
                                             ),
                                           ),

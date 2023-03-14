@@ -6,12 +6,15 @@ import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/core/app_colors.dart';
 import 'package:my_learn_gadgets_web/core/app_string.dart';
 import '../../../models/product_model.dart';
+import '../get_controller/featured_product_get_controller.dart';
 
 
 
 class FeaturedProductScreen extends StatelessWidget {
   FeaturedProductScreen({Key? key}) : super(key: key);
 
+  FeaturedProductGetController getController =
+  Get.put(FeaturedProductGetController());
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class FeaturedProductScreen extends StatelessWidget {
             elevation: 0,
             leading: const Icon(Icons.shopping_cart),
             title: const Text(
-              'All Products',
+              'Featured Products',
             ),
             automaticallyImplyLeading: false,
           ),
@@ -130,6 +133,34 @@ class FeaturedProductScreen extends StatelessWidget {
                                                   'Quantity left: ${product.quantityLeft}',
                                                 ),
 
+                                              ],
+                                            ),
+                                          ),
+                                          NeumorphicButton(
+                                            style: const NeumorphicStyle(
+                                              color: Colors.white,
+                                              boxShape: NeumorphicBoxShape.stadium(),
+                                              depth: 3,
+                                              intensity: 0.6,
+                                            ),
+                                            onPressed: () async {
+                                               getController.removeFromFeaturedProduct(product);
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Icon(
+                                                  Icons.delete,
+                                                  color: AppColors.tertiaryColor.shade700,
+                                                ),
+                                                const SizedBox(
+                                                  width: 8,
+                                                ),
+                                                Text(
+                                                  'Remove from featured product list',
+                                                  style: TextStyle(
+                                                      color: AppColors.tertiaryColor.shade700),
+                                                ),
                                               ],
                                             ),
                                           ),

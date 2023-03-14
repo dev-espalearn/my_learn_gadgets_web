@@ -68,4 +68,36 @@ class ProductModel {
       'quantityLeft': quantityLeft,
     };
   }
+
+  factory ProductModel.copyWith(ProductModel productModel,
+      {
+
+         String? id,
+         String? name,
+         String? description,
+         String? image,
+         List<String>? secondaryImages,
+         double? discountedPrice,
+         double? originalPrice,
+         Map<String, String>? specification,
+       bool? featured,
+       bool? banner,
+      String? category,
+       int? quantityLeft,
+      }) {
+    return ProductModel(
+      id: id ?? productModel.id,
+      name: name ?? productModel.name,
+      description: description ?? productModel.description,
+      image: image ?? productModel.image,
+      secondaryImages: secondaryImages ?? productModel.secondaryImages,
+      discountedPrice: discountedPrice ?? productModel.discountedPrice,
+      originalPrice: originalPrice ?? productModel.originalPrice,
+      specification: specification ?? productModel.specification,
+      featured: featured ?? productModel.featured,
+      banner: banner ?? productModel.banner,
+      category: category ?? productModel.category,
+      quantityLeft: quantityLeft ?? productModel.quantityLeft,
+    );
+  }
 }

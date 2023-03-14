@@ -99,9 +99,10 @@ class AddProductScreen extends StatelessWidget {
                       height: Get.height * 0.02,
                     ),
                     Neumorphic(
-                      style: const NeumorphicStyle(
+                      style:  const NeumorphicStyle(
                         shape: NeumorphicShape.flat,
-                      //  color: AppColors.primaryColor.shade50.withOpacity(0.1),
+                       // color: AppColors.primaryColor.shade50.withOpacity(0.1),
+                        color: AppColors.cardBgColorLight2,
                         depth: 2,
                         intensity: 0.6,
                       ),
