@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:my_learn_gadgets_web/features/authentication/ui/sign_in_screen.dart';
+import 'package:my_learn_gadgets_web/features/order_history/ui/order_history_page.dart';
 
 import '../../../core/app_colors.dart';
 import '../../add_product/ui/add_product_screen.dart';
@@ -165,13 +166,20 @@ class AdminDashboardPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Column(
-                                children: const <Widget>[
-                                  CardTile(
-                                    cardColor: Colors.white,
-                                    cardTitle: 'Orders History',
-                                    icon: Icons.history,
-                                    subText: '3300',
-                                    typeText: 'stdt',
+                                children:  <Widget>[
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.to(
+                                          transition: Transition.cupertino,
+                                          () => OrderHistoryPage());
+                                    },
+                                    child: CardTile(
+                                      cardColor: Colors.white,
+                                      cardTitle: 'Orders History',
+                                      icon: Icons.history,
+                                      subText: '3300',
+                                      typeText: 'stdt',
+                                    ),
                                   ),
                                 ],
                               ),
